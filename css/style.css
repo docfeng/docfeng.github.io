@@ -505,9 +505,9 @@ hr {
   display: block;
   height: 100%;
   font-size: 28px;
-  font-family: "Microsoft Yahei";
+  font-family: Consolas, "Microsoft Yahei";
   font-style: italic;
-  font-weight: lighter;
+  font-weight: 200;
 }
 .logo a .cover .description {
   display: block;
