@@ -838,6 +838,7 @@ hr {
   right: 0;
   bottom: 0;
   padding: 3px 7px;
+  border: none;
   color: #fff;
   background-color: #51cc87;
   opacity: 0.8;
