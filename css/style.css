@@ -505,7 +505,7 @@ hr {
   display: block;
   height: 100%;
   font-size: 28px;
-  font-family: Consolas, "Microsoft Yahei";
+  font-family: sans-serif, "Microsoft Yahei";
   font-style: italic;
   font-weight: 200;
 }
