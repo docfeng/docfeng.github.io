@@ -444,7 +444,7 @@ hr {
   max-width: 1180px;
   _width: 1180px;
   background-color: #fff;
-  margin: 10px auto;
+  margin: 0 auto 10px;
   text-align: left;
 }
 .home {
@@ -490,6 +490,7 @@ hr {
   width: 100%;
   background-color: #fff;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
   overflow: hidden;
 }
 .header .header-main {
