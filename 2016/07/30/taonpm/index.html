@@ -4,7 +4,7 @@
     <meta charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     
-    <title>静态博客框架Hexo入门 | Jelon</title>
+    <title>淘宝NPM镜像 | Jelon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="前端, Web, Jelon, 张德龙" >
     <meta name="description" content="Jelon个人前端小站" >
@@ -57,25 +57,25 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/2015/10/06/start-hexo/index.html" class="item ">
+            <li rel="/2016/07/30/taonpm/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">
                     首页
                 </a>
             </li>
             
-            <li rel="/2015/10/06/start-hexo/index.html" class="item ">
+            <li rel="/2016/07/30/taonpm/index.html" class="item ">
                 <a href="/lab/" title="实验室" class="icon-lab">
                     实验室
                 </a>
             </li>
             
-            <li rel="/2015/10/06/start-hexo/index.html" class="item ">
+            <li rel="/2016/07/30/taonpm/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">
                     关于
                 </a>
             </li>
             
-            <li rel="/2015/10/06/start-hexo/index.html" class="item ">
+            <li rel="/2016/07/30/taonpm/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">
                     留言
                 </a>
@@ -131,55 +131,54 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><a href="javacript: void(0);">静态博客框架Hexo入门</a></h3>
+        <h3 class="post-title"><a href="javacript: void(0);">淘宝NPM镜像</a></h3>
     </header>
     <p class="post-meta text-center">
         Jelon 发表于
-        <time datetime="2015-10-06T10:23:00.000Z">2015-10-06</time>
+        <time datetime="2016-07-30T03:13:14.000Z">2016-07-30</time>
     </p>
     <div class="post-content">
-        <h3 id="一、hexo简介"><a href="#一、hexo简介" class="headerlink" title="一、hexo简介"></a>一、hexo简介</h3><p>简单地说，Hexo 是一个基于Node.js的轻量的静态博客框架。官网如下：<br>官网链接：<em><a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a></em></p>
-<a id="more"></a>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/2132683522.png" alt="Hexo官网截图"></p>
-<p>Github主页：<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">https://github.com/hexojs/hexo</a><br>不过，现在网上一搜都会搜到很多关于hexo的一些文章，所以想更加地了解hexo和获取其主体可以网上找找。</p>
-<h3 id="二、hexo特性"><a href="#二、hexo特性" class="headerlink" title="二、hexo特性"></a>二、hexo特性</h3><ul>
-<li>Blazing Fast——速度快——几百篇文章也可以秒生成；</li>
-<li>Markdown Support——支持GitHub Flavored Markdown和所有Octopress的插件；</li>
-<li>One-Command Deployment——需要一个命令就可以配置您的网站GitHub页面，Heroku或其他网站；</li>
-<li>Various Plugins——Hexo支持EJS、Swig和Stylus。通过插件支持Haml、Jade和Less。</li>
-</ul>
-<h3 id="三、hexo使用"><a href="#三、hexo使用" class="headerlink" title="三、hexo使用"></a>三、hexo使用</h3><h4 id="1-hexo安装；"><a href="#1-hexo安装；" class="headerlink" title="1. hexo安装；"></a>1. hexo安装；</h4><p>首先，在安装hexo之前，你要先安装Node.js和Git，具体下载和安装请访问它们的官网。<br>接下来，安装hexo：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<h4 id="2-初始化hexo；"><a href="#2-初始化hexo；" class="headerlink" title="2. 初始化hexo；"></a>2. 初始化hexo；</h4><p>初始化指定目录，会在目前的文件夹建立一个名为 <folder> 的新文件夹；否则会在目前文件夹初始化。</folder></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
-<p>接下来看一下我们安装完之后hexo的目录结构是如下这样的：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── scripts</div><div class="line">├── source</div><div class="line"><span class="string">|   ├── _drafts</span></div><div class="line"><span class="string">|   └── _posts</span></div><div class="line">└── themes</div></pre></td></tr></table></figure>
-<p>为了看起来更加直观，在这里我截一个我自己的目录图：</p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/2344787021.jpg" alt="目录截图"></p>
-<p>目录结构作用在这里简单的介绍一下：</p>
+        <h3 id="什么是npm"><a href="#什么是npm" class="headerlink" title="什么是npm"></a>什么是npm</h3><p>Node包管理器(npm)是一个由Node.js官方提供的第三方包管理工具，就像PHP、Pear、Python的PyPI一样。npm是一个完全由JavaScript 实现的命令行工具，通过Node.js执行，因此严格来讲它不属于Node.js的一部分。在最初的版本中，我们需要在安装完Node.js以后手动安装npm。但从Node.js 0.6开始，npm已包含在发行包中了，安装Node.js时会自动安装npm。</p>
+<h3 id="NPM用途"><a href="#NPM用途" class="headerlink" title="NPM用途"></a>NPM用途</h3><p>npm的背后，是基于couchdb的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是：将开发者从繁琐的包管理工作（版本、依赖等）中解放出来，更加专注于功能的开发。</p>
+<h3 id="NPM在国内"><a href="#NPM在国内" class="headerlink" title="NPM在国内"></a>NPM在国内</h3><p>虽说npm很方便，但是在国内由于网络原因，使用npm下载一些依赖包的时候，速度很慢，大大影响了我们的开发效率。那么，是否有解决方案呢，答案是有的，那就是淘宝npm镜像。</p>
+<h3 id="什么是淘宝NPM镜像"><a href="#什么是淘宝NPM镜像" class="headerlink" title="什么是淘宝NPM镜像"></a>什么是淘宝NPM镜像</h3><p>淘宝的npm镜像是一个完整的npmjs.org镜像。你可以用此代替官方版本(只读)，同步频率目前为10分钟一次以保证尽量与官方服务同步，<a href="http://npm.taobao.org/" target="_blank" rel="external">官网</a>截图如下。</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/taonpm/1.33pic_hd.jpg" alt="taonpm官网"></p>
+<h3 id="淘宝NPM镜像安装及使用"><a href="#淘宝NPM镜像安装及使用" class="headerlink" title="淘宝NPM镜像安装及使用"></a>淘宝NPM镜像安装及使用</h3><p><strong>安装</strong></p>
 <ul>
-<li>_config.yml文件    —- 为网站配置文件；</li>
-<li>package.json文件 —- 项目模块描述；</li>
-<li>source目录            —- 创建博客文章的源目录，后面有说到这个；</li>
-<li>public目录            —- 静态资源，就是我们直接可以访问的一些资源，这些资源在执行hexo generate命令后生成；</li>
-<li>themes目录          —- 放置博客主题，就像WordPress、typecho这些博客程序都是有一个专门用来放置主体的目录，如果一个博客程序没这个功能，那未免也太过于单调，对吧。</li>
+<li>可以使用淘宝npm镜像定制的<code>cnpm</code>(gzip 压缩支持) 命令行工具代替默认的<code>npm</code>:</li>
 </ul>
-<h4 id="3-创建新博客"><a href="#3-创建新博客" class="headerlink" title="3. 创建新博客"></a>3. 创建新博客</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"中国移动-139邮箱"</span></div></pre></td></tr></table></figure>
-<p>创建博客或文章会在/source/_posts/下生成后缀为.md的文件，我们可以这个文件上编写我们想要发表的文章或博客，hexo支持markdown语法，很方便快捷。</p>
-<h4 id="4-生成博客"><a href="#4-生成博客" class="headerlink" title="4. 生成博客"></a>4. 生成博客</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate  <span class="comment">#或者 hexo g</span></div></pre></td></tr></table></figure>
-<p>生成博客这一步也叫编译，讲写好的.md内容生成到public目录去，也就是后面运行服务器之后直接访问的东西。</p>
-<h4 id="5-运行服务器"><a href="#5-运行服务器" class="headerlink" title="5. 运行服务器"></a>5. 运行服务器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server <span class="comment">#或者 hexo s</span></div></pre></td></tr></table></figure>
-<p>注意：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
 <ul>
-<li>服务器默认会跑在 <a href="http://localhost:port" target="_blank" rel="external">http://localhost:port</a> （port 默认为 4000端口，可在 _config.yml 设置）；</li>
-<li>hexo所依赖的模块参考如下：</li>
+<li>或者直接通过添加<code>npm</code>参数 alias 一个新命令:</li>
 </ul>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/452712668.png" alt="依赖模块"></p>
-<h3 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h3><ul>
-<li>hexo官网：<a href="https://hexo.io/；" target="_blank" rel="external">https://hexo.io/；</a></li>
-<li><a href="http://segmentfault.com/a/1190000000370778；" target="_blank" rel="external">http://segmentfault.com/a/1190000000370778；</a></li>
-<li><a href="http://segmentfault.com/a/1190000002538363。" target="_blank" rel="external">http://segmentfault.com/a/1190000002538363。</a></li>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> cnpm=<span class="string">"npm --registry=https://registry.npm.taobao.org \</span></div><div class="line">--cache=<span class="variable">$HOME</span>/.npm/.cache/cnpm \</div><div class="line">--disturl=https://npm.taobao.org/dist \</div><div class="line">--userconfig=<span class="variable">$HOME</span>/.cnpmrc"</div><div class="line"></div><div class="line"><span class="comment"># Or alias it in .bashrc or .zshrc</span></div><div class="line">$ <span class="built_in">echo</span> <span class="string">'\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \</span></div><div class="line">  --cache=$HOME/.npm/.cache/cnpm \</div><div class="line">  --disturl=https://npm.taobao.org/dist \</div><div class="line">  --userconfig=$HOME/.cnpmrc"' &gt;&gt; ~/.zshrc &amp;&amp; <span class="built_in">source</span> ~/.zshrc</div></pre></td></tr></table></figure>
+<p><strong>使用</strong></p>
+<ul>
+<li>安装模块</li>
 </ul>
+<p>从<code>registry.npm.taobao.org</code>安装所有模块. 当安装的时候发现安装的模块还没有同步过来, 淘宝npm会自动在后台进行同步, 并且会让你从官方<code>NPM registry.npmjs.org</code>进行安装. 下次你再安装这个模块的时候, 就会直接从淘宝npm安装了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm install [name]</div></pre></td></tr></table></figure>
+<ul>
+<li>同步模块</li>
+</ul>
+<p>直接通过<code>sync</code>命令马上同步一个模块, 只有<code>cnpm</code>命令行才有此功能:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm sync connect</div></pre></td></tr></table></figure>
+<p>当然, 你可以直接通过<code>web</code>方式来同步: <code>/sync/connect</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ open https://npm.taobao.org/sync/connect</div></pre></td></tr></table></figure>
+<ul>
+<li>其他模块</li>
+</ul>
+<p>支持<code>npm</code>除了<code>publish</code>之外的所有命令, 如:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm info connect</div></pre></td></tr></table></figure>
+<h3 id="当然，还可以这样安装和使用"><a href="#当然，还可以这样安装和使用" class="headerlink" title="当然，还可以这样安装和使用"></a>当然，还可以这样安装和使用</h3><p>如果你不想用<code>cnpm</code>，或许你可以直接修改<code>npm</code>config配置的<code>registry</code>，来使用淘宝npm镜像：</p>
+<p><strong>安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<p>接着config ls一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config ls <span class="_">-l</span></div></pre></td></tr></table></figure>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/taonpm/npm_registry.jpg" alt="npm config ls"></p>
+<p><strong>使用</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install [name]</div></pre></td></tr></table></figure>
+<p>好了，现在开发者再一次解放出来（不用担心安装管理包时的速度问题）。</p>
 
     </div>
     <p class="post-meta">
@@ -190,11 +189,9 @@
             标签：
             
     
-        <a href="/tags/Hexo/" title="Hexo">Hexo</a> / 
+        <a href="/tags/npm/" title="npm">npm</a> / 
     
-        <a href="/tags/静态博客/" title="静态博客">静态博客</a> / 
-    
-        <a href="/tags/Node-js/" title="Node.js">Node.js</a>
+        <a href="/tags/淘宝npm/" title="淘宝npm">淘宝npm</a>
     
 
         </span>
@@ -211,18 +208,18 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="/2016/03/13/hello-new-blog/">
-            
-                关于新博客
-            
-        </a>
+        <a href="javascript: void(0);">没有上一篇了</a>
     </span>
     
 
     
     <span class="next fr">
         下一篇<br >
-        <a href="javascript: void(0);">没有下一篇了</a>
+        <a href="/2016/07/06/react-native-learning/">
+            
+                初识React Native
+            
+        </a>
     </span>
     
 </div>
@@ -231,7 +228,7 @@
 <div class="comments" id="comments">
     
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="start-hexo" data-title="静态博客框架Hexo入门" data-url="http://jelon.top/2015/10/06/start-hexo/"></div>
+<div class="ds-thread" data-thread-key="taonpm" data-title="淘宝NPM镜像" data-url="http://jelon.top/2016/07/30/taonpm/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
