@@ -1266,6 +1266,9 @@ pre .javascript .function {
     margin-right: 0;
     padding: 20px 10px;
   }
+  .header {
+    margin-bottom: 2px;
+  }
   .header .logo {
     float: none;
     width: auto;
