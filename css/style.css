@@ -496,6 +496,7 @@ hr {
 .header .header-main {
   position: relative;
   height: 68px;
+  margin-bottom: 0;
 }
 .header .logo {
   float: left;
