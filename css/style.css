@@ -491,10 +491,11 @@ hr {
   background-color: #fff;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   margin-bottom: 10px;
-  overflow: hidden;
+  overflow: auto;
 }
 .header .header-main {
   position: relative;
+  height: 68px;
 }
 .header .logo {
   float: left;
@@ -639,6 +640,7 @@ hr {
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
+  z-index: 9;
 }
 .profile .feeds .sns .wechat .popover img {
   width: 120px;
