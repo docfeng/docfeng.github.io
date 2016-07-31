@@ -491,7 +491,6 @@ hr {
   background-color: #fff;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   margin-bottom: 10px;
-  overflow: auto;
 }
 .header .header-main {
   position: relative;
