@@ -1270,7 +1270,7 @@ pre .javascript .function {
   }
   .header .header-main {
     height: auto;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
   }
   .header .logo {
     float: none;
