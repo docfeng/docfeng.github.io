@@ -831,6 +831,12 @@ hr {
 .post-content .more a:hover {
   opacity: 0.75;
 }
+.post-content blockquote {
+  padding: 5px 10px;
+  margin-bottom: 1em;
+  color: #666;
+  border-left: 4px solid #eee;
+}
 /*
  * 高亮样式
  */
