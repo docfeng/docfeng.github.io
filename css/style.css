@@ -832,10 +832,13 @@ hr {
   opacity: 0.75;
 }
 .post-content blockquote {
+  margin: 1em 0;
   padding: 5px 10px;
-  margin-bottom: 1em;
   color: #666;
   border-left: 4px solid #eee;
+}
+.post-content blockquote p {
+  margin: 0;
 }
 /*
  * 高亮样式
