@@ -138,7 +138,8 @@
         <time datetime="2016-08-06T09:32:16.000Z">2016-08-06</time>
     </p>
     <div class="post-content">
-        <p>我曾经在使用jQuery一些东西的时候碰到了这样一些奇怪的问题。那就是我尝试着用jQuery的<code>$(window).height()</code>来获取浏览器窗口高度。</p>
+        <p>本文由Jelon翻译自VIRAL PATEL的<a href="http://viralpatel.net/blogs/jquery-window-height-incorrect/" target="_blank" rel="external">jQuery window height is not correct</a>。</p>
+<p>我曾经在使用jQuery一些东西的时候碰到了这样一些奇怪的问题。那就是我尝试着用jQuery的<code>$(window).height()</code>来获取浏览器窗口高度。</p>
 <p>理论上，<code>$(window).height()</code>会返回浏览器窗口的最小高度（译者注，注意是窗口高度），也就是当前浏览器当前窗口的高度。如果，你改变了窗口，这个高度值也会随之变化。</p>
 <p>同理，你可以用<code>$(document).height()</code>，这个方法可以返回已渲染<br>之后页面的高度。当网页的高度小于窗口可视区域的高度时，这个方法会返回的是可视区域的高度值。也就是说，当页面的内容很少、窗口大于内容所需要的空间的时候，网页高度回避jQuery浏览器高度要小。</p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>但是最近在使用这两个值得时候，好像<code>$(window).height()</code>和<code>$(document).height()</code>得到的是一样的值。明显，<code>$(window).height()</code>返回了一个不正确的值。</p>
