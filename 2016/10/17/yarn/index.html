@@ -138,7 +138,7 @@
         <time datetime="2016-10-17T11:57:08.000Z">2016-10-17</time>
     </p>
     <div class="post-content">
-        <p>前阵子，Facebook 开源了一款新的 Node.js 包管理器 —- Yarn，用来替代 npm ，一时间引起了不少议论。有人认为这是重复在“造轮子”；有人跃跃欲试却浅尝辄止；有人却更多地关注 Yarn 给前端开发者带来的哪些好处，比如说网络速度。不管别人怎么议论、怎么议论，都是别人口中的说话，要想更深入地了解 Yarn，还是得自己亲自去试一试，毕竟实践是最有发言权的，不是吗？</p>
+        <p>前阵子，Facebook 开源了一款新的 Node.js 包管理器 —- Yarn，用来替代 NPM ，一时间引起了不少议论。有人认为这是重复在“造轮子”；有人跃跃欲试却浅尝辄止；有人却更多地关注 Yarn 给前端开发者带来的哪些好处，比如说网络速度。不管别人怎么看、怎么议论，也永远是别人的说法，要想更深入地了解 Yarn，还是得自己亲自去试一试，毕竟实践是最有发言权的，不是吗？</p>
 <p>废话呢，就不多说了，直接进入主题。今天就来认识一下它，作为菜鸟的我，（wen）水（cai）平（hen）有（shui）限，写的不对的地方，欢迎指正。😝</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/1.png" alt="yarn-kitten-full"></p>
 <h3 id="Yarn-是什么"><a href="#Yarn-是什么" class="headerlink" title="Yarn 是什么"></a>Yarn 是什么</h3><p>Yarn 是 Node.js 代码的包管理器（类似 NPM ）。 它允许你使用世界各地开发人员开发的代码，当然也可以共享你的代码。 Yarn 的优点是速度快，同时可以做到安全，可靠这一点，所以你不必担心。Yarn 允许你使用其他开发人员的解决方案来解决不同的问题，使你更容易开发自己的产品。因为，Yarn 令开发者可以更加迅捷和从容地享受前人栽种的果实，进而集中精力打造自己的产品 —- 这才是更加重要的事情。</p>
@@ -146,10 +146,14 @@
 <p>在Facebook，Yarn 作为 NPM 的替代物以解决随着代码体积的不断增长和团队规模的不断壮大，在一致性、安全性和性能方面遇到的问题，现在以开源的方式发布这个成果，它是由 Exponent、 Google、Tilde 与我们合作完成的。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在使用 Yarn 之前，需要先在你的系统上安装 Yarn。Yarn 提供各种平台的安装包，无论你是使用 Mac、Windows 还是 Linux，甚至 Unix，都可以安装 Yarn。这里给大家介绍两种常用的系统安装 Yarn， Mac 和 Windows。</p>
 <h4 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h4><p>首先，你的电脑上得先安装 Node.js，如果没有没有安装，请去<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 官网</a>下载自行安装。</p>
-<p><strong>Homebrew</strong></p>
+<ul>
+<li><strong>Homebrew</strong></li>
+</ul>
 <p><a href="http://brew.sh/" target="_blank" rel="external">Homebrew（http://brew.sh/）</a>，是 Mac 上强烈推荐的套件管理器，你可以通过 Homebrew 安装 Yarn，同时也可以通过 Homebrew 安装 Node。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew install</div></pre></td></tr></table></figure>
-<p><strong>设置路径</strong></p>
+<ul>
+<li><strong>设置路径</strong></li>
+</ul>
 <p>您将需要在终端中设置PATH环境变量，以便全局访问Yarn的二进制文件。</p>
 <p>在你的配置文件（如 .profile, .bashrc, .zshrc等）里面加上 <code>export PATH=&quot;$PATH:$HOME/.yarn/bin&quot;</code>。</p>
 <p>最后测试一下，Yarn 是否已经安装成功。</p>
@@ -186,9 +190,9 @@
             标签：
             
     
-        <a href="/tags/Yarn/" title="Yarn">Yarn</a> / 
-    
         <a href="/tags/Node-js/" title="Node.js">Node.js</a> / 
+    
+        <a href="/tags/Yarn/" title="Yarn">Yarn</a> / 
     
         <a href="/tags/npm/" title="npm">npm</a>
     
