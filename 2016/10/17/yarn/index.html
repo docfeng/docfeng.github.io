@@ -201,7 +201,33 @@
 <li>下载项目所有的依赖包</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn       <span class="comment"># yarn install</span></div></pre></td></tr></table></figure>
-<h3 id="Yarn-vs-NPM"><a href="#Yarn-vs-NPM" class="headerlink" title="Yarn vs NPM"></a>Yarn vs NPM</h3>
+<h3 id="NPM-vs-Yarn-速查表"><a href="#NPM-vs-Yarn-速查表" class="headerlink" title="NPM vs Yarn 速查表"></a>NPM vs Yarn 速查表</h3><h4 id="What-you-need-to-know"><a href="#What-you-need-to-know" class="headerlink" title="What you need to know"></a>What you need to know</h4><ul>
+<li><p><code>npm install === yarn</code> Install is the default behavior.</p>
+</li>
+<li><p><code>npm install taco --save === yarn add taco</code> The Taco package is saved to your package.json is immediately.</p>
+</li>
+<li><p><code>npm uninstall taco --save === yarn remove taco</code></p>
+</li>
+<li><p><code>—-save</code> can be defaulted in NPM by <code>npm config set save true</code> but this is non-obvious to most developers. Adding and removing from <code>package.json</code> is default in Yarn.</p>
+</li>
+<li><p><code>npm install taco --save-dev === yarn add taco --dev</code></p>
+</li>
+<li><p><code>npm update taco --save === yarn upgrade taco</code> Great call on upgrade vs update, since that is exactly what it is doing! Version number moves, upgrade is happening!</p>
+</li>
+<li><p><code>npm install taco --global === yarn global add taco</code> As always, use global flag with care.</p>
+</li>
+</ul>
+<h4 id="What-you-already-know-about-yarn"><a href="#What-you-already-know-about-yarn" class="headerlink" title="What you already know about yarn"></a>What you already know about yarn</h4><ul>
+<li><code>npm init === yarn init</code></li>
+<li><code>npm link === yarn link</code></li>
+<li><code>npm outdated === yarn outdated</code></li>
+<li><code>npm publish === yarn publish</code></li>
+<li><code>npm run === yarn run</code></li>
+<li><code>npm cache clean === yarn cache clean</code></li>
+<li><code>npm login === yarn login (and logout)</code></li>
+<li><code>npm test === yarn test</code></li>
+</ul>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
@@ -211,11 +237,11 @@
             标签：
             
     
-        <a href="/tags/Node-js/" title="Node.js">Node.js</a> / 
+        <a href="/tags/npm/" title="npm">npm</a> / 
     
         <a href="/tags/Yarn/" title="Yarn">Yarn</a> / 
     
-        <a href="/tags/npm/" title="npm">npm</a>
+        <a href="/tags/Node-js/" title="Node.js">Node.js</a>
     
 
         </span>
