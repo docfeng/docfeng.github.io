@@ -141,11 +141,11 @@
         <p>前阵子，Facebook 开源了一款新的 Node.js 包管理器 —- Yarn，用来替代 NPM ，一时间引起了不少议论。有人认为这是重复在“造轮子”；有人跃跃欲试却浅尝辄止；有人却更多地关注 Yarn 给前端开发者带来的哪些好处，比如说网络速度。不管别人怎么看、怎么议论，也永远是别人的说法，要想更深入地了解 Yarn，还是得自己亲自去试一试，毕竟实践是最有发言权的，不是吗？</p>
 <p>废话呢，就不多说了，直接进入主题。今天就来认识一下它，作为菜鸟的我，（wen）水（cai）平（hen）有（shui）限，写的不对的地方，欢迎指正。😝</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/1.png" alt="yarn-kitten-full"></p>
-<h2 id="Yarn-是什么"><a href="#Yarn-是什么" class="headerlink" title="Yarn 是什么"></a>Yarn 是什么</h2><p>Yarn 是 Node.js 代码的包管理器（类似 NPM ）。 它允许你使用世界各地开发人员开发的代码，当然也可以共享你的代码。 Yarn 的优点是速度快，同时可以做到安全，可靠这一点，所以你不必担心。Yarn 允许你使用其他开发人员的解决方案来解决不同的问题，使你更容易开发自己的产品。因为，Yarn 令开发者可以更加迅捷和从容地享受前人栽种的果实，进而集中精力打造自己的产品 —- 这才是更加重要的事情。</p>
+<h3 id="Yarn-是什么"><a href="#Yarn-是什么" class="headerlink" title="Yarn 是什么"></a>Yarn 是什么</h3><p>Yarn 是 Node.js 代码的包管理器（类似 NPM ）。 它允许你使用世界各地开发人员开发的代码，当然也可以共享你的代码。 Yarn 的优点是速度快，同时可以做到安全，可靠这一点，所以你不必担心。Yarn 允许你使用其他开发人员的解决方案来解决不同的问题，使你更容易开发自己的产品。因为，Yarn 令开发者可以更加迅捷和从容地享受前人栽种的果实，进而集中精力打造自己的产品 —- 这才是更加重要的事情。</p>
 <p>在使用 Yarn 时，开发者们还像以前一样从 NPM 仓库那里获取资源，但安装速度更快，不同的机器的安装结果完全一致，甚至还可以在安全的离线环境中使用。代码通过称为包（有时称为模块）的东西共享。 包包含所有共享的代码以及描述包的package.json文件。</p>
 <p>在Facebook，Yarn 作为 NPM 的替代物以解决随着代码体积的不断增长和团队规模的不断壮大，在一致性、安全性和性能方面遇到的问题，现在以开源的方式发布这个成果，它是由 Exponent、 Google、Tilde 与 Facebook 合作完成的。</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在使用 Yarn 之前，需要先在你的系统上安装 Yarn。Yarn 提供各种平台的安装包，无论你是使用 Mac、Windows 还是 Linux，甚至 Unix，都可以安装 Yarn。这里给大家介绍两种常用的系统安装 Yarn， Mac 和 Windows。</p>
-<h3 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h3><p>首先，你的电脑上得先安装 Node.js，如果没有没有安装，请去<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 官网</a>下载自行安装。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在使用 Yarn 之前，需要先在你的系统上安装 Yarn。Yarn 提供各种平台的安装包，无论你是使用 Mac、Windows 还是 Linux，甚至 Unix，都可以安装 Yarn。这里给大家介绍两种常用的系统安装 Yarn， Mac 和 Windows。</p>
+<h4 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h4><p>首先，你的电脑上得先安装 Node.js，如果没有没有安装，请去<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 官网</a>下载自行安装。</p>
 <ul>
 <li><strong>Homebrew</strong></li>
 </ul>
@@ -159,7 +159,7 @@
 <p>最后测试一下，Yarn 是否已经安装成功。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn --version</div></pre></td></tr></table></figure>
 <p>以上安装方法是 Yarn 官网提供。</p>
-<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>Windows 安装 Yarn 可以通过以下两种方法安装。</p>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>Windows 安装 Yarn 可以通过以下两种方法安装。</p>
 <p><strong>1. 下载安装程序</strong></p>
 <p>Yarn 官网提供 .msi 安装文件供 Windows 用户进行下载安装。同样，你在安装 Yarn 之前，要先保证你已经安装了 Node.js。Yarn for Windows 最新安装包下载链接如下：</p>
 <p><a href="https://yarnpkg.com/latest.msi" target="_blank" rel="external">Download Installer</a></p>
@@ -170,7 +170,7 @@
 <p><strong>路径设置</strong></p>
 <p>您将需要在终端中设置PATH环境变量，以便全局访问Yarn的二进制文件。将 <code>set PATH =％PATH％; C：\。yarn \ bin</code> 添加到您的 shell 环境中。</p>
 <p>以上安装方法是 Yarn 官网提供。</p>
-<h2 id="用-NPM-的方式去安装-Yarn"><a href="#用-NPM-的方式去安装-Yarn" class="headerlink" title="用 NPM 的方式去安装 Yarn"></a>用 NPM 的方式去安装 Yarn</h2><p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/2.jpg" alt="这就很尴尬了"></p>
+<h3 id="用-NPM-的方式去安装-Yarn"><a href="#用-NPM-的方式去安装-Yarn" class="headerlink" title="用 NPM 的方式去安装 Yarn"></a>用 NPM 的方式去安装 Yarn</h3><p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/2.jpg" alt="这就很尴尬了"></p>
 <p>这就很尴尬了，想要取代别人，却要通过别人安装，难道这就是传说中的青出于蓝而胜于蓝。😝虽然，这很尴尬，但比 Yarn 官网提供的那些安装方法真是爽的要死，另外，在我也是通过这种方式安装的，哎😌。来吧，我们开始通过 NPM 安装 Yarn吧。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g yarn</div></pre></td></tr></table></figure>
 <p><strong>Mac OS</strong></p>
@@ -180,7 +180,7 @@
 <p>Windows 上安装截图如下：</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/4.png" alt="Windows"></p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/5.png" alt="Windows"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>Yarn 的使用很简单，虽然和 NPM 相似，但是又有所区别。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>Yarn 的使用很简单，虽然和 NPM 相似，但是又有所区别。</p>
 <ul>
 <li>初始化新项目</li>
 </ul>
@@ -201,7 +201,7 @@
 <li>下载项目所有的依赖包</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn       <span class="comment"># yarn install</span></div></pre></td></tr></table></figure>
-<h2 id="Yarn-vs-NPM"><a href="#Yarn-vs-NPM" class="headerlink" title="Yarn vs NPM"></a>Yarn vs NPM</h2>
+<h3 id="Yarn-vs-NPM"><a href="#Yarn-vs-NPM" class="headerlink" title="Yarn vs NPM"></a>Yarn vs NPM</h3>
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
