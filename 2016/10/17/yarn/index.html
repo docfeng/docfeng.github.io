@@ -200,17 +200,17 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn       <span class="comment"># or yarn install</span></div></pre></td></tr></table></figure>
 <h3 id="NPM-vs-Yarn-速查表"><a href="#NPM-vs-Yarn-速查表" class="headerlink" title="NPM vs Yarn 速查表"></a>NPM vs Yarn 速查表</h3><h4 id="你需要知道的"><a href="#你需要知道的" class="headerlink" title="你需要知道的"></a>你需要知道的</h4><ul>
-<li><p><code>npm install === yarn</code> Install is the default behavior.</p>
+<li><p><code>npm install === yarn</code> <code>install</code> 关键字可以省略。</p>
 </li>
-<li><p><code>npm install react --save === yarn add react</code> The React package is saved to your package.json is immediately.</p>
+<li><p><code>npm install react --save === yarn add react</code> React 包信息立即保存到你的package.json中。</p>
 </li>
-<li><p><code>npm uninstall react --save === yarn remove react</code> <code>—-save</code> can be defaulted in NPM by <code>npm config set save true</code> but this is non-obvious to most developers. Adding and removing from <code>package.json</code> is default in Yarn.</p>
+<li><p><code>npm uninstall react --save === yarn remove react</code> <code>--save</code> 可以通过<code>npm config set save true</code> 在NPM中默认设置，但这对大多数开发人员来说是不明显的。 从<code>package.json</code> 中添加和删除是Yarn中的默认值。</p>
 </li>
 <li><p><code>npm install react --save-dev === yarn add react --dev</code></p>
 </li>
-<li><p><code>npm update react --save === yarn upgrade react</code> Great call on upgrade vs update, since that is exactly what it is doing! Version number moves, upgrade is happening!</p>
+<li><p><code>npm update react --save === yarn upgrade react</code><br>强烈建议用 upgrade 来替代 update，因为这更能体现版本号变更。 </p>
 </li>
-<li><p><code>npm install react --global === yarn global add react</code> As always, use global flag with care.</p>
+<li><p><code>npm install react --global === yarn global add react</code> 对于全局安装，我们都会很谨慎。</p>
 </li>
 </ul>
 <h4 id="你已经知道的"><a href="#你已经知道的" class="headerlink" title="你已经知道的"></a>你已经知道的</h4><ul>
@@ -223,6 +223,19 @@
 <li><code>npm login === yarn login (and logout)</code></li>
 <li><code>npm test === yarn test</code></li>
 </ul>
+<h4 id="Yarn-拥有，NPM-没有"><a href="#Yarn-拥有，NPM-没有" class="headerlink" title="Yarn 拥有，NPM 没有"></a>Yarn 拥有，NPM 没有</h4><ul>
+<li><code>yarn licenses</code> — 允许您检查依赖项的许可证。</li>
+<li><code>yarn licenses generate</code> — 自动创建许可证依赖性免责声明。</li>
+<li>支持 Emojis</li>
+<li>支持速度滚动条</li>
+<li>自动生成 lock 文件（.lock 保存所有依赖包的版本信息）</li>
+<li>为安全而生</li>
+</ul>
+<h4 id="NPM-拥有，Yarn-没有"><a href="#NPM-拥有，Yarn-没有" class="headerlink" title="NPM 拥有，Yarn 没有"></a>NPM 拥有，Yarn 没有</h4><ul>
+<li><code>npm xmas</code></li>
+<li><code>npm visnup</code></li>
+</ul>
+<h3 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h3><p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/6.png" alt="yarn react"></p>
 
     </div>
     <p class="post-meta">
@@ -233,11 +246,11 @@
             标签：
             
     
+        <a href="/tags/Yarn/" title="Yarn">Yarn</a> / 
+    
         <a href="/tags/Node-js/" title="Node.js">Node.js</a> / 
     
-        <a href="/tags/npm/" title="npm">npm</a> / 
-    
-        <a href="/tags/Yarn/" title="Yarn">Yarn</a>
+        <a href="/tags/npm/" title="npm">npm</a>
     
 
         </span>
