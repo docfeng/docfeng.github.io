@@ -145,30 +145,36 @@
 <p>在使用 Yarn 时，开发者们还像以前一样从 NPM 仓库那里获取资源，但安装速度更快，不同的机器的安装结果完全一致，甚至还可以在安全的离线环境中使用。代码通过称为包（有时称为模块）的东西共享。 包包含所有共享的代码以及描述包的package.json文件。</p>
 <p>在Facebook，Yarn 作为 NPM 的替代物以解决随着代码体积的不断增长和团队规模的不断壮大，在一致性、安全性和性能方面遇到的问题，现在以开源的方式发布这个成果，它是由 Exponent、 Google、Tilde 与 Facebook 合作完成的。</p>
 <h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>在使用 Yarn 之前，需要先在你的系统上安装 Yarn。Yarn 提供各种平台的安装包，无论你是使用 Mac、Windows 还是 Linux，甚至 Unix，都可以安装 Yarn。这里给大家介绍两种常用的系统安装 Yarn， Mac 和 Windows。</p>
-<h4 id="Mac-OS"><a href="#Mac-OS" class="headerlink" title="Mac OS"></a>Mac OS</h4><p>首先，你的电脑上得先安装 Node.js，如果没有没有安装，请去<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 官网</a>下载自行安装。</p>
+<p><strong>Mac OS</strong></p>
+<p>首先，你的电脑上得先安装 Node.js，如果没有没有安装，请去<a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js 官网</a>下载自行安装。</p>
 <ul>
-<li><strong>Homebrew</strong></li>
+<li>Homebrew</li>
 </ul>
 <p><a href="http://brew.sh/" target="_blank" rel="external">Homebrew（http://brew.sh/）</a>，是 Mac 上强烈推荐的套件管理器，你可以通过 Homebrew 安装 Yarn，同时也可以通过 Homebrew 安装 Node。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew install</div></pre></td></tr></table></figure>
-<p><strong>设置路径</strong></p>
+<ul>
+<li>设置路径</li>
+</ul>
 <p>您将需要在终端中设置PATH环境变量，以便全局访问Yarn的二进制文件。</p>
 <p>在你的配置文件（如 .profile, .bashrc, .zshrc等）里面加上 <code>export PATH=&quot;$PATH:$HOME/.yarn/bin&quot;</code>。</p>
 <p>最后测试一下，Yarn 是否已经安装成功。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn --version</div></pre></td></tr></table></figure>
-<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>Windows 安装 Yarn 可以通过以下两种方法安装。</p>
+<p><strong>Windows</strong></p>
+<p>Windows 安装 Yarn 可以通过以下两种方法安装。</p>
 <ul>
-<li><strong>下载安装程序</strong></li>
+<li>下载安装程序</li>
 </ul>
 <p>Yarn 官网提供 .msi 安装文件供 Windows 用户进行下载安装。同样，你在安装 Yarn 之前，要先保证你已经安装了 Node.js。Yarn for Windows 最新安装包下载链接如下：</p>
 <p><a href="https://yarnpkg.com/latest.msi" target="_blank" rel="external">Download Installer</a></p>
 <ul>
-<li><strong>通过 Chocolatey 安装</strong></li>
+<li>通过 Chocolatey 安装</li>
 </ul>
 <p>Chocolatey 是 Windows 的包管理器，您可以按照这些<a href="https://chocolatey.org/install" target="_blank" rel="external">说明</a>安装 Chocolatey 。</p>
 <p>好了，安装完了 Chocolatey 之后就开始安装 Yarn 吧，在控制台里面输入以下命令：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">choco install yarn</div></pre></td></tr></table></figure>
-<p><strong>路径设置</strong></p>
+<ul>
+<li>路径设置</li>
+</ul>
 <p>您将需要在终端中设置PATH环境变量，以便全局访问Yarn的二进制文件。将 <code>set PATH =％PATH％; C：\。yarn \ bin</code> 添加到您的 shell 环境中。</p>
 <h3 id="用-NPM-的方式去安装-Yarn"><a href="#用-NPM-的方式去安装-Yarn" class="headerlink" title="用 NPM 的方式去安装 Yarn"></a>用 NPM 的方式去安装 Yarn</h3><p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/2.jpg?v=2" alt="这就很尴尬了"></p>
 <p>这就很尴尬了，想要取代别人，却要通过别人安装，难道这就是传说中的青出于蓝而胜于蓝。😝虽然，这很尴尬，但比 Yarn 官网提供的那些安装方法真是爽的要死，另外，在我也是通过这种方式安装的，哎😌。来吧，我们开始通过 NPM 安装 Yarn吧。</p>
@@ -199,7 +205,8 @@
 <li>下载项目所有的依赖包</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yarn       <span class="comment"># or yarn install</span></div></pre></td></tr></table></figure>
-<h3 id="NPM-vs-Yarn-速查表"><a href="#NPM-vs-Yarn-速查表" class="headerlink" title="NPM vs Yarn 速查表"></a>NPM vs Yarn 速查表</h3><h4 id="你需要知道的"><a href="#你需要知道的" class="headerlink" title="你需要知道的"></a>你需要知道的</h4><ul>
+<h3 id="NPM-vs-Yarn-速查表"><a href="#NPM-vs-Yarn-速查表" class="headerlink" title="NPM vs Yarn 速查表"></a>NPM vs Yarn 速查表</h3><p><strong>你需要知道的</strong></p>
+<ul>
 <li><p><code>npm install === yarn</code> <code>install</code> 关键字可以省略。</p>
 </li>
 <li><p><code>npm install react --save === yarn add react</code> React 包信息立即保存到你的package.json中。</p>
@@ -213,7 +220,8 @@
 <li><p><code>npm install react --global === yarn global add react</code> 对于全局安装，我们都会很谨慎。</p>
 </li>
 </ul>
-<h4 id="你已经知道的"><a href="#你已经知道的" class="headerlink" title="你已经知道的"></a>你已经知道的</h4><ul>
+<p><strong>你已经知道的</strong></p>
+<ul>
 <li><code>npm init === yarn init</code></li>
 <li><code>npm link === yarn link</code></li>
 <li><code>npm outdated === yarn outdated</code></li>
@@ -223,7 +231,8 @@
 <li><code>npm login === yarn login (and logout)</code></li>
 <li><code>npm test === yarn test</code></li>
 </ul>
-<h4 id="Yarn-拥有，NPM-没有"><a href="#Yarn-拥有，NPM-没有" class="headerlink" title="Yarn 拥有，NPM 没有"></a>Yarn 拥有，NPM 没有</h4><ul>
+<p><strong>Yarn 拥有，NPM 没有</strong></p>
+<ul>
 <li><code>yarn licenses</code> — 允许您检查依赖项的许可证。</li>
 <li><code>yarn licenses generate</code> — 自动创建许可证依赖性免责声明。</li>
 <li>支持 Emojis</li>
@@ -231,11 +240,18 @@
 <li>自动生成 lock 文件（.lock 保存所有依赖包的版本信息）</li>
 <li>为安全而生</li>
 </ul>
-<h4 id="NPM-拥有，Yarn-没有"><a href="#NPM-拥有，Yarn-没有" class="headerlink" title="NPM 拥有，Yarn 没有"></a>NPM 拥有，Yarn 没有</h4><ul>
+<p><strong>NPM 拥有，Yarn 没有</strong></p>
+<ul>
 <li><code>npm xmas</code></li>
 <li><code>npm visnup</code></li>
 </ul>
 <h3 id="以下载-React-为例，实践一下"><a href="#以下载-React-为例，实践一下" class="headerlink" title="以下载 React 为例，实践一下"></a>以下载 React 为例，实践一下</h3><p><img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/6.png" alt="yarn react"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="https://yarnpkg.com/" target="_blank" rel="external">https://yarnpkg.com/</a></li>
+<li><a href="https://github.com/yarnpkg/yarn" target="_blank" rel="external">https://github.com/yarnpkg/yarn</a></li>
+<li><a href="http://www.tuicool.com/articles/eMRJVvU" target="_blank" rel="external">http://www.tuicool.com/articles/eMRJVvU</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/22892675" target="_blank" rel="external">https://zhuanlan.zhihu.com/p/22892675</a></li>
+</ul>
 
     </div>
     <p class="post-meta">
@@ -246,11 +262,11 @@
             标签：
             
     
+        <a href="/tags/Yarn/" title="Yarn">Yarn</a> / 
+    
         <a href="/tags/Node-js/" title="Node.js">Node.js</a> / 
     
-        <a href="/tags/npm/" title="npm">npm</a> / 
-    
-        <a href="/tags/Yarn/" title="Yarn">Yarn</a>
+        <a href="/tags/npm/" title="npm">npm</a>
     
 
         </span>
@@ -315,13 +331,13 @@
 <ul class="widget-bd">
     
     <li>
-        <a href="/categories/生活琐事/">生活琐事</a>
-        <span class="badge">(3)</span>
+        <a href="/categories/Web技术/">Web技术</a>
+        <span class="badge">(11)</span>
     </li>
     
     <li>
-        <a href="/categories/Web技术/">Web技术</a>
-        <span class="badge">(11)</span>
+        <a href="/categories/生活琐事/">生活琐事</a>
+        <span class="badge">(3)</span>
     </li>
     
 </ul>
