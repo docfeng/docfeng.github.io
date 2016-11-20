@@ -134,7 +134,7 @@
         <h3 class="post-title"><a href="javacript: void(0);">Hexo填坑教程整理</a></h3>
     </header>
     <p class="post-meta text-center">
-        Jelon 发表于
+        简书 发表于
         <time datetime="2016-05-15T11:01:11.000Z">2016-05-15</time>
     </p>
     <div class="post-content">
@@ -198,13 +198,10 @@
 <p>启动本地服务器：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server （或hexo s）</div></pre></td></tr></table></figure>
 <ul>
-<li>Mac OS系统下编译时会有如下报错提示</li>
+<li>升级 node 版本之后编译报错</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR Process failed: layout/.DS_Store</div></pre></td></tr></table></figure>
-<p>原因：</p>
-<p>个人认为，这个估计是因为hexo编译文件插件的bug，编译文件时没有排除.Mac系统隐藏文件.DS_Store。</p>
-<p>解决方案：</p>
-<p>可以忽略该提示；另外，电脑上安装的node版本稳定版本的优先考虑，而不是最新版本，如目前官网上的两个版本一个是最新的稳定版本<code>v4.4.5 LTS</code>、另一个是最新的特征版本<code>v6.2.1 Current</code>，我们一般安装前者即可。</p>
+<p>原因：可能是由于 hexo 依赖的 node 版本号还是以前版本而导致</p>
+<p>解决方法：建议重装一下 hexo ，重新执行一遍 <code>npm install -g hexo-cli</code> 即可。</p>
 <h3 id="5-博客管理"><a href="#5-博客管理" class="headerlink" title="5. 博客管理"></a>5. 博客管理</h3><p>上面命令中，其实生成文章，可以直接把写好的文章插入到目录<code>/_posts</code> 下面，后缀为.MD就行，在文章头部固定格式：</p>
 <ul>
 <li>title: Mac提高使用效率的一些方法   # 文章的标题，这个才是显示的文章标题，其实文件名不影响</li>
@@ -213,7 +210,7 @@
 <li>tags: [Mac,效率,快捷方式]        # tag，为文章添加标签，方便搜索</li>
 </ul>
 <p>当然，里面有很多东西的，如果你专注于写作，那么可以不用太关心了，比如tags标签可以写成下面那样，因为hexo文章的头部文件是用AML来写的。</p>
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">tags:</div><div class="line">  -<span class="ruby"> tag1</span></div><div class="line">  -<span class="ruby"> tag2</span></div></pre></td></tr></table></figure>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">tags:</span></div><div class="line">  - tag1</div><div class="line">  - tag2</div></pre></td></tr></table></figure>
 <p>如果在博客文章列表中，不想全文显示，可以增加<em><!--more--></em> , 后面的内容就不会显示在列表。</p>
 <h3 id="6-插件"><a href="#6-插件" class="headerlink" title="6. 插件"></a>6. 插件</h3><p>安装插件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install &lt;plugin-name&gt; --save</div></pre></td></tr></table></figure>
