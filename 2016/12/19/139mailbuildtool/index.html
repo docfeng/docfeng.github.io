@@ -161,7 +161,14 @@
 <li>HTML 增量构建</li>
 </ul>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/4.png" alt="全量构建效果图"></p>
-<h3 id="运用技术点"><a href="#运用技术点" class="headerlink" title="运用技术点"></a>运用技术点</h3>
+<h3 id="运用技术点"><a href="#运用技术点" class="headerlink" title="运用技术点"></a>运用技术点</h3><ul>
+<li>基于现有的 gulp 构建</li>
+</ul>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/5.png" alt="基于现有的 gulp 构建"></p>
+<p>目前的 gulp 构建通过命令行可执行独立任务任务有</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp  <span class="comment"># 构建全量包</span></div><div class="line">gulp deploy  <span class="comment"># 构建全量包并自动部署到资源服务器</span></div><div class="line">gulp uploadStaticFiles <span class="comment"># 部署静态资源到服务器</span></div><div class="line">gulp restartNodeServer <span class="comment"># 部署并重启测试线的 node 服务</span></div><div class="line">gulp watch <span class="comment"># 实时代码监听</span></div></pre></td></tr></table></figure>
+<p>说明：以上的命令除了部署并重启测试线的 node 服务之外，其他的任务都将加到本次的小工具上。</p>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
