@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    
+    <title>139邮箱可视化前端构建小工具 | Jelon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="前端, Web, Jelon, 张德龙" >
+    <meta name="description" content="Jelon个人前端小站" >
+    <meta name="baidu-site-verification" content="dXIT3DPx0C" />
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jelon" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Jelon</span>
+                    <span class="description">个人前端博客小站</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2016/12/19/139mailbuildtool/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">
+                    首页
+                </a>
+            </li>
+            
+            <li rel="/2016/12/19/139mailbuildtool/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">
+                    实验室
+                </a>
+            </li>
+            
+            <li rel="/2016/12/19/139mailbuildtool/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">
+                    关于
+                </a>
+            </li>
+            
+            <li rel="/2016/12/19/139mailbuildtool/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">
+                    留言
+                </a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="http://jelon.kuphp.net" target="_blank">旧博客</a>
+                        |
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="http://tongji.baidu.com/web/welcome/login" target="_blank">百度统计</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><a href="javacript: void(0);">139邮箱可视化前端构建小工具</a></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2016-12-19T05:42:33.000Z">2016-12-19</time>
+    </p>
+    <div class="post-content">
+        <p>###背景及目的</p>
+<p>自从139邮箱移动端酷版邮箱构建工具由原来的 ant 转移到 gulp 之后，构建速度大大的提升，就拿本人的机子（本人工作机子是32位6G内存）来测试，之前构建全量包要花费将近 20 分钟，如今只需要 4 分钟不到；另外 gulp 是基于 node.js 的，对前端开发来说是相当友好的。但是，美中不足：第一，像我这样的前端技术小白，我对命令行不是很敏感，甚至我不太喜欢敲一串串的命令行去执行一个任务，我希望能有一个可视化界面工具，能点点按钮什么的就可以完成一个构建任务，那该多爽。第二，目前的 gulp 构建还不支持自定义构建，这个自定义构建其实就是，比如说，我想打包某个文件（这个文件由好几个文件合并压缩而成），只要选择了这个文件的文件名，然后点击按钮，就可以帮你执行的任务，帮你构建好这个文件，甚至可以帮你部署到资源服务器上。</p>
+<p>简单的说就是</p>
+<ul>
+<li>需要一个构建工具可视化界面</li>
+<li>需要自定义构建功能</li>
+</ul>
+<p>基于以上两个目的，所以就做了一个这样的可视化前端构建小工具。</p>
+<p>###工具效果图</p>
+<ul>
+<li>全量构建</li>
+</ul>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/1.png" alt="全量构建效果图"></p>
+<ul>
+<li>JavaScript 增量构建</li>
+</ul>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/2.png" alt="全量构建效果图"></p>
+<ul>
+<li>CSS 增量构建</li>
+</ul>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/3.png" alt="全量构建效果图"></p>
+<ul>
+<li>HTML 增量构建</li>
+</ul>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/4.png" alt="全量构建效果图"></p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Web技术/">Web技术</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/gulp/" title="gulp">gulp</a> / 
+    
+        <a href="/tags/Electron/" title="Electron">Electron</a> / 
+    
+        <a href="/tags/构建工具/" title="构建工具">构建工具</a>
+    
+
+        </span>
+    </p>
+</article>
+<div class="article-share clearfix text-center">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2016/11/14/github-tutorial/">
+            
+                Github 使用指南
+            
+        </a>
+    </span>
+    
+</div>
+
+
+<div class="comments" id="comments">
+    
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="139mailbuildtool" data-title="139邮箱可视化前端构建小工具" data-url="http://jelon.top/2016/12/19/139mailbuildtool/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"jelon123"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Web技术/">Web技术</a>
+        <span class="badge">(13)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活琐事/">生活琐事</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <!-- 最新评论 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>最近评论</strong></h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70"></ul>
+<!--多说js加载开始，一个页面只需要加载一次 -->
+<script type="text/javascript">
+    var duoshuoQuery = { short_name: 'jelon123' };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!--多说js加载结束，一个页面只需要加载一次 -->
+    </section>
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
