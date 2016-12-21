@@ -192,7 +192,7 @@
 </li>
 </ol>
 <p>有哪些公司或者 App 在用 Electron？</p>
-<p>其实，Electron已经被微软，Facebook，Slack 和 Docker 等公司用来创建应用程序。成功案例有很多，比较有代表性的有如下这些：</p>
+<p>其实，Electron 已经被微软，Facebook，Slack 和 Docker 等公司用来创建应用程序。成功案例有很多，比较有代表性的有如下这些：</p>
 <ol>
 <li><p>Atom 编辑器</p>
 </li>
@@ -210,18 +210,22 @@
 <ul>
 <li><strong>Q.js</strong></li>
 </ul>
+<p>由于本图形构建工具功能比较简单，所以想做一个单页面就好，但是又不想用像 vue 这样的框架，网上找了一下，发现 Q.js 这个路由框架。</p>
 <p>Q.js 是一个炒鸡轻量的前端单页路由框架。官网地址是 <a href="http://mouto.org/#!54092" target="_blank" rel="external">http://mouto.org/#!54092</a>，Github 地址是 <a href="https://github.com/itorr/q.js" target="_blank" rel="external">https://github.com/itorr/q.js</a>。</p>
 <p>Q.js 特点是轻量、快速、极简。为了更好的利用缓存以及更少的后端支援，Q.js放弃了 HTML5 State，通过#!格式的 url hach 重现了 url 路由功能。</p>
 <ol>
-<li><p>无 JavaScript 库依托，可随意搭配使用</p>
+<li><p>无 JavaScript 库依托，可随意搭配使用；</p>
 </li>
-<li><p>源代码不及百行压缩后 834byte</p>
+<li><p>源代码不及百行压缩后 834byte ；</p>
 </li>
-<li><p>支持 IE6+ Chrome Safari FF （其实Electron 算是很新的浏览器内核）</p>
+<li><p>支持 IE6+ Chrome Safari FF （其实 Electron 算是很新的浏览器内核，已经没必要考虑这一点）；</p>
 </li>
-<li><p>未做情况判定，使用 Q.js 必然会注册 window.Q</p>
+<li><p>未做情况判定，使用 Q.js 必然会注册 window.Q 。</p>
 </li>
 </ol>
+<p>来一段简单的 <code>Hello, World</code> 来简单演示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> &gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>演示<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"m"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">	Q.reg('home', function () &#123;</div><div class="line">		document.getElementById('m').innerHTML = 'Hello, World!';</div><div class="line">	&#125;);</div><div class="line">	Q.init(&#123;</div><div class="line">		index: 'home' /* 首页地址 */</div><div class="line">	&#125;);</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>打开例子后，浏览器会从 <code>http://simple.com/</code> 跳转到 <code>http://simple.com/#!home</code> ，并且在页面显示 Hello World。</p>
 
     </div>
     <p class="post-meta">
