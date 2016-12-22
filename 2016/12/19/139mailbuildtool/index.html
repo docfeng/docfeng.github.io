@@ -228,6 +228,12 @@
 <p>打开例子后，浏览器会从 <code>http://simple.com/</code> 跳转到 <code>http://simple.com/#!home</code> ，并且在页面显示 Hello World。</p>
 <h3 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h3><p>在执行 gulp 各个任务，主要用了 node.js 的 child_process 进程模块的 spawn 方法。<code>spawn</code> 使用如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> spawn    = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</div><div class="line"><span class="keyword">const</span> gulpTask = spawn(<span class="string">'gulp'</span>, [ <span class="string">'default'</span> ]);</div></pre></td></tr></table></figure>
+<p>对自定义构建，可通过命令行传参的方式指定的 gulp 构建的 json 配置，从而实现文件的自定义构建，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 前端获取选择的配置文件的文件名并以`,`号分隔</span></div><div class="line"><span class="comment">// 如 --fileConf=/Users/zdl/Documents/Projects/Mail139_iPad_F2010/trunk/src/buildNew/config/jsFiles/concat/calendar_birthday.html.pack.js.json,/Users/zdl/Documents/Projects/Mail139_iPad_F2010/trunk/src/buildNew/config/jsFiles/concat/calendar_calendar.html.pack.js.json</span></div><div class="line"></div><div class="line"><span class="keyword">let</span> yargv = <span class="built_in">require</span>(<span class="string">'yargs'</span>).argv;</div><div class="line"><span class="keyword">var</span> fileConf = yargv.fileConf;</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>全量构建</strong></li>
+</ul>
+<p>全量构建里面包含“构建全量包”、“”</p>
 
     </div>
     <p class="post-meta">
