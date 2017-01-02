@@ -700,7 +700,7 @@ hr {
   min-height: 689px;
 }
 .content-main {
-  margin-right: 360px;
+  margin-right: 350px;
   padding: 20px;
 }
 /*
@@ -1040,8 +1040,8 @@ pre .javascript .function {
  */
 .sidebar {
   float: left;
-  width: 340px;
-  margin-left: -360px;
+  width: 330px;
+  margin-left: -350px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
