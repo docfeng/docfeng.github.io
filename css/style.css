@@ -765,13 +765,13 @@ hr {
 .post .post-content .post-excerpt {
   position: relative;
   min-height: 140px;
-  margin-left: 210px;
+  margin-right: 210px;
   overflow: hidden;
 }
 .post .post-content .post-thumbnail {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 200px;
   height: 140px;
   overflow: hidden;
@@ -1340,7 +1340,7 @@ pre .javascript .function {
     text-align: center;
   }
   .post .post-content .post-excerpt {
-    margin-left: 0;
+    margin-right: 0;
   }
   .post .post-content .post-thumbnail {
     display: none;
