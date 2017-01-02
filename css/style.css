@@ -765,13 +765,13 @@ hr {
 .post .post-content .post-excerpt {
   position: relative;
   min-height: 140px;
-  margin-right: 210px;
+  margin-left: 210px;
   overflow: hidden;
 }
 .post .post-content .post-thumbnail {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 200px;
   height: 140px;
   overflow: hidden;
