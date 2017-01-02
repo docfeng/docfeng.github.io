@@ -1340,7 +1340,7 @@ pre .javascript .function {
     text-align: center;
   }
   .post .post-content .post-excerpt {
-    margin-right: 0;
+    margin-left: 0;
   }
   .post .post-content .post-thumbnail {
     display: none;
