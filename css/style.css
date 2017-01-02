@@ -1040,8 +1040,8 @@ pre .javascript .function {
  */
 .sidebar {
   float: left;
-  width: 360px;
-  margin-left: -380px;
+  width: 340px;
+  margin-left: -360px;
   padding-top: 20px;
   padding-bottom: 20px;
 }
