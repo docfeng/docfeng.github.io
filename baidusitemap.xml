@@ -5,7 +5,7 @@
     
     
   <url>
-    <loc>https://jelon.top/2016/12/19/139mailbuildtool/</loc>
+    <loc>http://jelon.top/2016/12/19/139mailbuildtool/</loc>
     <lastmod>2016-12-30T10:47:39.000Z</lastmod>
     <data>
         <display>
@@ -21,7 +21,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -29,7 +29,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2015/10/06/start-hexo/</loc>
+    <loc>http://jelon.top/2015/10/06/start-hexo/</loc>
     <lastmod>2016-11-21T14:48:48.000Z</lastmod>
     <data>
         <display>
@@ -45,7 +45,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -53,7 +53,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/05/15/fill-hexo/</loc>
+    <loc>http://jelon.top/2016/05/15/fill-hexo/</loc>
     <lastmod>2016-11-20T10:44:08.000Z</lastmod>
     <data>
         <display>
@@ -67,7 +67,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -75,7 +75,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/11/14/github-tutorial/</loc>
+    <loc>http://jelon.top/2016/11/14/github-tutorial/</loc>
     <lastmod>2016-11-20T10:22:27.000Z</lastmod>
     <data>
         <display>
@@ -89,7 +89,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -97,7 +97,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/11/12/mac-tips/</loc>
+    <loc>http://jelon.top/2016/11/12/mac-tips/</loc>
     <lastmod>2016-11-12T09:02:59.000Z</lastmod>
     <data>
         <display>
@@ -111,7 +111,7 @@
          
            
              
-              <breadCrumb title="生活琐事" url="https://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
+              <breadCrumb title="生活琐事" url="http://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
           
         </display>
     </data>
@@ -119,23 +119,23 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/10/17/yarn/</loc>
+    <loc>http://jelon.top/2016/10/17/yarn/</loc>
     <lastmod>2016-11-01T13:38:58.000Z</lastmod>
     <data>
         <display>
         <title>Yarn, 全新的 JavaScript 包管理器</title>
         <pubTime>2016-10-17T11:57:08.000Z</pubTime>
         
-        <tag>Node.js</tag>
-         
         <tag>npm</tag>
+         
+        <tag>Node.js</tag>
          
         <tag>Yarn</tag>
          
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -143,7 +143,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/06/06/for-man/</loc>
+    <loc>http://jelon.top/2016/06/06/for-man/</loc>
     <lastmod>2016-10-23T14:04:50.000Z</lastmod>
     <data>
         <display>
@@ -157,7 +157,7 @@
          
            
              
-              <breadCrumb title="生活琐事" url="https://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
+              <breadCrumb title="生活琐事" url="http://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
           
         </display>
     </data>
@@ -168,7 +168,7 @@
     
     
   <url>
-    <loc>https://jelon.top/2016/06/09/my-half-year/</loc>
+    <loc>http://jelon.top/2016/06/09/my-half-year/</loc>
     <lastmod>2016-09-11T03:45:08.000Z</lastmod>
     <data>
         <display>
@@ -184,7 +184,7 @@
          
            
              
-              <breadCrumb title="生活琐事" url="https://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
+              <breadCrumb title="生活琐事" url="http://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
           
         </display>
     </data>
@@ -192,7 +192,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/08/27/vue-vuex-bootstrap/</loc>
+    <loc>http://jelon.top/2016/08/27/vue-vuex-bootstrap/</loc>
     <lastmod>2016-09-04T07:36:16.000Z</lastmod>
     <data>
         <display>
@@ -210,7 +210,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -218,7 +218,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/06/25/mac-command/</loc>
+    <loc>http://jelon.top/2016/06/25/mac-command/</loc>
     <lastmod>2016-08-29T14:27:10.000Z</lastmod>
     <data>
         <display>
@@ -232,7 +232,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -240,7 +240,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/03/13/js-docs/</loc>
+    <loc>http://jelon.top/2016/03/13/js-docs/</loc>
     <lastmod>2016-08-29T14:20:09.000Z</lastmod>
     <data>
         <display>
@@ -254,7 +254,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -262,7 +262,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/08/06/jquery-window-height-incorrect/</loc>
+    <loc>http://jelon.top/2016/08/06/jquery-window-height-incorrect/</loc>
     <lastmod>2016-08-29T14:10:31.000Z</lastmod>
     <data>
         <display>
@@ -276,7 +276,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -284,7 +284,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/07/30/taonpm/</loc>
+    <loc>http://jelon.top/2016/07/30/taonpm/</loc>
     <lastmod>2016-08-29T14:05:22.000Z</lastmod>
     <data>
         <display>
@@ -298,7 +298,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -306,7 +306,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/03/13/hello-new-blog/</loc>
+    <loc>http://jelon.top/2016/03/13/hello-new-blog/</loc>
     <lastmod>2016-07-30T04:00:16.000Z</lastmod>
     <data>
         <display>
@@ -320,7 +320,7 @@
          
            
              
-              <breadCrumb title="生活琐事" url="https://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
+              <breadCrumb title="生活琐事" url="http://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
           
         </display>
     </data>
@@ -328,7 +328,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/07/06/react-native-learning/</loc>
+    <loc>http://jelon.top/2016/07/06/react-native-learning/</loc>
     <lastmod>2016-07-24T05:06:08.000Z</lastmod>
     <data>
         <display>
@@ -344,7 +344,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -352,7 +352,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/04/23/http-status-code/</loc>
+    <loc>http://jelon.top/2016/04/23/http-status-code/</loc>
     <lastmod>2016-04-23T07:10:09.000Z</lastmod>
     <data>
         <display>
@@ -366,7 +366,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
@@ -374,7 +374,7 @@
 
     
   <url>
-    <loc>https://jelon.top/2016/04/17/css-code-style/</loc>
+    <loc>http://jelon.top/2016/04/17/css-code-style/</loc>
     <lastmod>2016-04-17T04:46:15.000Z</lastmod>
     <data>
         <display>
@@ -388,7 +388,7 @@
          
            
              
-              <breadCrumb title="Web技术" url="https://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
           
         </display>
     </data>
