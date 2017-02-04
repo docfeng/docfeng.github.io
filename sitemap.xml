@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jelon.top/2016/04/23/http-status-code/</loc>
+    
+    <lastmod>2017-02-04T06:02:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jelon.top/lab/index.html</loc>
     
     <lastmod>2016-12-31T05:05:11.000Z</lastmod>
@@ -124,13 +131,6 @@
     <loc>http://jelon.top/2016/07/06/react-native-learning/</loc>
     
     <lastmod>2016-07-24T05:06:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://jelon.top/2016/04/23/http-status-code/</loc>
-    
-    <lastmod>2016-04-23T07:10:09.000Z</lastmod>
     
   </url>
   

@@ -3,6 +3,28 @@
 
 
     
+  <url>
+    <loc>http://jelon.top/2016/04/23/http-status-code/</loc>
+    <lastmod>2017-02-04T06:02:31.000Z</lastmod>
+    <data>
+        <display>
+        <title>HTTP状态码详解</title>
+        <pubTime>2016-04-23T11:05:42.000Z</pubTime>
+        
+        <tag>HTTP</tag>
+         
+        <tag>网络状态码</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>http://jelon.top/2016/12/19/139mailbuildtool/</loc>
@@ -126,9 +148,9 @@
         <title>Yarn, 全新的 JavaScript 包管理器</title>
         <pubTime>2016-10-17T11:57:08.000Z</pubTime>
         
-        <tag>Node.js</tag>
-         
         <tag>npm</tag>
+         
+        <tag>Node.js</tag>
          
         <tag>Yarn</tag>
          
@@ -339,28 +361,6 @@
         <tag>react-native</tag>
          
         <tag>iOS</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jelon.top/2016/04/23/http-status-code/</loc>
-    <lastmod>2016-04-23T07:10:09.000Z</lastmod>
-    <data>
-        <display>
-        <title>HTTP状态码详解</title>
-        <pubTime>2016-04-23T11:05:42.000Z</pubTime>
-        
-        <tag>HTTP</tag>
-         
-        <tag>网络状态码</tag>
          
          
            
