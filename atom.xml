@@ -1576,7 +1576,7 @@
     <link href="http://jelon.top/2015/10/06/start-hexo/"/>
     <id>http://jelon.top/2015/10/06/start-hexo/</id>
     <published>2015-10-06T10:23:00.000Z</published>
-    <updated>2017-02-15T14:06:00.000Z</updated>
+    <updated>2017-02-15T14:23:59.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="hexo-简介"><a href="#hexo-简介" class="headerlink" title="hexo 简介"></a>hexo 简介</h3><p>简单地说，Hexo 是一个基于 Node.js 的轻量的静态博客框架。官网如下：<br>官网链接：<em><a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a></em></p>
 <a id="more"></a>
@@ -1630,7 +1630,18 @@
 <li>hexo 所依赖的模块参考如下：</li>
 </ul>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/452712668.png" alt="依赖模块"></p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>编译完博客之后，可以生成的博客内容（静态页面）部署到 github，如果你嫌 github 访问速度比较慢的话，coding 是一个不错的选择。</p>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>编译完博客之后，可以生成的博客内容（静态页面）部署到 github，如果你嫌 github 访问速度比较慢的话，coding 是一个不错的选择。下面是以部署至 github 为例，做简单介绍。</p>
+<ol>
+<li><p>首先，现在 github 上创建一个新的 repository，（假设，项目名为 jangdelong ）创建好之后，会生成一个 git 项目地址；</p>
+</li>
+<li><p>把创建好的 github repository 的 git 地址配置到 hexo 目录下的 <code>_config.yml</code> 的配置文件中；</p>
+ <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">deploy</span>:</div><div class="line">  <span class="attribute">type</span>: git</div><div class="line">  <span class="attribute">message</span>: 博客更新 -- at &#123;&#123; now(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>) &#125;&#125;</div><div class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/jangdelong/jangdelong.github.com.git</span></div><div class="line">  <span class="attribute">branch</span>: master</div></pre></td></tr></table></figure>
+</li>
+<li><p>执行 <code>hexo deploy</code> 或者 <code>hexo d</code> 即可部署；</p>
+</li>
+<li><p>部署完之后，浏览器地址栏输入 <code>jangdelong.github.io</code> 即可访问。 </p>
+</li>
+</ol>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
 <li><a href="https://hexo.io/" target="_blank" rel="external">hexo官网：https://hexo.io/</a>；</li>
 <li><a href="http://segmentfault.com/a/1190000000370778" target="_blank" rel="external">http://segmentfault.com/a/1190000000370778</a>；</li>
