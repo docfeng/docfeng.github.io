@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://jelon.top/2015/10/06/start-hexo/</loc>
+    <lastmod>2017-02-15T14:04:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>静态博客框架 Hexo 入门</title>
+        <pubTime>2015-10-06T10:23:00.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>静态博客</tag>
+         
+        <tag>Node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jelon.top/2016/04/23/http-status-code/</loc>
     <lastmod>2017-02-04T06:02:31.000Z</lastmod>
     <data>
@@ -39,30 +63,6 @@
         <tag>Electron</tag>
          
         <tag>构建工具</tag>
-         
-         
-           
-             
-              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jelon.top/2015/10/06/start-hexo/</loc>
-    <lastmod>2016-11-21T14:48:48.000Z</lastmod>
-    <data>
-        <display>
-        <title>静态博客框架 Hexo 入门</title>
-        <pubTime>2015-10-06T10:23:00.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>静态博客</tag>
-         
-        <tag>Node.js</tag>
          
          
            
@@ -148,9 +148,9 @@
         <title>Yarn, 全新的 JavaScript 包管理器</title>
         <pubTime>2016-10-17T11:57:08.000Z</pubTime>
         
-        <tag>npm</tag>
-         
         <tag>Node.js</tag>
+         
+        <tag>npm</tag>
          
         <tag>Yarn</tag>
          
