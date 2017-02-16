@@ -1576,12 +1576,12 @@
     <link href="http://jelon.top/2015/10/06/start-hexo/"/>
     <id>http://jelon.top/2015/10/06/start-hexo/</id>
     <published>2015-10-06T10:23:00.000Z</published>
-    <updated>2017-02-15T15:03:00.000Z</updated>
+    <updated>2017-02-16T07:05:04.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="hexo-简介"><a href="#hexo-简介" class="headerlink" title="hexo 简介"></a>hexo 简介</h3><p>简单地说，Hexo 是一个基于 Node.js 的轻量的静态博客框架。官网如下：<br>官网链接：<em><a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a></em></p>
 <a id="more"></a>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/2132683522.png" alt="Hexo官网截图"></p>
-<p>Github 主页：<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">https://github.com/hexojs/hexo</a><br>不过，现在网上一搜都会搜到很多关于hexo的一些文章，所以想更加地了解 hexo 和获取其主体可以网上找找。</p>
+<p>Github 主页：<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">https://github.com/hexojs/hexo</a><br>不过，现在网上一搜都会搜到很多关于hexo的一些文章，所以想更加地了解 hexo 和获取其主题可以网上找找。</p>
 <h3 id="hexo-特性"><a href="#hexo-特性" class="headerlink" title="hexo 特性"></a>hexo 特性</h3><ul>
 <li>Blazing Fast —— 速度快——几百篇文章也可以秒生成；</li>
 <li>Markdown Support —— 支持 GitHub Flavored Markdown 和所有 Octopress 的插件；</li>
