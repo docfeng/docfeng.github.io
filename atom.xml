@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2016-12-30T10:47:39.000Z</updated>
+  <updated>2017-02-17T14:10:29.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -14,6 +14,86 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac 下 MongoDB 及其 客户端管理工具的安装和使用</title>
+    <link href="http://jelon.top/2017/02/17/mongodb-for-mac/"/>
+    <id>http://jelon.top/2017/02/17/mongodb-for-mac/</id>
+    <published>2017-02-17T13:18:28.000Z</published>
+    <updated>2017-02-17T14:10:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="什么是-MongoDB"><a href="#什么是-MongoDB" class="headerlink" title="什么是 MongoDB"></a>什么是 MongoDB</h3><p>MongoDB 是一个基于分布式文件存储的数据库。有 C++ 语言编写。旨在为Web 应用提供可扩展的高性能数据存储解决方案。MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
+<h3 id="MongoDB-的特点"><a href="#MongoDB-的特点" class="headerlink" title="MongoDB 的特点"></a>MongoDB 的特点</h3><ul>
+<li><em>JSON风格文件的形式，面向文档存储：数据存储</em> MongoDB的提供了一个面向文档存储，操作起来比较简单和容易；</li>
+<li><p><em>对任何属性可索引</em> 通过设置任何属性的索引 (如：FirstName=”Sameer”, Address=”8 Gandhi Road”)来实现更快的排序；</p>
+</li>
+<li><p><em>复制和高可用性</em> 通过本地或者网络创建数据镜像，这使得 MongoDB 有更强的扩展性；</p>
+</li>
+<li><p><em>自动分片</em> 如果负载的增加（需要更多的存储空间和更强的处理能力） ，它可以分布在计算机网络中的其他节点上这就是所谓的分片；</p>
+</li>
+<li><p><em>丰富的查询</em> Mongo支持丰富的查询表达式。查询指令使用JSON形式的标记，可轻易查询文档中内嵌的对象及数组；</p>
+</li>
+<li><p><em>快速就地更新</em> MongoDb 使用 update() 命令可以实现替换完成的文档（数据）或者一些指定的数据字段；</p>
+</li>
+<li><p>Mongodb 中的 Map/reduce 主要是用来对数据进行批量处理和聚合操作；</p>
+</li>
+<li><p>Map 和 Reduce。Map函数调用emit(key,value)遍历集合中所有的记录，将key与value传给Reduce函数进行处理；</p>
+</li>
+<li><p>Map函数和Reduce函数是使用 Javascript 编写的，并可以通过 db.runCommand 或mapreduce 命令来执行 MapReduce 操作；</p>
+</li>
+<li><p>GridFS是 MongoDB 中的一个内置功能，可以用于存放大量小文件；</p>
+</li>
+<li><p>MongoDB 允许在服务端执行脚本，可以用 Javascript 编写某个函数，直接在服务端执行，也可以把函数的定义存储在服务端，下次直接调用即可；</p>
+</li>
+<li><p>MongoDB 支持各种编程语言: RUBY，PYTHON，JAVA，C++，PHP，C#，Node.js 等多种语言。</p>
+</li>
+</ul>
+<h3 id="MongoDB-适用场景"><a href="#MongoDB-适用场景" class="headerlink" title="MongoDB 适用场景"></a>MongoDB 适用场景</h3><ul>
+<li><p>大数据</p>
+</li>
+<li><p>内容管理和交付</p>
+</li>
+<li><p>移动和社交基础设施</p>
+</li>
+<li><p>用户数据管理</p>
+</li>
+<li><p>数据平台</p>
+</li>
+</ul>
+<h3 id="Mac-下-MongoDB-安装"><a href="#Mac-下-MongoDB-安装" class="headerlink" title="Mac 下 MongoDB 安装"></a>Mac 下 MongoDB 安装</h3><ol>
+<li><p>方法一，通过终端下载安装；</p>
+<ul>
+<li><p>with Homebrew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Update Homebrew’s package database</span></div><div class="line">brew update</div><div class="line"></div><div class="line"><span class="comment"># Install MongoDB</span></div><div class="line"><span class="comment"># Install the MongoDB Binaries</span></div><div class="line">brew install mongodb </div><div class="line"><span class="comment"># Install the MongoDB Binaries with TLS/SSL Support</span></div><div class="line">brew install mongodb --with-openssl</div><div class="line"><span class="comment"># Install the Latest Development Release of MongoDB</span></div><div class="line">brew install mongodb --devel</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>- Install MongoDB Community Edition Manually
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -O https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.4.2.tgz &gt; mongodb.tgz</div></pre></td></tr></table></figure>
+</code></pre><ol>
+<li>方法二，直接浏览器登录官网下载解压即可；</li>
+</ol>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/mongodb-for-mac/1.jpeg" alt="MongoDB 官网"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;什么是-MongoDB&quot;&gt;&lt;a href=&quot;#什么是-MongoDB&quot; class=&quot;headerlink&quot; title=&quot;什么是 MongoDB&quot;&gt;&lt;/a&gt;什么是 MongoDB&lt;/h3&gt;&lt;p&gt;MongoDB 是一个基于分布式文件存储的数据库。有 C++ 语言编
+    
+    </summary>
+    
+      <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
+    
+      <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
+    
+      <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>139邮箱图形化前端构建小工具</title>
@@ -1650,9 +1730,9 @@
     
       <category term="Hexo" scheme="http://jelon.top/tags/Hexo/"/>
     
-      <category term="静态博客" scheme="http://jelon.top/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
+    
+      <category term="静态博客" scheme="http://jelon.top/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

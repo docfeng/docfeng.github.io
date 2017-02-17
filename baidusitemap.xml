@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>http://jelon.top/2017/02/17/mongodb-for-mac/</loc>
+    <lastmod>2017-02-17T14:10:29.000Z</lastmod>
+    <data>
+        <display>
+        <title>Mac 下 MongoDB 及其 客户端管理工具的安装和使用</title>
+        <pubTime>2017-02-17T13:18:28.000Z</pubTime>
+        
+        <tag>Mac OSX</tag>
+         
+        <tag>MongoDB</tag>
+         
+        <tag>Node.js</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jelon.top/2015/10/06/start-hexo/</loc>
     <lastmod>2017-02-16T07:05:04.000Z</lastmod>
     <data>
@@ -13,9 +37,9 @@
         
         <tag>Hexo</tag>
          
-        <tag>静态博客</tag>
-         
         <tag>Node.js</tag>
+         
+        <tag>静态博客</tag>
          
          
            

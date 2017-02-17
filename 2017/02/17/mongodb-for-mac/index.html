@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>淘宝 NPM 镜像 | Jelon</title>
+    <title>Mac 下 MongoDB 及其 客户端管理工具的安装和使用 | Jelon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发" >
     <meta name="description" content="Jelon个人前端小站" >
@@ -57,19 +57,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/2016/07/30/taonpm/index.html" class="item ">
+            <li rel="/2017/02/17/mongodb-for-mac/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/2016/07/30/taonpm/index.html" class="item ">
+            <li rel="/2017/02/17/mongodb-for-mac/index.html" class="item ">
                 <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
             
-            <li rel="/2016/07/30/taonpm/index.html" class="item ">
+            <li rel="/2017/02/17/mongodb-for-mac/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
             
-            <li rel="/2016/07/30/taonpm/index.html" class="item ">
+            <li rel="/2017/02/17/mongodb-for-mac/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -123,54 +123,67 @@
 <!-- 文章 -->
 <article class="post article">
     <header class="text-center">
-        <h3 class="post-title"><a href="javacript: void(0);">淘宝 NPM 镜像</a></h3>
+        <h3 class="post-title"><a href="javacript: void(0);">Mac 下 MongoDB 及其 客户端管理工具的安装和使用</a></h3>
     </header>
     <p class="post-meta text-center">
         Jelon 发表于
-        <time datetime="2016-07-30T03:13:14.000Z">2016-07-30</time>
+        <time datetime="2017-02-17T13:18:28.000Z">2017-02-17</time>
     </p>
     <div class="post-content">
-        <h3 id="什么是-NPM"><a href="#什么是-NPM" class="headerlink" title="什么是 NPM"></a>什么是 NPM</h3><p>Node 包管理器 (npm) 是一个由 Node.js 官方提供的第三方包管理工具，就像 PHP、Pear、Python 的 PyPI 一样。npm 是一个完全由 JavaScript 实现的命令行工具，通过 Node.js 执行，因此严格来讲它不属于 Node.js 的一部分。在最初的版本中，我们需要在安装完 Node.js 以后手动安装 npm。但从 Node.js 0.6 开始，npm 已包含在发行包中了，安装 Node.js 时会自动安装 npm。</p>
-<h3 id="NPM-用途"><a href="#NPM-用途" class="headerlink" title="NPM 用途"></a>NPM 用途</h3><p>npm 的背后，是基于 couchdb 的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是：将开发者从繁琐的包管理工作（版本、依赖等）中解放出来，更加专注于功能的开发。</p>
-<h3 id="NPM-在国内"><a href="#NPM-在国内" class="headerlink" title="NPM 在国内"></a>NPM 在国内</h3><p>虽说 npm 很方便，但是在国内由于网络原因，使用 npm 下载一些依赖包的时候，速度还是很慢，甚至有时候还要翻墙，大大影响了我们的开发效率。那么，是否有解决方案呢，答案是有的，那就是淘宝 npm 镜像。</p>
-<h3 id="什么是淘宝-NPM-镜像"><a href="#什么是淘宝-NPM-镜像" class="headerlink" title="什么是淘宝 NPM 镜像"></a>什么是淘宝 NPM 镜像</h3><p>淘宝的npm镜像是一个完整的 npmjs.org 镜像。你可以用此代替官方版本(只读)，同步频率目前为10分钟一次以保证尽量与官方服务同步，<a href="http://npm.taobao.org/" target="_blank" rel="external">官网</a>截图如下。</p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/taonpm/1.33pic_hd.jpg" alt="taonpm官网"></p>
-<h3 id="淘宝-NPM-镜像安装及使用"><a href="#淘宝-NPM-镜像安装及使用" class="headerlink" title="淘宝 NPM 镜像安装及使用"></a>淘宝 NPM 镜像安装及使用</h3><p><strong>安装</strong></p>
-<ul>
-<li>可以使用淘宝 npm 镜像定制的<code>cnpm</code>(gzip 压缩支持) 命令行工具代替默认的 <code>npm</code> :</li>
+        <h3 id="什么是-MongoDB"><a href="#什么是-MongoDB" class="headerlink" title="什么是 MongoDB"></a>什么是 MongoDB</h3><p>MongoDB 是一个基于分布式文件存储的数据库。有 C++ 语言编写。旨在为Web 应用提供可扩展的高性能数据存储解决方案。MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
+<h3 id="MongoDB-的特点"><a href="#MongoDB-的特点" class="headerlink" title="MongoDB 的特点"></a>MongoDB 的特点</h3><ul>
+<li><em>JSON风格文件的形式，面向文档存储：数据存储</em> MongoDB的提供了一个面向文档存储，操作起来比较简单和容易；</li>
+<li><p><em>对任何属性可索引</em> 通过设置任何属性的索引 (如：FirstName=”Sameer”, Address=”8 Gandhi Road”)来实现更快的排序；</p>
+</li>
+<li><p><em>复制和高可用性</em> 通过本地或者网络创建数据镜像，这使得 MongoDB 有更强的扩展性；</p>
+</li>
+<li><p><em>自动分片</em> 如果负载的增加（需要更多的存储空间和更强的处理能力） ，它可以分布在计算机网络中的其他节点上这就是所谓的分片；</p>
+</li>
+<li><p><em>丰富的查询</em> Mongo支持丰富的查询表达式。查询指令使用JSON形式的标记，可轻易查询文档中内嵌的对象及数组；</p>
+</li>
+<li><p><em>快速就地更新</em> MongoDb 使用 update() 命令可以实现替换完成的文档（数据）或者一些指定的数据字段；</p>
+</li>
+<li><p>Mongodb 中的 Map/reduce 主要是用来对数据进行批量处理和聚合操作；</p>
+</li>
+<li><p>Map 和 Reduce。Map函数调用emit(key,value)遍历集合中所有的记录，将key与value传给Reduce函数进行处理；</p>
+</li>
+<li><p>Map函数和Reduce函数是使用 Javascript 编写的，并可以通过 db.runCommand 或mapreduce 命令来执行 MapReduce 操作；</p>
+</li>
+<li><p>GridFS是 MongoDB 中的一个内置功能，可以用于存放大量小文件；</p>
+</li>
+<li><p>MongoDB 允许在服务端执行脚本，可以用 Javascript 编写某个函数，直接在服务端执行，也可以把函数的定义存储在服务端，下次直接调用即可；</p>
+</li>
+<li><p>MongoDB 支持各种编程语言: RUBY，PYTHON，JAVA，C++，PHP，C#，Node.js 等多种语言。</p>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<ul>
-<li>或者直接通过添加 <code>npm</code> 参数 alias 一个新命令:</li>
+<h3 id="MongoDB-适用场景"><a href="#MongoDB-适用场景" class="headerlink" title="MongoDB 适用场景"></a>MongoDB 适用场景</h3><ul>
+<li><p>大数据</p>
+</li>
+<li><p>内容管理和交付</p>
+</li>
+<li><p>移动和社交基础设施</p>
+</li>
+<li><p>用户数据管理</p>
+</li>
+<li><p>数据平台</p>
+</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> cnpm=<span class="string">"npm --registry=https://registry.npm.taobao.org \</span></div><div class="line">--cache=<span class="variable">$HOME</span>/.npm/.cache/cnpm \</div><div class="line">--disturl=https://npm.taobao.org/dist \</div><div class="line">--userconfig=<span class="variable">$HOME</span>/.cnpmrc"</div><div class="line"></div><div class="line"><span class="comment"># Or alias it in .bashrc or .zshrc</span></div><div class="line">$ <span class="built_in">echo</span> <span class="string">'\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \</span></div><div class="line">  --cache=$HOME/.npm/.cache/cnpm \</div><div class="line">  --disturl=https://npm.taobao.org/dist \</div><div class="line">  --userconfig=$HOME/.cnpmrc"' &gt;&gt; ~/.zshrc &amp;&amp; <span class="built_in">source</span> ~/.zshrc</div></pre></td></tr></table></figure>
-<p><strong>使用</strong></p>
+<h3 id="Mac-下-MongoDB-安装"><a href="#Mac-下-MongoDB-安装" class="headerlink" title="Mac 下 MongoDB 安装"></a>Mac 下 MongoDB 安装</h3><ol>
+<li><p>方法一，通过终端下载安装；</p>
 <ul>
-<li>安装模块</li>
+<li><p>with Homebrew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Update Homebrew’s package database</span></div><div class="line">brew update</div><div class="line"></div><div class="line"><span class="comment"># Install MongoDB</span></div><div class="line"><span class="comment"># Install the MongoDB Binaries</span></div><div class="line">brew install mongodb </div><div class="line"><span class="comment"># Install the MongoDB Binaries with TLS/SSL Support</span></div><div class="line">brew install mongodb --with-openssl</div><div class="line"><span class="comment"># Install the Latest Development Release of MongoDB</span></div><div class="line">brew install mongodb --devel</div></pre></td></tr></table></figure>
+</li>
 </ul>
-<p>从 <code>registry.npm.taobao.org</code> 安装所有模块. 当安装的时候发现安装的模块还没有同步过来, 淘宝 npm 会自动在后台进行同步, 并且会让你从官方 <code>NPM registry.npmjs.org</code> 进行安装. 下次你再安装这个模块的时候, 就会直接从淘宝 npm 安装了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm install [name]</div></pre></td></tr></table></figure>
-<ul>
-<li>同步模块</li>
-</ul>
-<p>直接通过 <code>sync</code> 命令马上同步一个模块, 只有 <code>cnpm</code> 命令行才有此功能:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm sync connect</div></pre></td></tr></table></figure>
-<p>当然, 你可以直接通过 <code>web</code> 方式来同步: <code>/sync/connect</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ open https://npm.taobao.org/sync/connect</div></pre></td></tr></table></figure>
-<ul>
-<li>其他模块</li>
-</ul>
-<p>支持 <code>npm</code> 除了 <code>publish</code> 之外的所有命令, 如:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm info connect</div></pre></td></tr></table></figure>
-<h3 id="当然，还可以这样安装和使用"><a href="#当然，还可以这样安装和使用" class="headerlink" title="当然，还可以这样安装和使用"></a>当然，还可以这样安装和使用</h3><p>如果你不想用 <code>cnpm</code> ，或许你可以直接修改 <code>npm</code> config配置的 <code>registry</code> ，来使用淘宝 npm 镜像：</p>
-<p><strong>安装</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
-<p>接着 config ls 一下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config ls <span class="_">-l</span></div></pre></td></tr></table></figure>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/taonpm/npm_registry.jpg" alt="npm config ls"></p>
-<p><strong>使用</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install [name]</div></pre></td></tr></table></figure>
-<p>好了，现在开发者再一次解放出来（不用担心安装管理包时的速度问题）。</p>
+</li>
+</ol>
+<pre><code>- Install MongoDB Community Edition Manually
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -O https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-3.4.2.tgz &gt; mongodb.tgz</div></pre></td></tr></table></figure>
+</code></pre><ol>
+<li>方法二，直接浏览器登录官网下载解压即可；</li>
+</ol>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/mongodb-for-mac/1.jpeg" alt="MongoDB 官网"></p>
 
     </div>
     <p class="post-meta">
@@ -181,9 +194,11 @@
             标签：
             
     
-        <a href="/tags/npm/" title="npm">npm</a> / 
+        <a href="/tags/Mac-OSX/" title="Mac OSX">Mac OSX</a> / 
     
-        <a href="/tags/淘宝npm/" title="淘宝npm">淘宝npm</a>
+        <a href="/tags/MongoDB/" title="MongoDB">MongoDB</a> / 
+    
+        <a href="/tags/Node-js/" title="Node.js">Node.js</a>
     
 
         </span>
@@ -200,20 +215,16 @@
     
     <span class="prev fl">
         上一篇<br >
-        <a href="/2016/08/06/jquery-window-height-incorrect/">
-            
-                通过 jQuery 获取浏览器窗口高度问题
-            
-        </a>
+        <a href="javascript: void(0);">没有上一篇了</a>
     </span>
     
 
     
     <span class="next fr">
         下一篇<br >
-        <a href="/2016/07/06/react-native-learning/">
+        <a href="/2016/12/19/139mailbuildtool/">
             
-                初识React Native
+                139邮箱图形化前端构建小工具
             
         </a>
     </span>
@@ -224,7 +235,7 @@
 <div class="comments" id="comments">
     
 <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="taonpm" data-title="淘宝 NPM 镜像" data-url="http://jelon.top/2016/07/30/taonpm/"></div>
+<div class="ds-thread" data-thread-key="mongodb-for-mac" data-title="Mac 下 MongoDB 及其 客户端管理工具的安装和使用" data-url="http://jelon.top/2017/02/17/mongodb-for-mac/"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
