@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-02-17T15:45:29.000Z</updated>
+  <updated>2017-02-17T16:12:23.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/2017/02/17/mongodb-for-mac/"/>
     <id>http://jelon.top/2017/02/17/mongodb-for-mac/</id>
     <published>2017-02-17T13:18:28.000Z</published>
-    <updated>2017-02-17T15:45:29.000Z</updated>
+    <updated>2017-02-17T16:12:23.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="什么是-MongoDB"><a href="#什么是-MongoDB" class="headerlink" title="什么是 MongoDB"></a>什么是 MongoDB</h3><p>MongoDB 是一个基于分布式文件存储的数据库。有 C++ 语言编写。旨在为Web 应用提供可扩展的高性能数据存储解决方案。MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
 <h3 id="MongoDB-的特点"><a href="#MongoDB-的特点" class="headerlink" title="MongoDB 的特点"></a>MongoDB 的特点</h3><ul>
@@ -74,7 +74,52 @@
 <ul>
 <li>打开另外一个终端，切换至 mongodb/bin 目录下，输入 <code>./mongo</code> 来允许输入 mongdb shell。</li>
 </ul>
-<h3 id="MongoDB-常用-shell-命令"><a href="#MongoDB-常用-shell-命令" class="headerlink" title="MongoDB 常用 shell 命令"></a>MongoDB 常用 shell 命令</h3>]]></content>
+<h3 id="MongoDB-常用-shell-命令"><a href="#MongoDB-常用-shell-命令" class="headerlink" title="MongoDB 常用 shell 命令"></a>MongoDB 常用 shell 命令</h3><ul>
+<li>use 命令</li>
+</ul>
+<p>MongoDB use DATABASE_NAME 用于创建数据库。该命令将创建一个新的数据库，如果它不存在，否则将返回现有的数据库。</p>
+<ul>
+<li>dropDatabase() 方法</li>
+</ul>
+<p>MongoDB db.dropDatabase() 命令是用来删除一个现有的数据库。<br>dropDatabase() 命令的基本语法如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.dropDatabase()</div></pre></td></tr></table></figure>
+<ul>
+<li>drop() 方法</li>
+</ul>
+<p>MongoDB 的 db.collection.drop() 是用来从数据库中删除一个集合。</p>
+<ul>
+<li>insert() 方法</li>
+</ul>
+<p>要插入数据到 MongoDB 集合，需要使用 MongoDB 的 insert() 或 save() 方法。</p>
+<ul>
+<li>find() 方法</li>
+</ul>
+<p>要从MongoDB 查询集合数据，需要使用MongoDB 的 find() 方法。</p>
+<ul>
+<li>pretty() 方法</li>
+</ul>
+<p>结果显示在一个格式化的方式，可以使用 pretty() 方法.</p>
+<ul>
+<li>limit() 方法</li>
+</ul>
+<p>要限制 MongoDB 中的记录，需要使用 limit() 方法。 limit() 方法接受一个数字型的参数，这是要显示的文档数。</p>
+<p><code>limit()</code> 方法的基本语法如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.COLLECTION_NAME.find().limit(NUMBER)</div></pre></td></tr></table></figure>
+<h3 id="Mac-下客户端管理工具-—-Toad"><a href="#Mac-下客户端管理工具-—-Toad" class="headerlink" title="Mac 下客户端管理工具 —- Toad"></a>Mac 下客户端管理工具 —- Toad</h3><ul>
+<li>简介</li>
+</ul>
+<p>Toad 是一个强大的生产力解决方案，简化了 OS X 用户的数据库管理。 它使您能够在自动化开发过程构建高质量的数据库应用程序。Toad 界面很流程，能是你轻松切换任务。 此外，它不止支持 MongoDB，还支持 Oracle，MySQL，PostgreSQL 和 MongoDB。</p>
+<ul>
+<li>安装</li>
+</ul>
+<p>打开 App Store ，搜索 Toad，直接安装即可。</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/mongodb-for-mac/3.png" alt="Toad"></p>
+<ul>
+<li>使用</li>
+</ul>
+<p>安装好之后打开 Toad，在事先已经开启 MongoDB 服务的前提下，输入以下内容，进行数据库连接。</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/mongodb-for-mac/4.png" alt="Toad"></p>
+]]></content>
     
     <summary type="html">
     
@@ -85,9 +130,9 @@
       <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
-    
       <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
+    
+      <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
     
       <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
     
