@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-02-17T16:12:23.000Z</updated>
+  <updated>2017-02-17T16:21:09.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/2017/02/17/mongodb-for-mac/"/>
     <id>http://jelon.top/2017/02/17/mongodb-for-mac/</id>
     <published>2017-02-17T13:18:28.000Z</published>
-    <updated>2017-02-17T16:12:23.000Z</updated>
+    <updated>2017-02-17T16:21:09.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="什么是-MongoDB"><a href="#什么是-MongoDB" class="headerlink" title="什么是 MongoDB"></a>什么是 MongoDB</h3><p>MongoDB 是一个基于分布式文件存储的数据库。有 C++ 语言编写。旨在为Web 应用提供可扩展的高性能数据存储解决方案。MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。MongoDB 将数据存储为一个文档，数据结构由键值(key=&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
 <h3 id="MongoDB-的特点"><a href="#MongoDB-的特点" class="headerlink" title="MongoDB 的特点"></a>MongoDB 的特点</h3><ul>
@@ -118,7 +118,15 @@
 <li>使用</li>
 </ul>
 <p>安装好之后打开 Toad，在事先已经开启 MongoDB 服务的前提下，输入以下内容，进行数据库连接。</p>
+<p>连接：</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/mongodb-for-mac/4.png" alt="Toad"></p>
+<p>工具演示：</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/5.gif" alt="演示"></p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://www.mongodb.com/" target="_blank" rel="external">https://www.mongodb.com/</a></li>
+<li><a href="http://www.runoob.com/mongodb/mongodb-tutorial.html" target="_blank" rel="external">http://www.runoob.com/mongodb/mongodb-tutorial.html</a></li>
+<li><a href="https://segmentfault.com/a/1190000002547229" target="_blank" rel="external">https://segmentfault.com/a/1190000002547229</a></li>
+</ol>
 ]]></content>
     
     <summary type="html">
@@ -130,9 +138,9 @@
       <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
-    
       <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
+    
+      <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
     
       <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
     
