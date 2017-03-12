@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-02-18T02:13:25.000Z</updated>
+  <updated>2017-03-12T14:43:18.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -14,6 +14,144 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于MongoDB的博客系统Schema设计</title>
+    <link href="http://jelon.top/2017/03/12/mongodb-blog-design/"/>
+    <id>http://jelon.top/2017/03/12/mongodb-blog-design/</id>
+    <published>2017-03-12T14:02:08.000Z</published>
+    <updated>2017-03-12T14:43:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>选择 MongoDB 作为数据库的 Node 开发者，避免不了 MongoDB 数据库设计，而 Mongoose 是 Mongodb 和 Node.js 之上基于 Schema 的数据建模和解决方案，提供类型转换，字段校验，查询构造等功能。最近自己想做一个基于 MongoDB 的博客系统，网上搜了一些资料，总结了以下 Schema 设计。</p>
+<p>博客系统实现需要三张表：</p>
+<ul>
+<li><p>文章表</p>
+</li>
+<li><p>分类表</p>
+</li>
+<li><p>用户表</p>
+</li>
+</ul>
+<h3 id="文章表"><a href="#文章表" class="headerlink" title="文章表"></a>文章表</h3><p>文章表包含了以下这些字段。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">字段含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">文章的标题</td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:left">文章的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">category</td>
+<td style="text-align:left">文章的分类</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">文章的作者</td>
+</tr>
+<tr>
+<td style="text-align:left">slug</td>
+<td style="text-align:left">文章的url(如果是中文的话，给其起一个英文的名称，说是有利于搜索引擎的优化，有点不大明白)</td>
+</tr>
+<tr>
+<td style="text-align:left">published</td>
+<td style="text-align:left">文章是否发布</td>
+</tr>
+<tr>
+<td style="text-align:left">meta</td>
+<td style="text-align:left">搜集这个文章被赞了多少次，被踩了多少次。</td>
+</tr>
+<tr>
+<td style="text-align:left">comments</td>
+<td style="text-align:left">文章的评论</td>
+</tr>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">文章的创建时间</td>
+</tr>
+</tbody>
+</table>
+<p>实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>),</div><div class="line">Schema       = mongoose.Schema;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> PostSchma = <span class="keyword">new</span> Schema(&#123;</div><div class="line">	<span class="attr">title</span>    : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">content</span>  : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">category</span> : &#123; <span class="attr">type</span>: Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'Category'</span> &#125;,<span class="comment">//作为外键</span></div><div class="line">	author   : &#123; <span class="attr">type</span>: Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;,   <span class="comment">//作为外键</span></div><div class="line">	slug     : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">published</span>: &#123; <span class="attr">type</span>: <span class="built_in">Boolean</span>, <span class="attr">default</span>: <span class="literal">false</span> &#125;,</div><div class="line">	<span class="attr">meta</span>     : &#123; <span class="attr">type</span>: Schema.Types.Mixed &#125;,</div><div class="line">	<span class="attr">comments</span> : [ Schema.Types.Mixed ],</div><div class="line">	<span class="attr">created</span>  : &#123; <span class="attr">type</span>: <span class="built_in">Date</span> &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">mongoose.model(<span class="string">'Post'</span>, PostSchema);</div></pre></td></tr></table></figure>
+<h3 id="用户表"><a href="#用户表" class="headerlink" title="用户表"></a>用户表</h3><p>用户表主要由以下字段构成。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">字段含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">email</td>
+<td style="text-align:left">邮箱地址</td>
+</tr>
+<tr>
+<td style="text-align:left">password</td>
+<td style="text-align:left">密码</td>
+</tr>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">创建时间</td>
+</tr>
+</tbody>
+</table>
+<p>实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>),</div><div class="line"> Schema      = mongoose.Schema;</div><div class="line"></div><div class="line"><span class="keyword">var</span> md5      = <span class="built_in">require</span>(<span class="string">'md5'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> UserSchema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">   <span class="attr">name</span>    : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">   <span class="attr">email</span>   : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">   <span class="attr">password</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">   <span class="attr">created</span> : &#123; <span class="attr">type</span>: <span class="built_in">Date</span> &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">mongoose.model(<span class="string">'User'</span>, UserSchema);</div></pre></td></tr></table></figure>
+<h3 id="分类表"><a href="#分类表" class="headerlink" title="分类表"></a>分类表</h3><p>分类表主要有以下字段构成。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">字段含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">分类名称</td>
+</tr>
+<tr>
+<td style="text-align:left">slug</td>
+<td style="text-align:left">固定链接</td>
+</tr>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">创建时间</td>
+</tr>
+</tbody>
+</table>
+<p>实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>),</div><div class="line">Schema       = mongoose.Schema;</div><div class="line">		</div><div class="line"><span class="keyword">var</span> CategorySchema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">	<span class="attr">name</span>   : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">slug</span>   : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">created</span>: &#123; <span class="attr">type</span>: <span class="built_in">Date</span> &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">mongoose.model(<span class="string">'Category'</span>, CategorySchema);</div></pre></td></tr></table></figure>
+<h3 id="后期扩展"><a href="#后期扩展" class="headerlink" title="后期扩展"></a>后期扩展</h3><p>未完，待续。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;选择 MongoDB 作为数据库的 Node 开发者，避免不了 MongoDB 数据库设计，而 Mongoose 是 Mongodb 和 Node.js 之上基于 Schema 的数据建模和解决方案，提供类型转换，字段校验，查询构造等功能。最近自己想做一个基于 MongoD
+    
+    </summary>
+    
+      <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Mongoose" scheme="http://jelon.top/tags/Mongoose/"/>
+    
+      <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
+    
+  </entry>
   
   <entry>
     <title>Mac 下 MongoDB 及其客户端管理工具的安装和使用</title>
@@ -140,9 +278,9 @@
     
       <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
     
-      <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
-    
       <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
+    
+      <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
     
   </entry>
   

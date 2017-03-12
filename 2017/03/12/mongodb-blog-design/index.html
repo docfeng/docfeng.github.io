@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>基于MongoDB的博客系统Schema设计 | Jelon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发" >
+    <meta name="description" content="Jelon个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jelon" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Jelon</span>
+                    <span class="description">个人前端博客小站</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2017/03/12/mongodb-blog-design/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2017/03/12/mongodb-blog-design/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2017/03/12/mongodb-blog-design/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2017/03/12/mongodb-blog-design/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://coding.net/u/jangdelong" target="_blank">Coding</a>
+                        |
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="http://tongji.baidu.com/web/welcome/login" target="_blank">百度统计</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>基于MongoDB的博客系统Schema设计</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2017-03-12T14:02:08.000Z">2017-03-12</time>
+    </p>
+    <div class="post-content">
+        <p>选择 MongoDB 作为数据库的 Node 开发者，避免不了 MongoDB 数据库设计，而 Mongoose 是 Mongodb 和 Node.js 之上基于 Schema 的数据建模和解决方案，提供类型转换，字段校验，查询构造等功能。最近自己想做一个基于 MongoDB 的博客系统，网上搜了一些资料，总结了以下 Schema 设计。</p>
+<p>博客系统实现需要三张表：</p>
+<ul>
+<li><p>文章表</p>
+</li>
+<li><p>分类表</p>
+</li>
+<li><p>用户表</p>
+</li>
+</ul>
+<h3 id="文章表"><a href="#文章表" class="headerlink" title="文章表"></a>文章表</h3><p>文章表包含了以下这些字段。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">字段含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">title</td>
+<td style="text-align:left">文章的标题</td>
+</tr>
+<tr>
+<td style="text-align:left">content</td>
+<td style="text-align:left">文章的内容</td>
+</tr>
+<tr>
+<td style="text-align:left">category</td>
+<td style="text-align:left">文章的分类</td>
+</tr>
+<tr>
+<td style="text-align:left">author</td>
+<td style="text-align:left">文章的作者</td>
+</tr>
+<tr>
+<td style="text-align:left">slug</td>
+<td style="text-align:left">文章的url(如果是中文的话，给其起一个英文的名称，说是有利于搜索引擎的优化，有点不大明白)</td>
+</tr>
+<tr>
+<td style="text-align:left">published</td>
+<td style="text-align:left">文章是否发布</td>
+</tr>
+<tr>
+<td style="text-align:left">meta</td>
+<td style="text-align:left">搜集这个文章被赞了多少次，被踩了多少次。</td>
+</tr>
+<tr>
+<td style="text-align:left">comments</td>
+<td style="text-align:left">文章的评论</td>
+</tr>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">文章的创建时间</td>
+</tr>
+</tbody>
+</table>
+<p>实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>),</div><div class="line">Schema       = mongoose.Schema;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> PostSchma = <span class="keyword">new</span> Schema(&#123;</div><div class="line">	<span class="attr">title</span>    : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">content</span>  : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">category</span> : &#123; <span class="attr">type</span>: Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'Category'</span> &#125;,<span class="comment">//作为外键</span></div><div class="line">	author   : &#123; <span class="attr">type</span>: Schema.Types.ObjectId, <span class="attr">ref</span>: <span class="string">'User'</span> &#125;,   <span class="comment">//作为外键</span></div><div class="line">	slug     : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">published</span>: &#123; <span class="attr">type</span>: <span class="built_in">Boolean</span>, <span class="attr">default</span>: <span class="literal">false</span> &#125;,</div><div class="line">	<span class="attr">meta</span>     : &#123; <span class="attr">type</span>: Schema.Types.Mixed &#125;,</div><div class="line">	<span class="attr">comments</span> : [ Schema.Types.Mixed ],</div><div class="line">	<span class="attr">created</span>  : &#123; <span class="attr">type</span>: <span class="built_in">Date</span> &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">mongoose.model(<span class="string">'Post'</span>, PostSchema);</div></pre></td></tr></table></figure>
+<h3 id="用户表"><a href="#用户表" class="headerlink" title="用户表"></a>用户表</h3><p>用户表主要由以下字段构成。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">字段含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">email</td>
+<td style="text-align:left">邮箱地址</td>
+</tr>
+<tr>
+<td style="text-align:left">password</td>
+<td style="text-align:left">密码</td>
+</tr>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">创建时间</td>
+</tr>
+</tbody>
+</table>
+<p>实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>),</div><div class="line"> Schema      = mongoose.Schema;</div><div class="line"></div><div class="line"><span class="keyword">var</span> md5      = <span class="built_in">require</span>(<span class="string">'md5'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> UserSchema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">   <span class="attr">name</span>    : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">   <span class="attr">email</span>   : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">   <span class="attr">password</span>: &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">   <span class="attr">created</span> : &#123; <span class="attr">type</span>: <span class="built_in">Date</span> &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">mongoose.model(<span class="string">'User'</span>, UserSchema);</div></pre></td></tr></table></figure>
+<h3 id="分类表"><a href="#分类表" class="headerlink" title="分类表"></a>分类表</h3><p>分类表主要有以下字段构成。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">字段名</th>
+<th style="text-align:left">字段含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">name</td>
+<td style="text-align:left">分类名称</td>
+</tr>
+<tr>
+<td style="text-align:left">slug</td>
+<td style="text-align:left">固定链接</td>
+</tr>
+<tr>
+<td style="text-align:left">created</td>
+<td style="text-align:left">创建时间</td>
+</tr>
+</tbody>
+</table>
+<p>实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>),</div><div class="line">Schema       = mongoose.Schema;</div><div class="line">		</div><div class="line"><span class="keyword">var</span> CategorySchema = <span class="keyword">new</span> Schema(&#123;</div><div class="line">	<span class="attr">name</span>   : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">slug</span>   : &#123; <span class="attr">type</span>: <span class="built_in">String</span>, <span class="attr">required</span>: <span class="literal">true</span> &#125;,</div><div class="line">	<span class="attr">created</span>: &#123; <span class="attr">type</span>: <span class="built_in">Date</span> &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">mongoose.model(<span class="string">'Category'</span>, CategorySchema);</div></pre></td></tr></table></figure>
+<h3 id="后期扩展"><a href="#后期扩展" class="headerlink" title="后期扩展"></a>后期扩展</h3><p>未完，待续。</p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Web技术/">Web技术</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/Mongoose/" title="Mongoose">Mongoose</a> / 
+    
+        <a href="/tags/Node-js/" title="Node.js">Node.js</a>
+    
+
+        </span>
+    </p>
+</article>
+<div class="article-share clearfix text-center">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/02/17/mongodb-for-mac/">
+            
+                Mac 下 MongoDB 及其客户端管理工具的安装和使用
+            
+        </a>
+    </span>
+    
+</div>
+
+
+<div class="comments" id="comments">
+    
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="mongodb-blog-design" data-title="基于MongoDB的博客系统Schema设计" data-url="http://jelon.top/2017/03/12/mongodb-blog-design/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"jelon123"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Web技术/">Web技术</a>
+        <span class="badge">(15)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活琐事/">生活琐事</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <!-- 最新评论 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>最近评论</strong></h3>
+        <ul class="ds-recent-comments" data-num-items="10" data-show-avatars="1" data-show-time="1" data-show-admin="1" data-excerpt-length="70">评论没出来？<a href="javascript: window.location.reload();">点击这里刷新</a>!</ul>
+<!--多说js加载开始，一个页面只需要加载一次 -->
+<script type="text/javascript">
+    var duoshuoQuery = { short_name: 'jelon123' };
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        // http://7xs305.com1.z0.glb.clouddn.com//js/duoshuo/embed.js
+        ds.src = 'http://static.duoshuo.com/embed.js';
+        // ds.src = '//7xs305.com1.z0.glb.clouddn.com/js/duoshuo/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!--多说js加载结束，一个页面只需要加载一次 -->
+    </section>
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+<!-- 添加百度自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
