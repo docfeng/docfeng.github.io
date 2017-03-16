@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-03-16T14:53:05.000Z</updated>
+  <updated>2017-03-16T15:04:52.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/2017/03/16/summary-of-mini-program/"/>
     <id>http://jelon.top/2017/03/16/summary-of-mini-program/</id>
     <published>2017-03-16T09:17:45.000Z</published>
-    <updated>2017-03-16T14:53:05.000Z</updated>
+    <updated>2017-03-16T15:04:52.000Z</updated>
     
     <content type="html"><![CDATA[<p>其实这个项目已经提出来了好久，大约是在今年的一月份的时候，产品就已经提出了这个需求。估计是因为，那个时候小程序刚出来的那段时间特火的原因吧，公司的产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定到邮箱业务的小程序，不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，最后，产品本打算做两个业务场景的，现在已砍掉了一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
 <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>首先，看一下需求列表。功能清单大概如下3点：</p>
@@ -37,6 +37,9 @@
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/1.png" alt="主要流程"></p>
 <h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>根据需求以及UI设计，我们把页面分成了登录页、我的（用户中心）、会议室列表页面、会议室预订页面、预订成功页面、我的预订六个模块页面以及其他公共方法模块。</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/2.png" alt="项目结构"></p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><strong>会议室列表</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/3.png" alt="会议室列表页"></p>
+<p>会议室列表页面主要包含</p>
 ]]></content>
     
     <summary type="html">
