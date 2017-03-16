@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>文章归档: 2016/3 | Jelon</title>
+    <title>小程序项目小结 | Jelon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发" >
     <meta name="description" content="Jelon个人前端小站" >
@@ -57,19 +57,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/archives/2016/03/index.html" class="item ">
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/archives/2016/03/index.html" class="item ">
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
                 <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
             
-            <li rel="/archives/2016/03/index.html" class="item ">
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
             
-            <li rel="/archives/2016/03/index.html" class="item ">
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -119,137 +119,96 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 文章归档 -->
-
-    <h3 class="widget-hd">
-        <strong>
-            
-                文章归档
-            
-        </strong>
-    </h3>
-    
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        
-        <a class="cat-link" href="/categories/Web技术/">Web技术</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="http://jelon.top/2016/03/13/js-docs/">
-    		JavaScript 最全编码规范
-    	</a>
-    </h3>
-
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>小程序项目小结</span></h3>
     </header>
-    <p class="post-meta">
+    <p class="post-meta text-center">
         Jelon 发表于
-        <time datetime="2016-03-13T12:22:12.000Z">2016-03-13</time>
+        <time datetime="2017-03-16T09:17:45.000Z">2017-03-16</time>
     </p>
-
     <div class="post-content">
-        <div class="post-excerpt">
-            
-                <h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>基本类型：访问基本类型时，应该直接操作类型值</p>
+        <p>其实这个项目已经提出来了好久，大约是在今年的一月份的时候，产品就已经提出了这个需求。估计是因为，那个时候小程序刚出来的那段时间特火的原因吧，公司的产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定到邮箱业务的小程序，不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，最后，产品本打算做两个业务场景的，现在已砍掉了一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>首先，看一下需求列表。功能清单大概如下3点：</p>
 <ul>
-<li>string</li>
-<li>number</li>
-<li>boolean</li>
-<li>null</li>
-<li>undefined</li>
+<li><p>小程序首页可以根据日期查看会议订满和可预订状态；</p>
+</li>
+<li><p>可以查看会议室预订情况，在空闲时段可以预订会议室；</p>
+</li>
+<li><p>预订会议室后，提供晋中查看页面，查看自己预订的所有会议室。</p>
+</li>
 </ul>
-            
-            <p class="more">
-                <a href="http://jelon.top/2016/03/13/js-docs/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="http://jelon.top/2016/03/13/js-docs/" title="JavaScript 最全编码规范">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="//7xs305.com1.z0.glb.clouddn.com/thumbnail/3.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
+<p>此外，还有一个比较重要的功能点也就是登录功能：包括绑定账号登录，以及登录态的维护。当初评审的时候，没有把登录功能加入到工作量里面，事实上，登录功能也一点儿不比其他功能要简单。</p>
+<p>整个需求的流程图大概如下：</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/1.png1.png" alt="主要流程"></p>
+
     </div>
     <p class="post-meta">
-        <a href="http://jelon.top/2016/03/13/js-docs/#comments" class="post-comments ds-thread-count" data-thread-key="js-docs" data-count-type="comments"></a>
-        <!-- 标签 -->
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Web技术/">Web技术</a>
+        </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/编码规范/" title="编码规范">编码规范</a> / 
+        <a href="/tags/小程序/" title="小程序">小程序</a> / 
     
-        <a href="/tags/js/" title="js">js</a>
+        <a href="/tags/WeChat/" title="WeChat">WeChat</a>
     
 
         </span>
     </p>
 </article>
+<div class="article-share clearfix text-center">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
     
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        
-        <a class="cat-link" href="/categories/生活琐事/">生活琐事</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="http://jelon.top/2016/03/13/hello-new-blog/">
-    		关于新博客
-    	</a>
-    </h3>
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
 
-    </header>
-    <p class="post-meta">
-        Jelon 发表于
-        <time datetime="2016-03-12T16:10:21.000Z">2016-03-12</time>
-    </p>
-
-    <div class="post-content">
-        <div class="post-excerpt">
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/03/12/mongodb-blog-design/">
             
-                <h3 id="写独立博客"><a href="#写独立博客" class="headerlink" title="写独立博客"></a>写独立博客</h3><p>自从大二暑假开通个人的第一个独立博客以来，博客变更了好几次，每次不是换了后台程序就是换了皮肤，甚至有时候换了域名。只能说，做独立博客实在是太不容易了。一是，做独立博客需要自己从后台到前端全栈技术都要懂一些；二是，搭建完博客还是不行的，还要坚持写博文，尤其是原创博文（吐槽一下，我个人觉得自己的水平太水，写原创博文实在好难）；三是，做独立博客需要买域名、买空间，有时候为了方便就直接网站找了个免费的php空间，免费的东西毕竟不太靠谱，网站不稳定，经常会挂掉。<br>
+                基于 MongoDB 的博客系统 Schema 设计
             
-            <p class="more">
-                <a href="http://jelon.top/2016/03/13/hello-new-blog/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="http://jelon.top/2016/03/13/hello-new-blog/" title="关于新博客">
-                
-                    <img class="thumbnail" src="/img/default.png" data-echo="//7xs305.com1.z0.glb.clouddn.com/thumbnail/2.jpg" alt="默认配图" >
-                
-            </a>
-        </div>
-    </div>
-    <p class="post-meta">
-        <a href="http://jelon.top/2016/03/13/hello-new-blog/#comments" class="post-comments ds-thread-count" data-thread-key="hello-new-blog" data-count-type="comments"></a>
-        <!-- 标签 -->
-        <span class="post-tags">
-            标签：
-            
+        </a>
+    </span>
     
-        <a href="/tags/Hexo/" title="Hexo">Hexo</a> / 
-    
-        <a href="/tags/新博客/" title="新博客">新博客</a>
-    
-
-        </span>
-    </p>
-</article>
-    
-
-    
-    <nav class="page-navigator">
-        <span class="page-number current">1</span>
-    </nav>
-    
+</div>
 
 
+<div class="comments" id="comments">
+    
+<!-- 多说评论框 start -->
+<div class="ds-thread" data-thread-key="summary-of-mini-program" data-title="小程序项目小结" data-url="http://jelon.top/2017/03/16/summary-of-mini-program/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"jelon123"};
+    (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0]
+        || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+</script>
+<!-- 多说公共JS代码 end -->
+
+</div>
             </div>
 
         </section>

@@ -1,3 +1,4 @@
+http://jelon.top/2017/03/16/summary-of-mini-program/
 http://jelon.top/2017/03/12/mongodb-blog-design/
 http://jelon.top/2017/02/17/mongodb-for-mac/
 http://jelon.top/2016/12/19/139mailbuildtool/
@@ -7,4 +8,3 @@ http://jelon.top/2016/10/17/yarn/
 http://jelon.top/2016/08/27/vue-vuex-bootstrap/
 http://jelon.top/2016/08/06/jquery-window-height-incorrect/
 http://jelon.top/2016/07/30/taonpm/
-http://jelon.top/2016/07/06/react-native-learning/
