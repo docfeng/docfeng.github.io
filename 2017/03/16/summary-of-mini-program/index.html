@@ -145,9 +145,26 @@
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/1.png" alt="主要流程" width="400"></p>
 <h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>根据需求以及UI设计，我们把页面分成了登录页、我的（用户中心）、会议室列表页面、会议室预订页面、预订成功页面、我的预订六个模块页面以及其他公共方法模块。</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/2.png" alt="项目结构"></p>
-<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p><strong>会议室列表</strong></p>
+<h3 id="主要模块分解"><a href="#主要模块分解" class="headerlink" title="主要模块分解"></a>主要模块分解</h3><p><strong>会议室列表</strong></p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/3.png" alt="会议室列表页" width="300"></p>
-<p>会议室列表页面主要包含两个部分，头部的滑动日历组件，以及内容部分的会议室列表。其中，这个模块页面重点的部分就是头部这个日历组件，所以有必要重点讲一下这个组件的实现流程。虽然小程序，有很多很好看并且也很好用的组件，但是像头部这种滑动日历组件小程序肯定是没有的，所以只能自己去写一个，实现起来其实也不难，主要用到小程序里面的 touchstart、touchmove、touchend 以及 touchcancel（防止滑动时遇到突然来电话等情况） 事件（当然这4个事件也是 w3c 里面的事件）。关于这个日历组件的实现流程大概如下：</p>
+<p>会议室列表页面主要包含两个部分，头部的滑动日历组件，以及内容部分的会议室列表。</p>
+<p><strong>预订页面</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/4.png" alt="预订页面-可预订" width="300"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/5.png" alt="预订页面-已失效" width="300"></p>
+<p>预订会议室页面分为三种情况，可预订、已订满（截图没有）、已失效；会议室预订的最小粒度为30分钟。</p>
+<ul>
+<li><p>可预订：说明当天该会议室至少有30分钟的时间段是可以预订，提供预订按钮；</p>
+</li>
+<li><p>已订满：说明当天已经订满或者不可以在预订了，不提供预订按钮；</p>
+</li>
+<li><p>已失效：比如，我今天打开昨天的会议室，就是已失效会议室，不提供预订按钮。</p>
+</li>
+</ul>
+<p><strong>登录</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/6.png" alt="登录页面" width="300"></p>
+<p>登录分为手机号登录和邮箱账号登录。</p>
+<h3 id="重点实现"><a href="#重点实现" class="headerlink" title="重点实现"></a>重点实现</h3><p><strong>会议室列表日历组件</strong></p>
+<p>会议室列表页面模块页面重点的部分就是头部这个日历组件，所以有必要重点讲一下这个组件的实现流程。虽然小程序，有很多很好看并且也很好用的组件，但是像头部这种滑动日历组件小程序肯定是没有的，所以只能自己去写一个，实现起来其实也不难，主要用到小程序里面的 touchstart、touchmove、touchend 以及 touchcancel（防止滑动时遇到突然来电话等情况） 事件（当然这4个事件也是 w3c 里面的事件）。关于这个日历组件的实现流程大概如下：</p>
 <ol>
 <li><p><em>初始化单元格</em> 这个日历组件总共有15个单元，虽然展示在我们面前的只有5个，实际上在这5个单元格的左边和右边都分别有5个看不到的日历单元格；</p>
 </li>
@@ -166,22 +183,9 @@
 <li><p><em>滑动取消</em> 对于滑动取消这种情况，复位组件，即选中今天。</p>
 </li>
 </ol>
-<p><strong>预订页面</strong></p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/4.png" alt="预订页面-可预订" width="300"></p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/5.png" alt="预订页面-已失效" width="300"></p>
-<p>预订会议室页面分为三种情况，可预订、已订满（截图没有）、已失效；会议室预订的最小粒度为30分钟。</p>
-<ul>
-<li><p>可预订：说明当天该会议室至少有30分钟的时间段是可以预订，提供预订按钮；</p>
-</li>
-<li><p>已订满：说明当天已经订满或者不可以在预订了，不提供预订按钮；</p>
-</li>
-<li><p>已失效：比如，我今天打开昨天的会议室，就是已失效会议室，不提供预订按钮。</p>
-</li>
-</ul>
-<p><strong>登录</strong></p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/6.png" alt="登录页面" width="300"></p>
-<p>登录分为手机号登录和邮箱账号登录。</p>
-
+<p><strong>登录态维护</strong></p>
+<p><img src="https://mp.weixin.qq.com/debug/wxadoc/dev/image/login.png?t=201733" alt="登录态维护"></p>
+<h3 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h3>
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
