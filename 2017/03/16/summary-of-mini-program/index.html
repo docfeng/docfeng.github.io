@@ -185,7 +185,13 @@
 </ol>
 <p><strong>登录态维护</strong></p>
 <p><img src="https://mp.weixin.qq.com/debug/wxadoc/dev/image/login.png?t=201733" alt="登录态维护"></p>
-<h3 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h3>
+<h3 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h3><ul>
+<li>小程序使用 Mustache 语法（双大括号）将变量包起来的数据绑定，不支持稍微复杂一点运算，如：</li>
+</ul>
+<p>支持</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; a + b&#125;&#125;</div></pre></td></tr></table></figure>
+<p>不支持</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; a + b + c &#125;&#125;</div></pre></td></tr></table></figure>
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
