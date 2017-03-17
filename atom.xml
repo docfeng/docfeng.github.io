@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-03-17T05:42:44.000Z</updated>
+  <updated>2017-03-17T06:08:31.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/2017/03/16/summary-of-mini-program/"/>
     <id>http://jelon.top/2017/03/16/summary-of-mini-program/</id>
     <published>2017-03-16T09:17:45.000Z</published>
-    <updated>2017-03-17T05:42:44.000Z</updated>
+    <updated>2017-03-17T06:08:31.000Z</updated>
     
     <content type="html"><![CDATA[<p>其实这个项目已经提出来了好久，应该是在今年的一月份的时候，产品就已经提出了这个需求。想当初，小程序刚出来的时候，IT朋友圈经常会被刷屏，估计为了赶潮流，产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定邮箱业务到小程序，也不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，后面不知道开了多少次会，最后产品本打算做的两个业务场景，砍掉了其中一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
 <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>首先，看一下需求列表。功能清单大概如下3点：</p>
@@ -43,7 +43,8 @@
 <p><strong>预订页面模块</strong></p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/4.png" alt="预订页面-可预订" width="300"></p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/5.png" alt="预订页面-已失效" width="300"></p>
-<p>预订会议室包含当前会议室预订的列表、预订按钮两个部分。根据底部预订按钮可以分为三种情况，可预订、已订满（截图没有）、已失效；会议室预订的最小粒度为30分钟。</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/9.png" alt="预订页面" width="300"></p>
+<p>预订会议室包含当前会议室预订的列表、预订两个部分。根据底部预订按钮可以分为三种情况，可预订、已订满（截图没有）、已失效；会议室预订的最小粒度为30分钟。</p>
 <ul>
 <li><p>可预订：说明当天该会议室至少有30分钟的时间段是可以预订，提供预订按钮；</p>
 </li>
@@ -265,9 +266,9 @@
       <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="Mongoose" scheme="http://jelon.top/tags/Mongoose/"/>
-    
       <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
+    
+      <category term="Mongoose" scheme="http://jelon.top/tags/Mongoose/"/>
     
   </entry>
   
@@ -396,9 +397,9 @@
     
       <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
     
-      <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
-    
       <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
+    
+      <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
     
   </entry>
   
