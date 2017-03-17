@@ -161,9 +161,10 @@
 </li>
 </ul>
 <p><strong>登录模块</strong></p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/6.png" alt="登录页面" width="300"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/6.png" alt="登录页面" width="350"></p>
 <p>登录分为手机号登录和邮箱账号登录。</p>
 <h3 id="重点实现"><a href="#重点实现" class="headerlink" title="重点实现"></a>重点实现</h3><p><strong>会议室列表日历组件</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/8.png" alt="登录页面" width="300"></p>
 <p>会议室列表页面模块页面重点的部分就是头部这个日历组件，所以有必要重点讲一下这个组件的实现流程。虽然小程序，有很多很好看并且也很好用的组件，但是像头部这种滑动日历组件小程序肯定是没有的，所以只能自己去写一个，实现起来其实也不难，主要用到小程序里面的 touchstart、touchmove、touchend 以及 touchcancel（防止滑动时遇到突然来电话等情况） 事件（当然这4个事件也是 w3c 里面的事件）。关于这个日历组件的实现流程大概如下：</p>
 <ol>
 <li><p><em>初始化单元格</em> 这个日历组件总共有15个单元，虽然展示在我们面前的只有5个，实际上在这5个单元格的左边和右边都分别有5个看不到的日历单元格；</p>
@@ -207,6 +208,10 @@
 </ul>
 <p>我们的解决方法是将 RMKEY 放到请求的头部新建字段带给后台。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">subMeetingRoom: <span class="function"><span class="keyword">function</span> (<span class="params">options, rmKey, callback</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> sid   = wx.getStorageSync(<span class="string">'sid'</span>);</div><div class="line">	<span class="keyword">var</span> rmKey = wx.getStorageSync(<span class="string">'rmKey'</span>); </div><div class="line">	options   = util.json2xml(options);</div><div class="line">	wx.request(&#123;</div><div class="line">	  <span class="attr">url</span>    : <span class="string">'https://xxx.com'</span> + <span class="string">'/calendar/s?func=calendar:subMeetingRoom&amp;sid='</span> + sid,</div><div class="line">	  <span class="attr">data</span>   : options,</div><div class="line">	  <span class="attr">method</span> : <span class="string">'POST'</span>,</div><div class="line">	  <span class="attr">header</span> : &#123;</div><div class="line">	    <span class="string">'content-type'</span>: <span class="string">'application/xml'</span>,</div><div class="line">	    <span class="string">'Cookie'</span>      : <span class="string">'RMKEY='</span> + rmKey  <span class="comment">// 请求创建一个 Cookie 字段</span></div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">	    <span class="keyword">if</span> (res) &#123;</div><div class="line">	      callback &amp;&amp; callback(res);</div><div class="line">	    &#125;</div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">fail</span>   : <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">	    callback &amp;&amp; callback(err);</div><div class="line">	  &#125;</div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>小程序根据屏幕宽度进行自适应。规定屏幕宽为750rpx。</li>
+</ul>
+
     </div>
     <p class="post-meta">
         <span class="post-cat">分类：
