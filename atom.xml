@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-03-17T03:30:49.000Z</updated>
+  <updated>2017-03-17T04:19:27.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/2017/03/16/summary-of-mini-program/"/>
     <id>http://jelon.top/2017/03/16/summary-of-mini-program/</id>
     <published>2017-03-16T09:17:45.000Z</published>
-    <updated>2017-03-17T03:30:49.000Z</updated>
+    <updated>2017-03-17T04:19:27.000Z</updated>
     
     <content type="html"><![CDATA[<p>其实这个项目已经提出来了好久，应该是在今年的一月份的时候，产品就已经提出了这个需求。想当初，小程序刚出来的时候，IT朋友圈经常会被刷屏，估计为了赶潮流，产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定邮箱业务到小程序，也不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，后面不知道开了多少次会，最后产品本打算做的两个业务场景，砍掉了其中一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
 <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>首先，看一下需求列表。功能清单大概如下3点：</p>
@@ -101,8 +101,12 @@
 <p>我们的解决方法是将 RMKEY 放到请求的头部新建字段带给后台。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">subMeetingRoom: <span class="function"><span class="keyword">function</span> (<span class="params">options, rmKey, callback</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> sid   = wx.getStorageSync(<span class="string">'sid'</span>);</div><div class="line">	<span class="keyword">var</span> rmKey = wx.getStorageSync(<span class="string">'rmKey'</span>); </div><div class="line">	options   = util.json2xml(options);</div><div class="line">	wx.request(&#123;</div><div class="line">	  <span class="attr">url</span>    : <span class="string">'https://xxx.com'</span> + <span class="string">'/calendar/s?func=calendar:subMeetingRoom&amp;sid='</span> + sid,</div><div class="line">	  <span class="attr">data</span>   : options,</div><div class="line">	  <span class="attr">method</span> : <span class="string">'POST'</span>,</div><div class="line">	  <span class="attr">header</span> : &#123;</div><div class="line">	    <span class="string">'content-type'</span>: <span class="string">'application/xml'</span>,</div><div class="line">	    <span class="string">'Cookie'</span>      : <span class="string">'RMKEY='</span> + rmKey  <span class="comment">// 请求创建一个 Cookie 字段</span></div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">	    <span class="keyword">if</span> (res) &#123;</div><div class="line">	      callback &amp;&amp; callback(res);</div><div class="line">	    &#125;</div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">fail</span>   : <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">	    callback &amp;&amp; callback(err);</div><div class="line">	  &#125;</div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li>小程序根据屏幕宽度进行自适应。规定屏幕宽为750rpx。</li>
+<li>小程序长度单位 rpx 和 px 的转换，有些情况只能到真机里面去看；如果使用微信开发工具的话，建议切换成 iPhone 6 模式。</li>
 </ul>
+<p><img src="https://dn-coding-net-production-pp.qbox.me/ac2a2834-4bf0-44c1-84aa-ece1f6abfeca.jpg?imageView2/2/w/500/h/500&amp;imageMogr2/format/jpg/ignore-error/1" alt="rpx"></p>
+<p><img src="https://dn-coding-net-production-pp.qbox.me/a814a870-e0d9-47f2-84e7-ca49b1b80996.jpg?imageView2/2/w/500/h/500&amp;imageMogr2/format/jpg/ignore-error/1" alt="rpx"></p>
+<p><img src="https://dn-coding-net-production-pp.qbox.me/a814a870-e0d9-47f2-84e7-ca49b1b80996.jpg?imageView2/2/w/500/h/500&amp;imageMogr2/format/jpg/ignore-error/1" alt="rpx"></p>
+<p>以上是在 Windows 下使用的微信开发者工具返回来的像素比，iPhone 4s 的像素比居然的也是 2，很明显不靠谱。</p>
 ]]></content>
     
     <summary type="html">
@@ -381,9 +385,9 @@
       <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
     
     
-      <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
-    
       <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
+    
+      <category term="Mac OSX" scheme="http://jelon.top/tags/Mac-OSX/"/>
     
       <category term="MongoDB" scheme="http://jelon.top/tags/MongoDB/"/>
     
