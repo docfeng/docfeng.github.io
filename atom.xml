@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-03-17T05:28:59.000Z</updated>
+  <updated>2017-03-17T05:34:05.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/2017/03/16/summary-of-mini-program/"/>
     <id>http://jelon.top/2017/03/16/summary-of-mini-program/</id>
     <published>2017-03-16T09:17:45.000Z</published>
-    <updated>2017-03-17T05:28:59.000Z</updated>
+    <updated>2017-03-17T05:34:05.000Z</updated>
     
     <content type="html"><![CDATA[<p>其实这个项目已经提出来了好久，应该是在今年的一月份的时候，产品就已经提出了这个需求。想当初，小程序刚出来的时候，IT朋友圈经常会被刷屏，估计为了赶潮流，产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定邮箱业务到小程序，也不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，后面不知道开了多少次会，最后产品本打算做的两个业务场景，砍掉了其中一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
 <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>首先，看一下需求列表。功能清单大概如下3点：</p>
