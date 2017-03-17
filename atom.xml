@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-03-16T16:38:38.000Z</updated>
+  <updated>2017-03-17T01:39:22.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://jelon.top/2017/03/16/summary-of-mini-program/"/>
     <id>http://jelon.top/2017/03/16/summary-of-mini-program/</id>
     <published>2017-03-16T09:17:45.000Z</published>
-    <updated>2017-03-16T16:38:38.000Z</updated>
+    <updated>2017-03-17T01:39:22.000Z</updated>
     
-    <content type="html"><![CDATA[<p>其实这个项目已经提出来了好久，大约是在今年的一月份的时候，产品就已经提出了这个需求。估计是因为，那个时候小程序刚出来的那段时间特火的原因吧，公司的产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定到邮箱业务的小程序，不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，最后，产品本打算做两个业务场景的，现在已砍掉了一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
+    <content type="html"><![CDATA[<p>其实这个项目已经提出来了好久，应该是在今年的一月份的时候，产品就已经提出了这个需求。想当初，小程序刚出来的时候，IT朋友圈经常会被刷屏，估计为了赶潮流，产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定邮箱业务到小程序，也不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，后面不知道开了多少次会，最后产品本打算做的两个业务场景，砍掉了其中一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
 <h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>首先，看一下需求列表。功能清单大概如下3点：</p>
 <ul>
 <li><p>小程序首页可以根据日期查看会议订满和可预订状态；</p>
@@ -77,17 +77,23 @@
 </ol>
 <p><strong>登录态维护</strong></p>
 <p><img src="https://mp.weixin.qq.com/debug/wxadoc/dev/image/login.png?t=201733" alt="登录态维护"></p>
-<h3 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑</h3><ul>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
 <li>小程序使用 Mustache 语法（双大括号）将变量包起来的数据绑定，不支持稍微复杂一点运算，如：</li>
 </ul>
 <p>支持</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; a + b&#125;&#125;</div></pre></td></tr></table></figure>
 <p>不支持</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; a + b + c &#125;&#125;</div></pre></td></tr></table></figure>]]></content>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; a + b + c &#125;&#125;</div></pre></td></tr></table></figure>
+<p>因此，如果涉及到数据的计算，最好先在 js 里面计算好了，在绑定到 View 层。</p>
+<ul>
+<li>小程序不支持 Cookie。小程序使用框架提供的 <code>wx.request</code> 接口发送 https 请求不会携带 Cookie 信息，传统webserver的会话管理能力 session（比如邮箱会话校验所使用的 RMKEY ）在微信小程序无法直接使用，在这点上微信小程序更像CS架构的开发模式，开发者需要自己实现会话管理功能。</li>
+</ul>
+<p>我们的解决方法是将 RMKEY 放到请求的头部新建字段带给后台。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">subMeetingRoom: <span class="function"><span class="keyword">function</span> (<span class="params">options, rmKey, callback</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> sid   = wx.getStorageSync(<span class="string">'sid'</span>);</div><div class="line">	<span class="keyword">var</span> rmKey = wx.getStorageSync(<span class="string">'rmKey'</span>); </div><div class="line">	options   = util.json2xml(options);</div><div class="line">	wx.request(&#123;</div><div class="line">	  <span class="attr">url</span>    : <span class="string">'https://xxx.com'</span> + <span class="string">'/calendar/s?func=calendar:subMeetingRoom&amp;sid='</span> + sid,</div><div class="line">	  <span class="attr">data</span>   : options,</div><div class="line">	  <span class="attr">method</span> : <span class="string">'POST'</span>,</div><div class="line">	  <span class="attr">header</span> : &#123;</div><div class="line">	    <span class="string">'content-type'</span>: <span class="string">'application/xml'</span>,</div><div class="line">	    <span class="string">'Cookie'</span>      : <span class="string">'RMKEY='</span> + rmKey  <span class="comment">// 请求创建一个 Cookie 字段</span></div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">	    <span class="keyword">if</span> (res) &#123;</div><div class="line">	      callback &amp;&amp; callback(res);</div><div class="line">	    &#125;</div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">fail</span>   : <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">	    callback &amp;&amp; callback(err);</div><div class="line">	  &#125;</div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;其实这个项目已经提出来了好久，大约是在今年的一月份的时候，产品就已经提出了这个需求。估计是因为，那个时候小程序刚出来的那段时间特火的原因吧，公司的产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定到邮箱业务的小程序，不是想做就能做的，记得当时开评审会的时候，一屋
+      &lt;p&gt;其实这个项目已经提出来了好久，应该是在今年的一月份的时候，产品就已经提出了这个需求。想当初，小程序刚出来的时候，IT朋友圈经常会被刷屏，估计为了赶潮流，产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定邮箱业务到小程序，也不是想做就能做的，记得当时开评审会的时候
     
     </summary>
     
