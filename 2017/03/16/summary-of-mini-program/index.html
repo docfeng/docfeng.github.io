@@ -144,7 +144,7 @@
 <p>整个需求的流程图大概如下：</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/1.png" alt="主要流程" width="400"></p>
 <h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>根据需求以及UI设计，我们把页面分成了登录页、我的（用户中心）、会议室列表页面、会议室预订页面、预订成功页面、我的预订六个模块页面以及其他公共方法模块。</p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/2.png" alt="项目结构" width="450"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/2.png" alt="项目结构" width="500"></p>
 <h3 id="主要模块分解"><a href="#主要模块分解" class="headerlink" title="主要模块分解"></a>主要模块分解</h3><p><strong>会议室列表模块</strong></p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/3.png" alt="会议室列表页" width="300"></p>
 <p>会议室列表页面主要包含两个部分，头部的滑动日历组件，以及内容部分的会议室列表。</p>
@@ -184,7 +184,10 @@
 </li>
 </ol>
 <p><strong>登录态维护</strong></p>
+<p>登录时序图</p>
 <p><img src="https://mp.weixin.qq.com/debug/wxadoc/dev/image/login.png?t=201733" alt="登录态维护"></p>
+<p>参考以上的微信提供的登录时序图，以及结合 139 邮箱小程序的登录特征，后台后台提供两个接口：一个是用户第一次登录（ sid、rmKey 等登录信息不存在）时所调用的登录接口；另外一个则是，用户之前已经登录过（小程序缓存 Storage 里面已存在 sid、rmKey等登录信息）时所调用的免登录接口。流程图如下</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/7.png" alt="登录页面" width="450"></p>
 <h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
 <li>小程序使用 Mustache 语法（双大括号）将变量包起来的数据绑定，不支持稍微复杂一点运算，如：</li>
 </ul>
