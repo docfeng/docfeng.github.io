@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>小程序项目小结 | Jelon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发" >
+    <meta name="description" content="Jelon个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jelon" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Jelon</span>
+                    <span class="description">个人前端博客小站</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2017/03/16/summary-of-mini-program/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://coding.net/u/jangdelong" target="_blank">Coding</a>
+                        |
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="http://tongji.baidu.com/web/welcome/login" target="_blank">百度统计</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>小程序项目小结</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2017-03-16T09:17:45.000Z">2017-03-16</time>
+    </p>
+    <div class="post-content">
+        <p>其实这个项目已经提出来了好久，应该是在今年的一月份的时候，产品就已经提出了这个需求。想当初，小程序刚出来的时候，IT朋友圈经常会被刷屏，估计为了赶潮流，产品也想尝尝鲜，想出来要做一个跟邮箱相关的小程序。然而，要绑定邮箱业务到小程序，也不是想做就能做的，记得当时开评审会的时候，一屋子的人，包括前端、后端在内的各种不能做。经过了几番折腾，后面不知道开了多少次会，最后产品本打算做的两个业务场景，砍掉了其中一个，留了一个，也就是今天我要总结的东西 —- 结合日历实现会议室预订微信小程序产品需求。</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>首先，看一下需求列表。功能清单大概如下3点：</p>
+<ul>
+<li><p>小程序首页可以根据日期查看会议订满和可预订状态；</p>
+</li>
+<li><p>可以查看会议室预订情况，在空闲时段可以预订会议室；</p>
+</li>
+<li><p>预订会议室后，提供晋中查看页面，查看自己预订的所有会议室。</p>
+</li>
+</ul>
+<p>此外，还有一个比较重要的功能点也就是登录功能：包括绑定账号登录，以及登录态的维护。当初评审的时候，没有把登录功能加入到工作量里面，事实上，登录功能也一点儿不比其他功能要简单。</p>
+<p>整个需求的流程图大概如下：</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/1.png" alt="主要流程" width="400"></p>
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>根据需求以及UI设计，我们把页面分成了登录页、我的（用户中心）、会议室列表页面、会议室预订页面、预订成功页面、我的预订六个模块页面以及其他公共方法模块。</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/2.png" alt="项目结构" width="500"></p>
+<h3 id="主要模块分解"><a href="#主要模块分解" class="headerlink" title="主要模块分解"></a>主要模块分解</h3><p><strong>会议室列表模块</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/3.png" alt="会议室列表页" width="300"></p>
+<p>会议室列表页面主要包含两个部分，头部的滑动日历组件，以及内容部分的会议室列表。</p>
+<p><strong>预订页面模块</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/4.png" alt="预订页面-可预订" width="300"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/5.png" alt="预订页面-已失效" width="300"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/9.png" alt="预订页面" width="300"></p>
+<p>预订会议室包含当前会议室预订的列表、预订两个部分。根据底部预订按钮可以分为三种情况，可预订、已订满（截图没有）、已失效；会议室预订的最小粒度为30分钟。</p>
+<ul>
+<li><p>可预订：说明当天该会议室至少有30分钟的时间段是可以预订，提供预订按钮；</p>
+</li>
+<li><p>已订满：说明当天已经订满或者不可以在预订了，不提供预订按钮；</p>
+</li>
+<li><p>已失效：比如，我今天打开昨天的会议室，就是已失效会议室，不提供预订按钮。</p>
+</li>
+</ul>
+<p><strong>登录模块</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/6.png" alt="登录页面" width="350"></p>
+<p>登录分为手机号登录和邮箱账号登录。</p>
+<h3 id="重点实现"><a href="#重点实现" class="headerlink" title="重点实现"></a>重点实现</h3><p><strong>会议室列表日历组件</strong></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/8.png" alt="登录页面" width="300"></p>
+<p>会议室列表页面模块页面重点的部分就是头部这个日历组件，所以有必要重点讲一下这个组件的实现流程。虽然小程序，有很多很好看并且也很好用的组件，但是像头部这种滑动日历组件小程序肯定是没有的，所以只能自己去写一个，实现起来其实也不难，主要用到小程序里面的 touchstart、touchmove、touchend 以及 touchcancel（防止滑动时遇到突然来电话等情况） 事件（当然这4个事件也是 w3c 里面的事件）。关于这个日历组件的实现思路大概如下：</p>
+<ol>
+<li><p><em>初始化单元格</em> 这个日历组件总共有15个单元，虽然展示在我们面前的只有5个，实际上在这5个单元格的左边和右边都分别有5个看不到的日历单元格；</p>
+</li>
+<li><p><em>填充单元内容</em> 接下来就是填充着15个单元格里面的日期以及星期，应该如何计算？其实，只需要获取今天00点00分时的时间戳，然后通过加减 n（其他日期与今天的差值） 个 86400000 毫秒即可，这个 86400000 毫秒就是两天之间的时间戳只差，比如3月16日00时00分与3月15日00时00分之间刚好相差 86400000 毫秒；</p>
+</li>
+<li><p><em>计算宽度</em> 每个单元格宽度为五分之一屏幕宽度；</p>
+</li>
+<li><p><em>日历组件居中</em> 为了保证第七个单元格居中，也就是让这中间这个单元格选中，组件容器向左负偏移一个屏幕宽度距离。<code>transiform: translate(-SCREENWIDTHpx, 0)</code>；</p>
+</li>
+<li><p><em>向左滑动处理</em> 计算向左滑动的距离，设置组件容器的偏移量；</p>
+</li>
+<li><p><em>向右滑动处理</em> 计算向右滑动距离，设置组件容器的偏移量；</p>
+</li>
+<li><p><em>滑动结束</em> 当滑动结束，根据最终滑动的距离计算向左或向右滑动了多少天，来选中最终的日期，然后根据这个日期重新渲染单元格；</p>
+</li>
+<li><p><em>滑动取消</em> 对于滑动取消这种情况，复位组件，即选中今天。</p>
+</li>
+</ol>
+<p><strong>登录态维护</strong></p>
+<p>登录时序图</p>
+<p><img src="https://mp.weixin.qq.com/debug/wxadoc/dev/image/login.png?t=201733" alt="登录态维护"></p>
+<p>参考以上的微信提供的登录时序图，以及结合 139 邮箱小程序的登录特征，后台后台提供两个接口：一个是用户第一次登录（ sid、rmKey 等登录信息不存在）时所调用的登录接口；另外一个则是，用户之前已经登录过（小程序缓存 Storage 里面已存在 sid、rmKey等登录信息）时所调用的免登录接口。</p>
+<p>流程图如下：</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/summary-of-mini-program/7.png" alt="登录页面" width="450"></p>
+<p>代码实现如下：</p>
+<p>登录</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">doLogin: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> _this = <span class="keyword">this</span>;</div><div class="line">    <span class="keyword">if</span> (_this.data.phoneLogin &amp;&amp; !_this.data.phoneNumber.trim()) &#123;</div><div class="line">      wx.showModal(&#123;</div><div class="line">        <span class="attr">title</span>     : <span class="string">'139邮箱提示'</span>,</div><div class="line">        <span class="attr">content</span>   : <span class="string">'请输入手机号'</span>,</div><div class="line">        <span class="attr">showCancel</span>: <span class="literal">false</span></div><div class="line">      &#125;);</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (_this.data.mailLogin &amp;&amp; !_this.data.mailName.trim()) &#123;</div><div class="line">      wx.showModal(&#123;</div><div class="line">        <span class="attr">title</span>     : <span class="string">'139邮箱提示'</span>,</div><div class="line">        <span class="attr">content</span>   : <span class="string">'请输入邮箱账号'</span>,</div><div class="line">        <span class="attr">showCancel</span>: <span class="literal">false</span></div><div class="line">      &#125;);</div><div class="line">      <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 登录成功，跳转至用户中心</span></div><div class="line">    wx.login(&#123;</div><div class="line">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> code  = res.code;</div><div class="line">        <span class="keyword">if</span> (code) &#123;</div><div class="line">          <span class="keyword">if</span> (_this.data.phoneLogin) &#123;</div><div class="line">            _this.loginFunc(&#123;</div><div class="line">              <span class="attr">code</span>        : code,</div><div class="line">              <span class="attr">userNumber</span>  : _this.data.phoneNumber.trim(),</div><div class="line">              <span class="attr">password</span>    : _this.data.smsCode   </div><div class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">json</span>) </span>&#123;</div><div class="line">              <span class="keyword">if</span> (json.statusCode === <span class="number">200</span>) &#123;</div><div class="line">                  <span class="keyword">var</span> data = json.data;</div><div class="line">                  <span class="keyword">if</span> (<span class="keyword">typeof</span> data === <span class="string">'string'</span>) &#123;</div><div class="line">                    data = <span class="built_in">JSON</span>.parse(data);</div><div class="line">                  &#125;</div><div class="line">                  <span class="comment">// 登录成功，跳转至用户中心</span></div><div class="line">                  <span class="keyword">if</span> (data &amp;&amp; data.code === <span class="string">'S_OK'</span>) &#123;</div><div class="line">                    wx.setStorage(&#123;</div><div class="line">                      <span class="attr">key</span> : <span class="string">'sid'</span>,</div><div class="line">                      <span class="attr">data</span>: data.sid</div><div class="line">                    &#125;);</div><div class="line">                    <span class="comment">// 登录成功，跳转至用户中心</span></div><div class="line">                    wx.switchTab(&#123;</div><div class="line">                      <span class="attr">url</span>    : <span class="string">'../../pages/conference/meetingRoom'</span>,</div><div class="line">                      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">                        <span class="built_in">console</span>.log(<span class="string">'登录成功！'</span>);</div><div class="line">                      &#125;</div><div class="line">                    &#125;);</div><div class="line">                  &#125;</div><div class="line">                &#125;</div><div class="line">              &#125;);</div><div class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> (_this.data.mailLogin) &#123;</div><div class="line">            _this.loginFunc(&#123;</div><div class="line">              <span class="attr">code</span>        : code,</div><div class="line">              <span class="attr">userNumber</span>  : _this.data.mailName.trim(),</div><div class="line">              <span class="attr">password</span>    : _this.data.password   </div><div class="line">            &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">json</span>) </span>&#123;</div><div class="line">                <span class="keyword">if</span> (json.statusCode === <span class="number">200</span>) &#123;</div><div class="line">                  <span class="keyword">var</span> data = json.data;</div><div class="line">                  <span class="keyword">if</span> (<span class="keyword">typeof</span> data === <span class="string">'string'</span>) &#123;</div><div class="line">                    data = <span class="built_in">JSON</span>.parse(data);</div><div class="line">                  &#125;</div><div class="line">                  <span class="comment">// 登录成功，跳转至用户中心</span></div><div class="line">                  <span class="keyword">if</span> (data &amp;&amp; data.code === <span class="string">'S_OK'</span>) &#123;</div><div class="line">                    wx.setStorage(&#123;</div><div class="line">                      <span class="attr">key</span> : <span class="string">'sid'</span>,</div><div class="line">                      <span class="attr">data</span>: data.sid</div><div class="line">                    &#125;);</div><div class="line">                    wx.setStorage(&#123;</div><div class="line">                      <span class="attr">key</span> : <span class="string">'rmKey'</span>,</div><div class="line">                      <span class="attr">data</span>: data.rmKey</div><div class="line">                    &#125;);</div><div class="line"></div><div class="line">                    <span class="comment">// 登录成功，跳转至用户中心</span></div><div class="line">                    wx.switchTab(&#123;</div><div class="line">                      <span class="attr">url</span>    : <span class="string">'../../pages/conference/meetingRoom'</span>,</div><div class="line">                      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">                        <span class="built_in">console</span>.log(<span class="string">'登录成功！'</span>);</div><div class="line">                      &#125;</div><div class="line">                    &#125;);</div><div class="line">                  &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">    &#125;);</div><div class="line">  &#125;,</div><div class="line"> ...</div></pre></td></tr></table></figure>
+<p>免登陆</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">  <span class="comment">/** </span></div><div class="line">   * 免登录操作 </div><div class="line">   */</div><div class="line">  freeLoginAction: <span class="function"><span class="keyword">function</span> (<span class="params">callback</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> sid   = wx.getStorageSync(<span class="string">'sid'</span>);</div><div class="line">    <span class="keyword">var</span> code  = wx.getStorageSync(<span class="string">'code'</span>);</div><div class="line">    <span class="keyword">var</span> rmKey = wx.getStorageSync(<span class="string">'rmKey'</span>);</div><div class="line">    <span class="keyword">if</span> (sid &amp;&amp; code &amp;&amp; rmKey &amp;&amp; !<span class="regexp">/MP_USER_####/</span>.test(sid)) &#123;</div><div class="line">      <span class="keyword">this</span>.freeLogin(&#123;</div><div class="line">        <span class="attr">sid</span> : sid,</div><div class="line">        <span class="attr">code</span>: code</div><div class="line">      &#125;, rmKey, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (res.statusCode === <span class="number">200</span>) &#123;</div><div class="line">          <span class="keyword">var</span> data = res.data;</div><div class="line">          <span class="comment">// 只有成功的时候才传回调</span></div><div class="line">          <span class="keyword">if</span> (data.code === <span class="string">'S_OK'</span>) &#123;</div><div class="line">            wx.setStorageSync(<span class="string">'sid'</span>, data.sid);</div><div class="line">            data.rmKey &amp;&amp; wx.setStorageSync(<span class="string">'rmKey'</span>, data.rmKey)</div><div class="line">            callback &amp;&amp; callback(res);</div><div class="line">          &#125;</div><div class="line">        &#125;</div><div class="line">      &#125;);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="comment">// 如果还没登录，缓存中的 sid 为空或者无效，跳转至登录页</span></div><div class="line">      wx.navigateTo(&#123;</div><div class="line">        <span class="attr">url</span>: <span class="string">'../../pages/login/login'</span></div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;,</div><div class="line">  <span class="comment">/**</span></div><div class="line">   * 免登录</div><div class="line">   * @param  &#123;Object&#125;    options   请求参数</div><div class="line">   * @param  &#123;String&#125;    rmKey     RMKEY</div><div class="line">   * @param  &#123;Function&#125;  callback  回调</div><div class="line">   * @return void(0)</div><div class="line">   */</div><div class="line">  freeLogin: <span class="function"><span class="keyword">function</span> (<span class="params">options, rmKey, callback</span>) </span>&#123;</div><div class="line">    options = util.json2xml(options);</div><div class="line">    wx.request(&#123;</div><div class="line">      <span class="attr">url</span>    : <span class="string">'https://xxx.cn'</span> + <span class="string">'/weixin/s?func=weixin:freeLoginMiniProgram'</span>,</div><div class="line">      <span class="attr">data</span>   : options,</div><div class="line">      <span class="attr">method</span> : <span class="string">'POST'</span>,</div><div class="line">      <span class="attr">header</span> : &#123;</div><div class="line">        <span class="string">'Cookie'</span>      : <span class="string">'RMKEY='</span> + rmKey,</div><div class="line">        <span class="string">'content-type'</span>: <span class="string">'application/xml'</span></div><div class="line">      &#125;, </div><div class="line">      <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (res) &#123;</div><div class="line">          callback &amp;&amp; callback(res);</div><div class="line">        &#125;</div><div class="line">      &#125;,</div><div class="line">      <span class="attr">fail</span>   : <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">        callback &amp;&amp; callback(err);</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><ul>
+<li>小程序使用 Mustache 语法（双大括号）将变量包起来的数据绑定，不支持比较复杂的运算，哪怕稍微有点复杂，如：</li>
+</ul>
+<p>支持</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; a + b&#125;&#125;</div></pre></td></tr></table></figure>
+<p>不支持</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123; a + b + c &#125;&#125;</div></pre></td></tr></table></figure>
+<p>因此，如果涉及到数据的计算，最好先在 js 里面计算好了，在绑定到 View 层。</p>
+<ul>
+<li>小程序不支持 Cookie。小程序使用框架提供的 <code>wx.request</code> 接口发送 https 请求不会携带 Cookie 信息，传统webserver的会话管理能力 session（比如邮箱会话校验所使用的 RMKEY ）在微信小程序无法直接使用，在这点上微信小程序更像CS架构的开发模式，开发者需要自己实现会话管理功能。</li>
+</ul>
+<p>我们的解决方法是将 RMKEY 放到请求的头部新建字段带给后台。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">subMeetingRoom: <span class="function"><span class="keyword">function</span> (<span class="params">options, rmKey, callback</span>) </span>&#123;</div><div class="line">	<span class="keyword">var</span> sid   = wx.getStorageSync(<span class="string">'sid'</span>);</div><div class="line">	<span class="keyword">var</span> rmKey = wx.getStorageSync(<span class="string">'rmKey'</span>); </div><div class="line">	options   = util.json2xml(options);</div><div class="line">	wx.request(&#123;</div><div class="line">	  <span class="attr">url</span>    : <span class="string">'https://xxx.com'</span> + <span class="string">'/calendar/s?func=calendar:subMeetingRoom&amp;sid='</span> + sid,</div><div class="line">	  <span class="attr">data</span>   : options,</div><div class="line">	  <span class="attr">method</span> : <span class="string">'POST'</span>,</div><div class="line">	  <span class="attr">header</span> : &#123;</div><div class="line">	    <span class="string">'content-type'</span>: <span class="string">'application/xml'</span>,</div><div class="line">	    <span class="string">'Cookie'</span>      : <span class="string">'RMKEY='</span> + rmKey  <span class="comment">// 请求创建一个 Cookie 字段</span></div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">success</span>: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</div><div class="line">	    <span class="keyword">if</span> (res) &#123;</div><div class="line">	      callback &amp;&amp; callback(res);</div><div class="line">	    &#125;</div><div class="line">	  &#125;,</div><div class="line">	  <span class="attr">fail</span>   : <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">	    callback &amp;&amp; callback(err);</div><div class="line">	  &#125;</div><div class="line">	&#125;)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>小程序长度单位 rpx 和 px 的转换，有些情况只能到真机里面去看；如果使用微信开发工具的话，建议切换成 iPhone 6 模式。</li>
+</ul>
+<p><img src="https://dn-coding-net-production-pp.qbox.me/ac2a2834-4bf0-44c1-84aa-ece1f6abfeca.jpg?imageView2/2/w/500/h/500&amp;imageMogr2/format/jpg/ignore-error/1" alt="rpx"></p>
+<p><img src="https://dn-coding-net-production-pp.qbox.me/a814a870-e0d9-47f2-84e7-ca49b1b80996.jpg?imageView2/2/w/500/h/500&amp;imageMogr2/format/jpg/ignore-error/1" alt="rpx"></p>
+<p><img src="https://dn-coding-net-production-pp.qbox.me/26f9bd25-2e5d-4d07-aabf-ae19d00f1dfe.jpg?imageView2/2/w/500/h/500&amp;imageMogr2/format/jpg/ignore-error/1" alt="rpx"></p>
+<p>以上是在 Windows 下使用的微信开发者工具返回来的像素比，iPhone 4s 的像素比居然的也是 2，很明显不靠谱。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>站在开发者的角度看，</p>
+<ul>
+<li><p>小程序入手简单，也正是因为简单，所以不适合做一些场景比较复杂的应用；</p>
+</li>
+<li><p>很多组件小程序都已经帮你封装好了，简洁、也好看；但是如果，你要自己去实现一些更加个性化的组件还是有点麻烦；</p>
+</li>
+<li><p>个人吐槽一下，微信开发者工具不太好用😁；</p>
+</li>
+<li><p>最后，有个疑问，现在小程序还火吗？🙃🙃</p>
+</li>
+</ul>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Web技术/">Web技术</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/小程序/" title="小程序">小程序</a> / 
+    
+        <a href="/tags/WeChat/" title="WeChat">WeChat</a>
+    
+
+        </span>
+    </p>
+</article>
+<div class="article-share clearfix text-center">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/03/12/mongodb-blog-design/">
+            
+                基于 MongoDB 的博客系统 Schema 设计
+            
+        </a>
+    </span>
+    
+</div>
+
+
+<div class="comments" id="comments">
+    
+<!--PC和WAP自适应版-->
+<div id="SOHUCS" sid="summary-of-mini-program" ></div> 
+<script type="text/javascript"> 
+(function(){ 
+var appid = 'cysUGBdbb'; 
+var conf = 'prod_11743b3c5e808299f91d225aa68e7754'; 
+var width = window.innerWidth || document.documentElement.clientWidth; 
+if (width < 960) { 
+window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+
+</div>
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Web技术/">Web技术</a>
+        <span class="badge">(16)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活琐事/">生活琐事</a>
+        <span class="badge">(4)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <!-- 最新评论 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门评论</strong></h3>
+        <!-- 代码1：放在页面需要展示的位置  -->
+<!-- 如果您配置过sourceid，建议在div标签中配置sourceid、cid(分类id)，没有请忽略  -->
+<div id="cyQing" role="cylabs" data-use="qing"></div>
+<!-- 代码2：用来读取评论框配置，此代码需放置在代码1之后。 -->
+<!-- 如果当前页面有评论框，代码2请勿放置在评论框代码之前。 -->
+<!-- 如果页面同时使用多个实验室项目，以下代码只需要引入一次，只配置上面的div标签即可 -->
+<script type="text/javascript" charset="utf-8" src="https://changyan.itc.cn/js/lib/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://changyan.sohu.com/js/changyan.labs.https.js?appid=cysUGBdbb"></script>
+    </section>
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+<!-- 添加百度自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
