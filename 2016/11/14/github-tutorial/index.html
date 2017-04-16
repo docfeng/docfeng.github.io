@@ -251,15 +251,22 @@
     var oMyWeibo = document.getElementById('myWeibo');
     var oMyWeiboLoading = document.getElementById('myWeiboLoading');
     var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
+    var timer = null;
     if (isIE) {
       oMyWeibo.onreadystatechange = function(){
         if(oMyWeibo.readyState === 'loaded' || oMyWeibo.readyState === 'complete'){
-          oMyWeiboLoading.parentNode.removeChild(oMyWeiboLoading);
+          timer = setTimeout(function () {
+            oMyWeiboLoading.parentNode.removeChild(oMyWeiboLoading);
+            timer = null;
+          }, 100);
         }
       };
     } else {
       oMyWeibo.onload = function () {
-        oMyWeiboLoading.parentNode.removeChild(oMyWeiboLoading);
+        timer = setTimeout(function () {
+          oMyWeiboLoading.parentNode.removeChild(oMyWeiboLoading);
+          timer = null;
+        }, 100);
       };
     }
   })();
