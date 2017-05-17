@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
     <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
     
-    <title>文章归档: 2016/10 | Jelon</title>
+    <title>MAC 下修改 MySQL 初始密码的方法 | Jelon</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
     <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发" >
     <meta name="description" content="Jelon个人前端小站" >
@@ -60,19 +60,19 @@
         <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
         <ul class="menu hidden" id="JELON__menu">
             
-            <li rel="/archives/2016/10/index.html" class="item ">
+            <li rel="/2017/05/17/set-mysql-initial-password-on-mac/index.html" class="item ">
                 <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
             
-            <li rel="/archives/2016/10/index.html" class="item ">
+            <li rel="/2017/05/17/set-mysql-initial-password-on-mac/index.html" class="item ">
                 <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
             
-            <li rel="/archives/2016/10/index.html" class="item ">
+            <li rel="/2017/05/17/set-mysql-initial-password-on-mac/index.html" class="item ">
                 <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
             
-            <li rel="/archives/2016/10/index.html" class="item ">
+            <li rel="/2017/05/17/set-mysql-initial-password-on-mac/index.html" class="item ">
                 <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
             
@@ -122,97 +122,82 @@
     <div class="container body clearfix">
         <section class="content">
             <div class="content-main widget">
-                <!-- 文章归档 -->
-
-    <h3 class="widget-hd">
-        <strong>
-            
-                文章归档
-            
-        </strong>
-    </h3>
-    
-        <!-- 文章 -->
-<article class="post">
-    <header>
-        
-        <a class="cat-link" href="/categories/Web技术/">Web技术</a>
-        
-        <!-- 文章标题 -->
-        
-    <h3 class="post-title">
-    	<a href="http://jelon.top/2016/10/17/yarn/">
-    		Yarn, 全新的 JavaScript 包管理器
-    	</a>
-    </h3>
-
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>MAC 下修改 MySQL 初始密码的方法</span></h3>
     </header>
-    <p class="post-meta">
+    <p class="post-meta text-center">
         Jelon 发表于
-        <time datetime="2016-10-17T11:57:08.000Z">2016-10-17</time>
+        <time datetime="2017-05-17T14:24:16.000Z">2017-05-17</time>
     </p>
-
     <div class="post-content">
-        <div class="post-excerpt">
-            
-                前阵子，Facebook 开源了一款新的 Node.js 包管理器 ---- Yarn，用来替代 NPM ，一时间引起了不少议论。有人认为这是重复在“造轮子”；有人跃跃欲试却浅尝辄止；有人却更多地关注 Yarn 给前端开发者带来的哪些好处，比如说网络速度。不管别人怎么看、怎么议论，也永远是道听途说，要想更深入地了解 Yarn，还是得自己亲自去试一试，毕竟实践是最有发言权的...
-            
-            <p class="more">
-                <a href="http://jelon.top/2016/10/17/yarn/">阅读剩下更多</a>
-            </p>
-        </div>
-        <div class="post-thumbnail" data-img="">
-            <a href="http://jelon.top/2016/10/17/yarn/" title="Yarn, 全新的 JavaScript 包管理器">
-                
-                    <!--
-                    <img src="http://7xs305.com1.z0.glb.clouddn.com/yarn/yarn_thumbnail.png" class="thumbnail">
-                    -->
-                    <img class="thumbnail" src="/img/default.png" data-echo="http://7xs305.com1.z0.glb.clouddn.com/yarn/yarn_thumbnail.png" alt="Yarn, 全新的 JavaScript 包管理器" >
-                
-            </a>
-        </div>
+        <h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>苹果 -&gt; 系统偏好设置 -&gt; MySQL，进入 MySQL 状态信息页面，关闭 MySQL 服务（点击 “Stop MySQL Server” 按钮）。</p>
+<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>进入终端输入：<code>cd /usr/local/mysql/bin/</code><br>回车后，登录管理员权限，输入命令行 <code>sudo su</code></p>
+<p>回车后输入以下命令来禁止 MySQL 验证功能 <code>./mysqld_safe --skip-grant-tables &amp;</code><br>回车后，MySQL 会自动重启（偏好设置中 MySQL 的状态会变成 running）。</p>
+<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>接下来，输入命令 <code>./mysql</code></p>
+<p>回车后，输入命令 <code>FLUSH PRIVILEGES</code>；</p>
+<p>回车后，输入命令 <code>SET PASSWORD FOR &#39;root&#39;@&#39;localhost&#39; = PASSWORD(&#39;你的新密码&#39;)</code>。</p>
+<p>至此，密码修改完成，可以成功登录。</p>
+
     </div>
     <p class="post-meta">
-        
-        评论：<a href="http://jelon.top/2016/10/17/yarn/#comments" class="post-comments">
-            <span 
-              lang="join-count" 
-              class="join-count" 
-              data-url="http://jelon.top/2016/10/17/yarn/" 
-              data-sourceId="yarn"
-            >0</span>
-        </a>
-        
-        <!-- 标签 -->
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Web技术/">Web技术</a>
+        </span>
         <span class="post-tags">
             标签：
             
     
-        <a href="/tags/Node-js/" title="Node.js">Node.js</a> / 
+        <a href="/tags/Mac/" title="Mac">Mac</a> / 
     
-        <a href="/tags/npm/" title="npm">npm</a> / 
-    
-        <a href="/tags/Yarn/" title="Yarn">Yarn</a>
+        <a href="/tags/MySQL/" title="MySQL">MySQL</a>
     
 
         </span>
     </p>
 </article>
+<div class="article-share clearfix text-center">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
 
-<!-- JavaScript 配置 -->
-<script>
-  var yunTieProductKey = "c06bb9930e6f4b38a9997cb9bd17aba5";
-  Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vZXh0ZW5kL2xpc3Rfam9pbl9zY3JpcHQuaHRtbA==", true);
-</script>
+<!-- 上一篇/下一篇 -->
 
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="javascript: void(0);">没有上一篇了</a>
+    </span>
     
 
     
-    <nav class="page-navigator">
-        <span class="page-number current">1</span>
-    </nav>
+    <span class="next fr">
+        下一篇<br >
+        <a href="/2017/03/16/summary-of-mini-program/">
+            
+                小程序项目小结
+            
+        </a>
+    </span>
     
+</div>
 
+<!-- 文章评论 -->
+
+    <div id="comments" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+      url: document.location.href, 
+      sourceId: "set-mysql-initial-password-on-mac",
+      productKey: "c06bb9930e6f4b38a9997cb9bd17aba5",
+      target: "comments"
+    };
+    var yunManualLoad = true;
+    Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+    </script>
 
             </div>
 
