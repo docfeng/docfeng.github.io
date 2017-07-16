@@ -1887,9 +1887,9 @@
       <category term="生活琐事" scheme="http://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
     
     
-      <category term="新博客" scheme="http://jelon.top/tags/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="Hexo" scheme="http://jelon.top/tags/Hexo/"/>
+    
+      <category term="新博客" scheme="http://jelon.top/tags/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
