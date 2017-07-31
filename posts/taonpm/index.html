@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>淘宝 NPM 镜像 | Jelon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发" >
+    <meta name="description" content="Jelon个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jelon" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Jelon</span>
+                    <span class="description">个人博客小站</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/posts/taonpm/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/posts/taonpm/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/posts/taonpm/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/posts/taonpm/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://coding.net/u/jangdelong" target="_blank">Coding</a>
+                        |
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="http://tongji.baidu.com/web/welcome/login" target="_blank">百度统计</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>淘宝 NPM 镜像</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2016-07-30T03:13:14.000Z">2016-07-30</time>
+    </p>
+    <div class="post-content">
+        <h3 id="什么是-NPM"><a href="#什么是-NPM" class="headerlink" title="什么是 NPM"></a>什么是 NPM</h3><p>Node 包管理器 (npm) 是一个由 Node.js 官方提供的第三方包管理工具，就像 PHP、Pear、Python 的 PyPI 一样。npm 是一个完全由 JavaScript 实现的命令行工具，通过 Node.js 执行，因此严格来讲它不属于 Node.js 的一部分。在最初的版本中，我们需要在安装完 Node.js 以后手动安装 npm。但从 Node.js 0.6 开始，npm 已包含在发行包中了，安装 Node.js 时会自动安装 npm。</p>
+<h3 id="NPM-用途"><a href="#NPM-用途" class="headerlink" title="NPM 用途"></a>NPM 用途</h3><p>npm 的背后，是基于 couchdb 的一个数据库，详细记录了每个包的信息，包括作者、版本、依赖、授权信息等。它的一个很重要的作用就是：将开发者从繁琐的包管理工作（版本、依赖等）中解放出来，更加专注于功能的开发。</p>
+<h3 id="NPM-在国内"><a href="#NPM-在国内" class="headerlink" title="NPM 在国内"></a>NPM 在国内</h3><p>虽说 npm 很方便，但是在国内由于网络原因，使用 npm 下载一些依赖包的时候，速度还是很慢，甚至有时候还要翻墙，大大影响了我们的开发效率。那么，是否有解决方案呢，答案是有的，那就是淘宝 npm 镜像。</p>
+<h3 id="什么是淘宝-NPM-镜像"><a href="#什么是淘宝-NPM-镜像" class="headerlink" title="什么是淘宝 NPM 镜像"></a>什么是淘宝 NPM 镜像</h3><p>淘宝的npm镜像是一个完整的 npmjs.org 镜像。你可以用此代替官方版本(只读)，同步频率目前为10分钟一次以保证尽量与官方服务同步，<a href="http://npm.taobao.org/" target="_blank" rel="external">官网</a>截图如下。</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/taonpm/1.33pic_hd.jpg" alt="taonpm官网"></p>
+<h3 id="淘宝-NPM-镜像安装及使用"><a href="#淘宝-NPM-镜像安装及使用" class="headerlink" title="淘宝 NPM 镜像安装及使用"></a>淘宝 NPM 镜像安装及使用</h3><p><strong>安装</strong></p>
+<ul>
+<li>可以使用淘宝 npm 镜像定制的<code>cnpm</code>(gzip 压缩支持) 命令行工具代替默认的 <code>npm</code> :</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<ul>
+<li>或者直接通过添加 <code>npm</code> 参数 alias 一个新命令:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">alias</span> cnpm=<span class="string">"npm --registry=https://registry.npm.taobao.org \</span></div><div class="line">--cache=<span class="variable">$HOME</span>/.npm/.cache/cnpm \</div><div class="line">--disturl=https://npm.taobao.org/dist \</div><div class="line">--userconfig=<span class="variable">$HOME</span>/.cnpmrc"</div><div class="line"></div><div class="line"><span class="comment"># Or alias it in .bashrc or .zshrc</span></div><div class="line">$ <span class="built_in">echo</span> <span class="string">'\n#alias for cnpm\nalias cnpm="npm --registry=https://registry.npm.taobao.org \</span></div><div class="line">  --cache=$HOME/.npm/.cache/cnpm \</div><div class="line">  --disturl=https://npm.taobao.org/dist \</div><div class="line">  --userconfig=$HOME/.cnpmrc"' &gt;&gt; ~/.zshrc &amp;&amp; <span class="built_in">source</span> ~/.zshrc</div></pre></td></tr></table></figure>
+<p><strong>使用</strong></p>
+<ul>
+<li>安装模块</li>
+</ul>
+<p>从 <code>registry.npm.taobao.org</code> 安装所有模块. 当安装的时候发现安装的模块还没有同步过来, 淘宝 npm 会自动在后台进行同步, 并且会让你从官方 <code>NPM registry.npmjs.org</code> 进行安装. 下次你再安装这个模块的时候, 就会直接从淘宝 npm 安装了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm install [name]</div></pre></td></tr></table></figure>
+<ul>
+<li>同步模块</li>
+</ul>
+<p>直接通过 <code>sync</code> 命令马上同步一个模块, 只有 <code>cnpm</code> 命令行才有此功能:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm sync connect</div></pre></td></tr></table></figure>
+<p>当然, 你可以直接通过 <code>web</code> 方式来同步: <code>/sync/connect</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ open https://npm.taobao.org/sync/connect</div></pre></td></tr></table></figure>
+<ul>
+<li>其他模块</li>
+</ul>
+<p>支持 <code>npm</code> 除了 <code>publish</code> 之外的所有命令, 如:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cnpm info connect</div></pre></td></tr></table></figure>
+<h3 id="当然，还可以这样安装和使用"><a href="#当然，还可以这样安装和使用" class="headerlink" title="当然，还可以这样安装和使用"></a>当然，还可以这样安装和使用</h3><p>如果你不想用 <code>cnpm</code> ，或许你可以直接修改 <code>npm</code> config配置的 <code>registry</code> ，来使用淘宝 npm 镜像：</p>
+<p><strong>安装</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config <span class="built_in">set</span> registry https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<p>接着 config ls 一下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm config ls <span class="_">-l</span></div></pre></td></tr></table></figure>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/taonpm/npm_registry.jpg" alt="npm config ls"></p>
+<p><strong>使用</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install [name]</div></pre></td></tr></table></figure>
+<p>好了，现在开发者再一次解放出来（不用担心安装管理包时的速度问题）。</p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Web技术/">Web技术</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/npm/" title="npm">npm</a> / 
+    
+        <a href="/tags/淘宝npm/" title="淘宝npm">淘宝npm</a>
+    
+
+        </span>
+    </p>
+</article>
+<div class="article-share clearfix text-center">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="/posts/jquery-window-height-incorrect/">
+            
+                通过 jQuery 获取浏览器窗口高度问题
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/posts/react-native-learning/">
+            
+                初识React Native
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Web技术/">Web技术</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活琐事/">生活琐事</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Hexo/" title="Hexo">Hexo (3)</a>
+  
+    <a class="tag-item" href="/tags/github-pages/" title="github pages">github pages (1)</a>
+  
+    <a class="tag-item" href="/tags/css/" title="css">css (1)</a>
+  
+    <a class="tag-item" href="/tags/编码规范/" title="编码规范">编码规范 (2)</a>
+  
+    <a class="tag-item" href="/tags/gulp/" title="gulp">gulp (1)</a>
+  
+    <a class="tag-item" href="/tags/Electron/" title="Electron">Electron (1)</a>
+  
+    <a class="tag-item" href="/tags/构建工具/" title="构建工具">构建工具 (1)</a>
+  
+    <a class="tag-item" href="/tags/Github/" title="Github">Github (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/新博客/" title="新博客">新博客 (1)</a>
+  
+    <a class="tag-item" href="/tags/jQuery/" title="jQuery">jQuery (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器高度/" title="浏览器高度">浏览器高度 (1)</a>
+  
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (1)</a>
+  
+    <a class="tag-item" href="/tags/网络状态码/" title="网络状态码">网络状态码 (1)</a>
+  
+    <a class="tag-item" href="/tags/Mac/" title="Mac">Mac (2)</a>
+  
+    <a class="tag-item" href="/tags/开机变慢/" title="开机变慢">开机变慢 (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (1)</a>
+  
+    <a class="tag-item" href="/tags/Mac-OSX/" title="Mac OSX">Mac OSX (2)</a>
+  
+    <a class="tag-item" href="/tags/命令大全/" title="命令大全">命令大全 (1)</a>
+  
+    <a class="tag-item" href="/tags/Mongoose/" title="Mongoose">Mongoose (1)</a>
+  
+    <a class="tag-item" href="/tags/Node-js/" title="Node.js">Node.js (4)</a>
+  
+    <a class="tag-item" href="/tags/react/" title="react">react (1)</a>
+  
+    <a class="tag-item" href="/tags/react-native/" title="react-native">react-native (1)</a>
+  
+    <a class="tag-item" href="/tags/iOS/" title="iOS">iOS (1)</a>
+  
+    <a class="tag-item" href="/tags/MySQL/" title="MySQL">MySQL (1)</a>
+  
+    <a class="tag-item" href="/tags/MongoDB/" title="MongoDB">MongoDB (1)</a>
+  
+    <a class="tag-item" href="/tags/静态博客/" title="静态博客">静态博客 (1)</a>
+  
+    <a class="tag-item" href="/tags/小程序/" title="小程序">小程序 (1)</a>
+  
+    <a class="tag-item" href="/tags/WeChat/" title="WeChat">WeChat (1)</a>
+  
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (2)</a>
+  
+    <a class="tag-item" href="/tags/淘宝npm/" title="淘宝npm">淘宝npm (1)</a>
+  
+    <a class="tag-item" href="/tags/Vue-js/" title="Vue.js">Vue.js (1)</a>
+  
+    <a class="tag-item" href="/tags/Vuex/" title="Vuex">Vuex (1)</a>
+  
+    <a class="tag-item" href="/tags/Bootstrap/" title="Bootstrap">Bootstrap (1)</a>
+  
+    <a class="tag-item" href="/tags/MVVM/" title="MVVM">MVVM (1)</a>
+  
+    <a class="tag-item" href="/tags/Yarn/" title="Yarn">Yarn (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+<!-- 添加百度自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>

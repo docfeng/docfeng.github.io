@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8" >
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya" />
+    
+    <title>Github 使用指南 | Jelon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" >
+    <meta name="keywords" content="Jelon, 前端, Web, 张德龙, 前端开发" >
+    <meta name="description" content="Jelon个人前端小站" >
+
+    
+    <link rel="alternative" href="/atom.xml" title="Jelon" type="application/atom+xml" >
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico" >
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">Jelon</span>
+                    <span class="description">个人博客小站</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/posts/github-tutorial/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/posts/github-tutorial/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/posts/github-tutorial/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/posts/github-tutorial/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://coding.net/u/jangdelong" target="_blank">Coding</a>
+                        |
+                    
+                        <a href="https://github.com/jangdelong" target="_blank">Github</a>
+                        |
+                    
+                        <a href="http://tongji.baidu.com/web/welcome/login" target="_blank">百度统计</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/jangdelong" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="/img/jelon.jpg" alt="avatar" title="Jelon" >
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>Github 使用指南</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        Jelon 发表于
+        <time datetime="2016-11-14T15:00:05.000Z">2016-11-14</time>
+    </p>
+    <div class="post-content">
+        <p>很多时候，我们想把自己做的开源项目放到 Github 上面，但是不会用Github，怎么办？没关系，Github 使用教程网上一大堆，随便一搜到处都是。尽管如此，如果你不嫌弃的话，你也可以看看下面教程，以下是我自己使用 github 过程中，总结的一些 Github 使用步骤，这里给大家安利一下。</p>
+<h3 id="一、创建本地-git-仓库"><a href="#一、创建本地-git-仓库" class="headerlink" title="一、创建本地 git 仓库"></a>一、创建本地 git 仓库</h3><p>使用 <code>cd</code> 切换到你本地项目的目录（可以手动去创建一个目录，例如 /gitbub_test），然后执行以下 git 命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/github_tutorial/1.png" alt="创建本地 git 仓库"></p>
+<h3 id="二、将项目文件添加至你的-git-仓库"><a href="#二、将项目文件添加至你的-git-仓库" class="headerlink" title="二、将项目文件添加至你的 git 仓库"></a>二、将项目文件添加至你的 git 仓库</h3><p>将你的项目文件拷贝到刚才创建的目录下，然后执行以下 git 命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add . <span class="comment"># 添加所以修改过的文件或者新文件</span></div></pre></td></tr></table></figure>
+<h3 id="三、将-add-的文件-commit-到仓库"><a href="#三、将-add-的文件-commit-到仓库" class="headerlink" title="三、将 add 的文件 commit 到仓库"></a>三、将 add 的文件 commit 到仓库</h3><p>将刚才已经添加的文件 commit 到仓库，执行命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m <span class="string">'这是注释语句'</span></div></pre></td></tr></table></figure>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/github_tutorial/3.png" alt="commit 到仓库"></p>
+<h3 id="四、去-github-上创建-Repository，截图如下"><a href="#四、去-github-上创建-Repository，截图如下" class="headerlink" title="四、去 github 上创建 Repository，截图如下"></a>四、去 github 上创建 Repository，截图如下</h3><p>创建页面如下：</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/github_tutorial/2.png" alt="创建页面截图"></p>
+<p>创建完成之后结果如下：</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/github_tutorial/6.png" alt=""></p>
+<h3 id="五、将本地仓库关联至-github"><a href="#五、将本地仓库关联至-github" class="headerlink" title="五、将本地仓库关联至 github"></a>五、将本地仓库关联至 github</h3><p>github Repository 创建好之后，接下来就是如何将本地 git 仓库关联至 github ，执行以下 git 命令即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/jangdelong/github_test.git</div></pre></td></tr></table></figure>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/github_tutorial/4.png" alt="关联仓库至 github"></p>
+<h3 id="六、将-github-上的代码拉取到本地"><a href="#六、将-github-上的代码拉取到本地" class="headerlink" title="六、将 github 上的代码拉取到本地"></a>六、将 github 上的代码拉取到本地</h3><p>执行以下 git 命令可将 github 上原有的代码拉去到本地。这一步前提是你的 github 上原来已经存在代码或文件，否则这一步可以省去。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin master</div></pre></td></tr></table></figure>
+<h3 id="七、提交代码"><a href="#七、提交代码" class="headerlink" title="七、提交代码"></a>七、提交代码</h3><p>最后一步就是提交代码了，执行 git 命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
+<p>这样，我们在 github 上就可以看到我们的项目代码了。</p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/github_tutorial/5.png" alt="完成"></p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/Web技术/">Web技术</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/Github/" title="Github">Github</a> / 
+    
+        <a href="/tags/Git/" title="Git">Git</a>
+    
+
+        </span>
+    </p>
+</article>
+<div class="article-share clearfix text-center">
+    <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+    <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+</div>
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br >
+        <a href="/posts/139mailbuildtool/">
+            
+                139邮箱图形化前端构建小工具
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br >
+        <a href="/posts/mac-tips/">
+            
+                Mac 开机变慢怎么办？
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/Web技术/">Web技术</a>
+        <span class="badge">(17)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/生活琐事/">生活琐事</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/Hexo/" title="Hexo">Hexo (3)</a>
+  
+    <a class="tag-item" href="/tags/github-pages/" title="github pages">github pages (1)</a>
+  
+    <a class="tag-item" href="/tags/css/" title="css">css (1)</a>
+  
+    <a class="tag-item" href="/tags/编码规范/" title="编码规范">编码规范 (2)</a>
+  
+    <a class="tag-item" href="/tags/gulp/" title="gulp">gulp (1)</a>
+  
+    <a class="tag-item" href="/tags/Electron/" title="Electron">Electron (1)</a>
+  
+    <a class="tag-item" href="/tags/构建工具/" title="构建工具">构建工具 (1)</a>
+  
+    <a class="tag-item" href="/tags/Github/" title="Github">Github (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
+    <a class="tag-item" href="/tags/新博客/" title="新博客">新博客 (1)</a>
+  
+    <a class="tag-item" href="/tags/jQuery/" title="jQuery">jQuery (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器高度/" title="浏览器高度">浏览器高度 (1)</a>
+  
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (1)</a>
+  
+    <a class="tag-item" href="/tags/网络状态码/" title="网络状态码">网络状态码 (1)</a>
+  
+    <a class="tag-item" href="/tags/Mac/" title="Mac">Mac (2)</a>
+  
+    <a class="tag-item" href="/tags/开机变慢/" title="开机变慢">开机变慢 (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (1)</a>
+  
+    <a class="tag-item" href="/tags/Mac-OSX/" title="Mac OSX">Mac OSX (2)</a>
+  
+    <a class="tag-item" href="/tags/命令大全/" title="命令大全">命令大全 (1)</a>
+  
+    <a class="tag-item" href="/tags/Mongoose/" title="Mongoose">Mongoose (1)</a>
+  
+    <a class="tag-item" href="/tags/Node-js/" title="Node.js">Node.js (4)</a>
+  
+    <a class="tag-item" href="/tags/react/" title="react">react (1)</a>
+  
+    <a class="tag-item" href="/tags/react-native/" title="react-native">react-native (1)</a>
+  
+    <a class="tag-item" href="/tags/iOS/" title="iOS">iOS (1)</a>
+  
+    <a class="tag-item" href="/tags/MySQL/" title="MySQL">MySQL (1)</a>
+  
+    <a class="tag-item" href="/tags/MongoDB/" title="MongoDB">MongoDB (1)</a>
+  
+    <a class="tag-item" href="/tags/静态博客/" title="静态博客">静态博客 (1)</a>
+  
+    <a class="tag-item" href="/tags/小程序/" title="小程序">小程序 (1)</a>
+  
+    <a class="tag-item" href="/tags/WeChat/" title="WeChat">WeChat (1)</a>
+  
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (2)</a>
+  
+    <a class="tag-item" href="/tags/淘宝npm/" title="淘宝npm">淘宝npm (1)</a>
+  
+    <a class="tag-item" href="/tags/Vue-js/" title="Vue.js">Vue.js (1)</a>
+  
+    <a class="tag-item" href="/tags/Vuex/" title="Vuex">Vuex (1)</a>
+  
+    <a class="tag-item" href="/tags/Bootstrap/" title="Bootstrap">Bootstrap (1)</a>
+  
+    <a class="tag-item" href="/tags/MVVM/" title="MVVM">MVVM (1)</a>
+  
+    <a class="tag-item" href="/tags/Yarn/" title="Yarn">Yarn (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="http://blog.sina.com.cn/u/1825875765" target="_blank" title="网络安全博客">Haoren博客</a>
+        </li>
+    
+        <li>
+            <a href="http://blog.csdn.net/yeweiouyang" target="_blank" title="技术博客">Maxwell博客</a>
+        </li>
+    
+        <li>
+            <a href="http://xuanzh.cc/" target="_blank" title="技术博客">朱旋个人博客</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2017
+    
+
+    <a href="/">Jelon Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+<!-- 添加百度自动推送 -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
