@@ -813,9 +813,9 @@
     
       <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
     
-      <category term="Yarn" scheme="http://jelon.top/tags/Yarn/"/>
-    
       <category term="npm" scheme="http://jelon.top/tags/npm/"/>
+    
+      <category term="Yarn" scheme="http://jelon.top/tags/Yarn/"/>
     
   </entry>
   
