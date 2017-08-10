@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://jelon.top/posts/xups-comment-box/</loc>
+    <lastmod>2017-08-10T10:59:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>基于 github issues 实现的评论系统</title>
+        <pubTime>2017-08-10T07:12:13.000Z</pubTime>
+        
+        <tag>gitHub issue</tag>
+         
+        <tag>第三方评论框</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jelon.top/posts/mongodb-blog-design/</loc>
     <lastmod>2017-06-18T13:46:55.000Z</lastmod>
     <data>
@@ -378,9 +400,9 @@
         <title>关于新博客</title>
         <pubTime>2016-03-12T16:10:21.000Z</pubTime>
         
-        <tag>新博客</tag>
-         
         <tag>Hexo</tag>
+         
+        <tag>新博客</tag>
          
          
            

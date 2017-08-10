@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-05-17T15:46:33.000Z</updated>
+  <updated>2017-08-10T10:59:14.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于 github issues 实现的评论系统</title>
+    <link href="http://jelon.top/posts/xups-comment-box/"/>
+    <id>http://jelon.top/posts/xups-comment-box/</id>
+    <published>2017-08-10T07:12:13.000Z</published>
+    <updated>2017-08-10T10:59:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>本文只是介绍如何基于 github issues 实现第三方评论系统，对于 Hexo 介绍，本文并不打算详述，如果有童鞋之前还没有了解 Hexo 的，可以先看一下之前文章<a href="http://jelon.top/posts/start-hexo/">《静态博客框架 Hexo 入门》</a> ，或者直接访问 Hexo 官网 <a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a></p>
+</blockquote>
+<h3 id="事情起因"><a href="#事情起因" class="headerlink" title="事情起因"></a>事情起因</h3><p>个人博客是基于静态博客系统（Hexo）搭建的，本身是没有具备任何后台功能的，例如搜索、评论系统等。但是，如果你想在静态博客上加上评论功能，也不是无法实现的，这时候就要借助第三方评论系统了。</p>
+<p>什么是第三方评论系统？博客或 cms 系统，一般都是有内容和评论两部分组成。评论可以增加博主与用户之间的交流互动，也是博主一对多的传达自己想法和观点的交流平台。所以除了社区平台外，评论也成为一般博客和cms系统必备功能。大型网站本身自己开发了评论系统和分享系统，而一般中小型网站开发的自己的评论系统，成本高。而且垃圾评论和过滤非法关键字难度较大，所以在国内外都有第三评论系统。以下是曾经流行或者正在流行的一些第三方评论系统。</p>
+<ul>
+<li><p>多说。说是一款追求极致体验的社会化评论框，可以用微博、QQ、人人、豆瓣等帐号登录并评论。多说已经成为国内份额最大的所谓“社交评论框”服务，但是这个行业第一并没有给它带来更多的收益和发展空间。不过可惜，现在已经停止服务了。</p>
+</li>
+<li><p>搜狐畅言。搜狐畅言是由搜狐推出的一个简单而强大的社会化评论及聚合平台。用户可以直接用自己的社会化网络账户在第三方网站发表评论，并且一键评论同步至社交网络将网站内容和自己的评论分享给好友。增加第三方网站用户活跃度，调动好友参与评论，帮助网站实现社会化网络优化，有效提升网站社会化流量。现在还健在。</p>
+</li>
+<li><p>友言。友言是国内专业的第三方实时社会化评论系统，“完全社交化”可将评论一键同步到各大微博与社区（目前支持10个社交媒体），同时将评论的回复与跟帖同步至使用的网站上，让网站变得更具有活力和社交性，从而为网站带来更多的回访和流量，是一个简单而强大的社会化评论及聚合平台。现在还健在。</p>
+</li>
+<li><p>网易云跟帖。网易云跟贴是网易公司推出的强大而又简单的评论聚合与分享平台。坑爹的，在多说发布停止服务声明之后不久，网易云跟帖也分出了停止服务声明。</p>
+</li>
+<li><p>Disqus。说到第三放评论系统，当然不得不提国外第三方评论系统界的老大 Disqus，只可惜由于天朝网络原因，Disqus 加载很慢，甚至有时候加载不出来，建议用户自备梯子。</p>
+</li>
+</ul>
+<p>那么回归主题，市面上那么多第三方评论系统，就算有那么一两个挂掉了，还是有很多选择呢，为什么还要自己去做一个呢，这不是造轮子吗？其实，一开始我一直用多说的，用的不亦乐乎，突然有一天说挂就挂了，没办法，那我就选择其他的呗，然后就改成网易云，坑爹的，刚歉意没多久，网易云也挂了。</p>
+<p>后面我就在网上找啊找啊，发现居然有人用 GitHub Issue 做了一个评论系统，这无疑是一个很好的想法，很有创意啊。当然，我也拿来用了，但是始终觉得有点丑，跟我自己的博客主题不搭，采用了两天，撤了，打算自己做一个。说干就干，程序员总喜欢造轮子，比如我。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;本文只是介绍如何基于 github issues 实现第三方评论系统，对于 Hexo 介绍，本文并不打算详述，如果有童鞋之前还没有了解 Hexo 的，可以先看一下之前文章&lt;a href=&quot;http://jelon.top/posts/start-h
+    
+    </summary>
+    
+      <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="gitHub issue" scheme="http://jelon.top/tags/gitHub-issue/"/>
+    
+      <category term="第三方评论框" scheme="http://jelon.top/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E8%AF%84%E8%AE%BA%E6%A1%86/"/>
+    
+  </entry>
   
   <entry>
     <title>MAC 下修改 MySQL 初始密码的方法</title>
@@ -1887,9 +1931,9 @@
       <category term="生活琐事" scheme="http://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
     
     
-      <category term="新博客" scheme="http://jelon.top/tags/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="Hexo" scheme="http://jelon.top/tags/Hexo/"/>
+    
+      <category term="新博客" scheme="http://jelon.top/tags/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
