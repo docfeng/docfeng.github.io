@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-08-10T12:39:24.000Z</updated>
+  <updated>2017-08-10T12:52:41.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/posts/xups-comment-box/"/>
     <id>http://jelon.top/posts/xups-comment-box/</id>
     <published>2017-08-10T07:12:13.000Z</published>
-    <updated>2017-08-10T12:39:24.000Z</updated>
+    <updated>2017-08-10T12:52:41.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本文只是介绍如何基于 github issues 实现第三方评论系统，对于 Hexo 介绍，本文并不打算详述，如果有童鞋之前还没有了解 Hexo 的，可以先看一下之前文章《<a href="http://jelon.top/posts/start-hexo/">静态博客框架 Hexo 入门</a> 》，或者直接访问 Hexo 官网 <a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a></p>
@@ -42,7 +42,13 @@
 <p>那么回归主题，市面上那么多第三方评论系统，就算有那么一两个挂掉了，还是有很多选择呢，为什么还要自己去做一个呢，这不是造轮子吗？其实，一开始我一直用多说的，用的不亦乐乎，突然有一天说挂就挂了，没办法，那我就选择其他的呗，然后就改成网易云，坑爹的，刚改造好没多久，网易云也挂了。</p>
 <p>后面我就在网上找啊找啊，发现居然有人用 GitHub Issue 做了一个评论系统，这无疑是一个很好的想法，很有创意啊。当然，我也拿来用了，但是始终觉得有点丑，跟我自己的博客主题不搭，采用了两天，撤了，打算自己做一个。说干就干，程序员总喜欢造轮子。</p>
 <h3 id="什么是-GitHub-Issues"><a href="#什么是-GitHub-Issues" class="headerlink" title="什么是 GitHub Issues"></a>什么是 GitHub Issues</h3><p>经常逛 GitHub 的童鞋，都应该知道这个功能，有人理解 GitHub 的 issue 功能，就如同 TODO list。你可以把所有想要在下一步完成的工作，如 feature 添加、bug 修复等，都写成一个个的 issue ，放在上面。既可以作为提醒，也可以统一管理。另外，每一次 commit 都可以选择性的与某个 issue 关联。比如在 message 中添加 #n，就可以与第 n 个 issue 进行关联。具体可以看一下知乎里面别人对 《<a href="https://www.zhihu.com/question/22969033/answer/25927363" target="_blank" rel="external">github issue是做什么的？</a> 》的解答。顺便看一下，我的博客评论数据存储 issues 的仓库地址<a href="https://github.com/jangdelong/blog_comments/issues" target="_blank" rel="external">https://github.com/jangdelong/blog_comments/issues</a>。总之，像我现在要用 github Issues 来制作评论系统的，其实就是把数据存储到 github issues，简单一点可以把 github issues 理解为一个免费的数据库。</p>
-<h3 id="评论系统实现"><a href="#评论系统实现" class="headerlink" title="评论系统实现"></a>评论系统实现</h3>]]></content>
+<h3 id="评论系统实现"><a href="#评论系统实现" class="headerlink" title="评论系统实现"></a>评论系统实现</h3><p><strong>预备工作</strong></p>
+<ol>
+<li><p>创建 OAuth applications。评论需要涉及 GitHub 授权登录，所以在这里你先要有一个 GitHub application。GitHub 授权登录遵循 OAuth 2.0 标准。</p>
+</li>
+<li></li>
+</ol>
+]]></content>
     
     <summary type="html">
     
