@@ -168,7 +168,7 @@
 <p><code>POST: https://api.github.com/repos/jangdelong/blog_comments/issues/11/comments</code> 在编号为 11 的 issue 下创建一条评论</p>
 <p><code>POST: https://api.github.com/repos/jangdelong/blog_comments/issues/comments/111/reactions</code> 在 ID 为 111 的评论下创建一条 reactions（如 heart）</p>
 <p><code>POST：https://developer.github.com/v3/markdown/</code>  markdown 语法解析接口</p>
-<p><strong>实现思路</strong></p>
+<p><strong>整体设计</strong></p>
 <p>流程图：</p>
 <figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">                                            <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">显示已登录</span>    </div><div class="line">                             <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">已登录</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">加载评论列表</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">分页加载</span> </div><div class="line">                             <span class="comment">|</span>              <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">其他</span> </div><div class="line">                             <span class="comment">|</span>              <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">评论操作</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">成功/失败</span>            <span class="comment">|</span></div><div class="line"><span class="comment">开始</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">GitHub</span> <span class="comment">授权登录</span> <span class="comment">?</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">|</span>                                                   <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">结束</span></div><div class="line">                             <span class="comment">|</span>              <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">显示未登录</span>                       <span class="comment">|</span></div><div class="line">                             <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">未登录</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">加载评论列表</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">分页加载</span>          </div><div class="line">                                            <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">其他</span></div><div class="line">                                            <span class="comment">|</span><span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">评论操作</span> <span class="literal">-</span><span class="literal">-</span>&gt; <span class="comment">提示未登录状态</span></div></pre></td></tr></table></figure>
 <p>效果图：</p>
@@ -179,6 +179,16 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为了减少全局变量，整个网站就暴露一个全局变量 JELON</span></div><div class="line"><span class="keyword">var</span> JELON = JELON || &#123;&#125;;</div><div class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">JL</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	JL.Requests = &#123;</div><div class="line">		<span class="comment">// 根据 label 获取 issue 编号</span></div><div class="line">		getIssueNumberByLabel: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 创建 issue</span></div><div class="line">		createIssue: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 根据 issue 编号获取评论列表</span></div><div class="line">		getCommentListByIssueNumber: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 根据评论 ID 获取 reactions （即点赞数据）</span></div><div class="line">		getReactionsByCommentId: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// markdown 解析</span></div><div class="line">		markdown: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 通过 code 获取 access_token</span></div><div class="line">		getAccessToken: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 利用 access_token 去获取 GitHub 用户信息</span></div><div class="line">		getUserInfo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 创建评论</span></div><div class="line">		createComment: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 创建 reactions （点赞）</span></div><div class="line">		createReaction: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;</div><div class="line">	&#125;;</div><div class="line">	...</div><div class="line">&#125;)(JELON);</div></pre></td></tr></table></figure>
 <p>接下来是封装事件操作，我们将其封装到 Actions 里面去，代码组织如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为了减少全局变量，整个网站就暴露一个全局变量 JELON</span></div><div class="line"><span class="keyword">var</span> JELON = JELON || &#123;&#125;;</div><div class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">JL</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	JL.Actions = &#123;</div><div class="line">		<span class="comment">// 初始加载，如列表、登录状态等</span></div><div class="line">		init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 登出操作</span></div><div class="line">		signOut: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 列表翻页跳转</span></div><div class="line">		pageJump: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 编辑预览</span></div><div class="line">		editPreviewSwitch: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 提交评论操作</span></div><div class="line">		postComment: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 点赞操作</span></div><div class="line">		like: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;</div><div class="line">	&#125;;</div><div class="line">	...</div><div class="line">&#125;)(JELON);</div></pre></td></tr></table></figure>
+<p><strong>登录流程</strong></p>
+<p>GitHub 授权登录是不可或缺的功能，用只有登录之后才能进行评论。前面有提到，GitHub 授权登录是遵循一个 OAuth 2.0 标准。以下是 OAuth 2.0 的一个运作流程，可以让我们更好的理解它。</p>
+<p><img src="http://image.beekka.com/blog/2014/bg2014051203.png" alt="OAuth 2.0 运行流程"></p>
+<p>那么，GitHub 授权登录是怎么样按照这个标准来运作的呢，接下来简单介绍一下，如果要更加详细深入了解的话，你也可以访问 <a href="https://developer.github.com/apps/building-integrations/setting-up-and-registering-oauth-apps/about-authorization-options-for-oauth-apps/" target="_blank" rel="external">GitHub 官方文档</a>。</p>
+<ol>
+<li>用户发起重定向请求授权服务器换取 code<br> <code>GET http://github.com/login/oauth/authorize</code></li>
+<li>拿到 code 之后，利用 client_id、client_secret 和 code 去换取 token_access。（client_id 和 client_secret 前面的预备工作里有提到）<br> <code>POST https://github.com/login/oauth/access_token</code></li>
+<li>获取到 token_access 之后，我们就可以用 token_access 去获取已登录的用户的信息了<br> <code>GET https://api.github.com/user</code></li>
+</ol>
+<p>通过以上3个步骤，GitHub 授权登录就算是完成了。</p>
 
     </div>
     <p class="post-meta">
@@ -335,29 +345,29 @@
   
     <a class="tag-item" href="/tags/编码规范/" title="编码规范">编码规范 (2)</a>
   
+    <a class="tag-item" href="/tags/Hexo/" title="Hexo">Hexo (3)</a>
+  
+    <a class="tag-item" href="/tags/github-pages/" title="github pages">github pages (1)</a>
+  
+    <a class="tag-item" href="/tags/Github/" title="Github">Github (1)</a>
+  
+    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
+  
     <a class="tag-item" href="/tags/gulp/" title="gulp">gulp (1)</a>
   
     <a class="tag-item" href="/tags/Electron/" title="Electron">Electron (1)</a>
   
     <a class="tag-item" href="/tags/构建工具/" title="构建工具">构建工具 (1)</a>
   
-    <a class="tag-item" href="/tags/Github/" title="Github">Github (1)</a>
-  
-    <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
-  
-    <a class="tag-item" href="/tags/Hexo/" title="Hexo">Hexo (3)</a>
-  
-    <a class="tag-item" href="/tags/github-pages/" title="github pages">github pages (1)</a>
-  
     <a class="tag-item" href="/tags/新博客/" title="新博客">新博客 (1)</a>
-  
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (1)</a>
-  
-    <a class="tag-item" href="/tags/网络状态码/" title="网络状态码">网络状态码 (1)</a>
   
     <a class="tag-item" href="/tags/jQuery/" title="jQuery">jQuery (1)</a>
   
     <a class="tag-item" href="/tags/浏览器高度/" title="浏览器高度">浏览器高度 (1)</a>
+  
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (1)</a>
+  
+    <a class="tag-item" href="/tags/网络状态码/" title="网络状态码">网络状态码 (1)</a>
   
     <a class="tag-item" href="/tags/js/" title="js">js (1)</a>
   
@@ -385,13 +395,13 @@
   
     <a class="tag-item" href="/tags/静态博客/" title="静态博客">静态博客 (1)</a>
   
-    <a class="tag-item" href="/tags/npm/" title="npm">npm (2)</a>
-  
-    <a class="tag-item" href="/tags/淘宝npm/" title="淘宝npm">淘宝npm (1)</a>
-  
     <a class="tag-item" href="/tags/gitHub-issue/" title="gitHub issue">gitHub issue (1)</a>
   
     <a class="tag-item" href="/tags/第三方评论框/" title="第三方评论框">第三方评论框 (1)</a>
+  
+    <a class="tag-item" href="/tags/npm/" title="npm">npm (2)</a>
+  
+    <a class="tag-item" href="/tags/淘宝npm/" title="淘宝npm">淘宝npm (1)</a>
   
     <a class="tag-item" href="/tags/小程序/" title="小程序">小程序 (1)</a>
   
