@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-08-10T13:34:19.000Z</updated>
+  <updated>2017-08-10T13:49:02.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>基于 github issues 实现的评论系统</title>
+    <title>基于 github issues 实现第三方评论系统</title>
     <link href="http://jelon.top/posts/xups-comment-box/"/>
     <id>http://jelon.top/posts/xups-comment-box/</id>
     <published>2017-08-10T07:12:13.000Z</published>
-    <updated>2017-08-10T13:34:19.000Z</updated>
+    <updated>2017-08-10T13:49:02.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>本文只是介绍如何基于 github issues 实现第三方评论系统，对于 Hexo 介绍，本文并不打算详述，如果有童鞋之前还没有了解 Hexo 的，可以先看一下之前文章《<a href="http://jelon.top/posts/start-hexo/">静态博客框架 Hexo 入门</a> 》，或者直接访问 Hexo 官网 <a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a></p>
@@ -1947,9 +1947,9 @@
       <category term="生活琐事" scheme="http://jelon.top/categories/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
     
     
-      <category term="Hexo" scheme="http://jelon.top/tags/Hexo/"/>
-    
       <category term="新博客" scheme="http://jelon.top/tags/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="Hexo" scheme="http://jelon.top/tags/Hexo/"/>
     
   </entry>
   
