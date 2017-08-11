@@ -198,6 +198,15 @@
 <li><p>由于这个评论系统是要集成到个人的主题上去的，所以要跟 hexo-theme-xups 搭配使用，hexo-theme-xups 主题链接为 <a href="https://github.com/jangdelong/hexo-theme-xups" target="_blank" rel="external">https://github.com/jangdelong/hexo-theme-xups</a>，目前最新的主题（带有GitHub 登录评论功能），后面会更新上去，往后当然也会陆续进行更新和优化，欢迎多多 star。</p>
 </li>
 </ol>
+<h3 id="五、遇到的问题"><a href="#五、遇到的问题" class="headerlink" title="五、遇到的问题"></a>五、遇到的问题</h3><p>遇到的问题主要有两个，一个是创建 label 权限问题，另外一个是跨域问题。</p>
+<ol>
+<li><p>创建 label 权限问题（目前未解决）。label 是一个连接文章和 issue 关系的纽带，因为我们要用 label 去查询 issue number，后面的流程才能走下去。如今遇到的问题是，对于新文章来说，只能是我自己本人账号（GitHub Application）创建者才能创建带有 label 的 issue。参考了 GitHub 的接口（<code>POST /repos/:owner/:repo/issues</code>）文档，上面说</p>
+<blockquote>
+<p>Labels to associate with this issue. NOTE: Only users with push access can set labels for new issues. Labels are silently dropped otherwise.</p>
+</blockquote>
+</li>
+<li>跨域问题（暂时解决了）。主要是通过 code 去换取 token_access 的 <code>POST https://github.com/login/oauth/access_token</code> 这个接口跨域，暂时解决方案是用 Node 去转发，但是，我没有服务器资源，这里不得不感谢 @imsun 提供的服务<code>https://gh-oauth.imsun.net/&#39;</code>了，敬礼😁！！</li>
+</ol>
 
     </div>
     <p class="post-meta">
@@ -360,33 +369,33 @@
   
     <a class="tag-item" href="/tags/编码规范/" title="编码规范">编码规范 (2)</a>
   
-    <a class="tag-item" href="/tags/Hexo/" title="Hexo">Hexo (3)</a>
-  
-    <a class="tag-item" href="/tags/github-pages/" title="github pages">github pages (1)</a>
-  
     <a class="tag-item" href="/tags/Github/" title="Github">Github (1)</a>
   
     <a class="tag-item" href="/tags/Git/" title="Git">Git (1)</a>
   
+    <a class="tag-item" href="/tags/Hexo/" title="Hexo">Hexo (3)</a>
+  
+    <a class="tag-item" href="/tags/github-pages/" title="github pages">github pages (1)</a>
+  
     <a class="tag-item" href="/tags/新博客/" title="新博客">新博客 (1)</a>
-  
-    <a class="tag-item" href="/tags/jQuery/" title="jQuery">jQuery (1)</a>
-  
-    <a class="tag-item" href="/tags/浏览器高度/" title="浏览器高度">浏览器高度 (1)</a>
   
     <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (1)</a>
   
     <a class="tag-item" href="/tags/网络状态码/" title="网络状态码">网络状态码 (1)</a>
   
+    <a class="tag-item" href="/tags/jQuery/" title="jQuery">jQuery (1)</a>
+  
+    <a class="tag-item" href="/tags/浏览器高度/" title="浏览器高度">浏览器高度 (1)</a>
+  
     <a class="tag-item" href="/tags/Mac-OSX/" title="Mac OSX">Mac OSX (2)</a>
   
     <a class="tag-item" href="/tags/命令大全/" title="命令大全">命令大全 (1)</a>
   
-    <a class="tag-item" href="/tags/js/" title="js">js (1)</a>
-  
     <a class="tag-item" href="/tags/Mac/" title="Mac">Mac (2)</a>
   
     <a class="tag-item" href="/tags/开机变慢/" title="开机变慢">开机变慢 (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (1)</a>
   
     <a class="tag-item" href="/tags/Mongoose/" title="Mongoose">Mongoose (1)</a>
   
@@ -408,6 +417,10 @@
   
     <a class="tag-item" href="/tags/淘宝npm/" title="淘宝npm">淘宝npm (1)</a>
   
+    <a class="tag-item" href="/tags/gitHub-issue/" title="gitHub issue">gitHub issue (1)</a>
+  
+    <a class="tag-item" href="/tags/第三方评论框/" title="第三方评论框">第三方评论框 (1)</a>
+  
     <a class="tag-item" href="/tags/小程序/" title="小程序">小程序 (1)</a>
   
     <a class="tag-item" href="/tags/WeChat/" title="WeChat">WeChat (1)</a>
@@ -419,10 +432,6 @@
     <a class="tag-item" href="/tags/Bootstrap/" title="Bootstrap">Bootstrap (1)</a>
   
     <a class="tag-item" href="/tags/MVVM/" title="MVVM">MVVM (1)</a>
-  
-    <a class="tag-item" href="/tags/gitHub-issue/" title="gitHub issue">gitHub issue (1)</a>
-  
-    <a class="tag-item" href="/tags/第三方评论框/" title="第三方评论框">第三方评论框 (1)</a>
   
     <a class="tag-item" href="/tags/Yarn/" title="Yarn">Yarn (1)</a>
   
