@@ -4,6 +4,29 @@
 
     
   <url>
+    <loc>http://jelon.top/posts/test-demo-2/</loc>
+    <lastmod>2017-08-11T10:02:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>这是测试</title>
+        <pubTime>2017-08-11T10:00:38.000Z</pubTime>
+        
+        <tag>test</tag>
+         
+         
+           
+             
+              <breadCrumb title="Web技术" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+          
+             
+              <breadCrumb title="生活琐事" url="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/%E7%94%9F%E6%B4%BB%E7%90%90%E4%BA%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jelon.top/posts/xups-comment-box/</loc>
     <lastmod>2017-08-11T08:40:23.000Z</lastmod>
     <data>
