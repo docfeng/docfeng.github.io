@@ -147,7 +147,7 @@
 </li>
 </ul>
 <p>那么回归主题，市面上那么多第三方评论系统，就算有那么一两个挂掉了，还是有很多选择呢，为什么还要自己去做一个呢，这不是造轮子吗？其实，一开始我一直用多说的，用的不亦乐乎，突然有一天说挂就挂了，没办法，那我就选择其他的呗，然后就改成网易云，坑爹的，刚改造好没多久，网易云也挂了。</p>
-<p>后面我就在网上找啊找啊，发现居然有人用 GitHub Issue 做了一个评论系统，这无疑是一个很好的想法，很有创意啊。当然，我也拿来用了，但是始终觉得有点丑，跟我自己的博客主题不搭，采用了两天，撤了，打算自己做一个。说干就干，程序员总喜欢造轮子。</p>
+<p>后面我就在网上找啊找啊，发现居然有人用 GitHub Issue 做了一个评论系统，这无疑是一个很好的想法，很有创意啊。当然，我也拿来用了，但是始终觉得有点丑，跟我自己的博客主题不搭，才用了两天，撤了，打算自己做一个。说干就干，程序员总喜欢造轮子。</p>
 <h3 id="二、什么是-GitHub-Issues"><a href="#二、什么是-GitHub-Issues" class="headerlink" title="二、什么是 GitHub Issues"></a>二、什么是 GitHub Issues</h3><p>经常逛 GitHub 的童鞋，都应该知道这个功能，有人理解 GitHub 的 issue 功能，就如同 TODO list。你可以把所有想要在下一步完成的工作，如 feature 添加、bug 修复等，都写成一个个的 issue ，放在上面。既可以作为提醒，也可以统一管理。另外，每一次 commit 都可以选择性的与某个 issue 关联。比如在 message 中添加 #n，就可以与第 n 个 issue 进行关联。具体可以看一下知乎里面别人对 《<a href="https://www.zhihu.com/question/22969033/answer/25927363" target="_blank" rel="external">github issue是做什么的？</a> 》的解答。顺便看一下，我的博客评论数据存储 issues 的仓库地址<a href="https://github.com/jangdelong/blog_comments/issues" target="_blank" rel="external">https://github.com/jangdelong/blog_comments/issues</a>。总之，像我现在要用 github Issues 来制作评论系统的，其实就是把数据存储到 github issues，简单的说可以把 github issues 理解为一个免费的数据库。</p>
 <h3 id="三、评论系统实现"><a href="#三、评论系统实现" class="headerlink" title="三、评论系统实现"></a>三、评论系统实现</h3><p><strong>预备工作</strong></p>
 <ul>
@@ -179,6 +179,8 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为了减少全局变量，整个网站就暴露一个全局变量 JELON</span></div><div class="line"><span class="keyword">var</span> JELON = JELON || &#123;&#125;;</div><div class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">JL</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	JL.Requests = &#123;</div><div class="line">		<span class="comment">// 根据 label 获取 issue 编号</span></div><div class="line">		getIssueNumberByLabel: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 创建 issue</span></div><div class="line">		createIssue: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 根据 issue 编号获取评论列表</span></div><div class="line">		getCommentListByIssueNumber: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 根据评论 ID 获取 reactions （即点赞数据）</span></div><div class="line">		getReactionsByCommentId: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// markdown 解析</span></div><div class="line">		markdown: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 通过 code 获取 access_token</span></div><div class="line">		getAccessToken: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 利用 access_token 去获取 GitHub 用户信息</span></div><div class="line">		getUserInfo: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 创建评论</span></div><div class="line">		createComment: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 创建 reactions （点赞）</span></div><div class="line">		createReaction: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;</div><div class="line">	&#125;;</div><div class="line">	...</div><div class="line">&#125;)(JELON);</div></pre></td></tr></table></figure>
 <p>接下来是封装事件操作，我们将其封装到 Actions 里面去，代码组织如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为了减少全局变量，整个网站就暴露一个全局变量 JELON</span></div><div class="line"><span class="keyword">var</span> JELON = JELON || &#123;&#125;;</div><div class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">JL</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	JL.Actions = &#123;</div><div class="line">		<span class="comment">// 初始加载，如列表、登录状态等</span></div><div class="line">		init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 登出操作</span></div><div class="line">		signOut: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 列表翻页跳转</span></div><div class="line">		pageJump: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 编辑预览</span></div><div class="line">		editPreviewSwitch: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 提交评论操作</span></div><div class="line">		postComment: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;,</div><div class="line">		<span class="comment">// 点赞操作</span></div><div class="line">		like: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; ... &#125;</div><div class="line">	&#125;;</div><div class="line">	...</div><div class="line">&#125;)(JELON);</div></pre></td></tr></table></figure>
+<p>程序入口：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 为了减少全局变量，整个网站就暴露一个全局变量 JELON</span></div><div class="line"><span class="keyword">var</span> JELON = JELON || &#123;&#125;;</div><div class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">JL</span>) </span>&#123;</div><div class="line">	...</div><div class="line">	JL.Comment = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">		JL.options = options || &#123;&#125;;</div><div class="line">		$(<span class="string">'comments'</span>).innerHTML = [</div><div class="line">			<span class="keyword">this</span>.Renders.signBar.tpl,</div><div class="line">			<span class="keyword">this</span>.Renders.box.tpl,</div><div class="line">			<span class="keyword">this</span>.Renders.tips,</div><div class="line">			<span class="keyword">this</span>.Renders.list.tpl</div><div class="line">		].join(<span class="string">''</span>);</div><div class="line">		JL.Actions.init();</div><div class="line">	&#125;;</div><div class="line">	...</div><div class="line">&#125;)(JELON);</div></pre></td></tr></table></figure>
 <p><strong>登录流程</strong></p>
 <p>GitHub 授权登录是不可或缺的功能，用只有登录之后才能进行评论。前面有提到，GitHub 授权登录是遵循一个 OAuth 2.0 标准。以下是 OAuth 2.0 的一个运作流程，可以让我们更好的理解它。</p>
 <p><img src="http://7xs305.com1.z0.glb.clouddn.com/xups-comment-box/3.png" alt="OAuth 2.0 运行流程"></p>
@@ -189,7 +191,13 @@
 <li>获取到 token_access 之后，我们就可以用 token_access 去获取已登录的用户的信息了<br> <code>GET https://api.github.com/user</code></li>
 </ol>
 <p>通过以上3个步骤，GitHub 授权登录就算是完成了。</p>
-<h3 id="四、评论系统如何使用"><a href="#四、评论系统如何使用" class="headerlink" title="四、评论系统如何使用"></a>四、评论系统如何使用</h3><p>由于这个评论系统是要集成到个人的主题上去的，所以要跟 hexo-theme-xups 搭配使用，hexo-theme-xups 主题链接为 <a href="https://github.com/jangdelong/hexo-theme-xups" target="_blank" rel="external">https://github.com/jangdelong/hexo-theme-xups</a>，目前最新的主题（带有GitHub 登录评论功能），后面会更新上去，往后当然也会陆续进行更新和优化，欢迎多多 star😁。</p>
+<h3 id="四、评论系统如何使用"><a href="#四、评论系统如何使用" class="headerlink" title="四、评论系统如何使用"></a>四、评论系统如何使用</h3><ol>
+<li><p>引入评论系统相关的 css、js 。引入相关样式和脚本之后，在你的页面加入以下代码：</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"样式路径"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"脚本路径"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"comments"</span> <span class="attr">class</span>=<span class="string">"comment"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="actionscript"></span></div><div class="line">JELON.Comment(&#123;</div><div class="line">	label: <span class="string">'&lt;%- post.slug %&gt;'</span> || <span class="string">'&lt;%- post.path %&gt;'</span>, <span class="comment">// 文章标签</span></div><div class="line">	owner: <span class="string">'&lt;%- theme.comment.owner %&gt;'</span>, <span class="comment">// GitHub application 创建者</span></div><div class="line">	repo: <span class="string">'&lt;%- theme.comment.repo %&gt;'</span>, <span class="comment">// issue 所在仓库名</span></div><div class="line">	clientId: <span class="string">'&lt;%- theme.comment.client_id %&gt;'</span>, <span class="comment">// GitHub application client_id</span></div><div class="line">	clientSecret: <span class="string">'&lt;%- theme.comment.client_secret %&gt;'</span> <span class="comment">// GitHub application client_secret</span></div><div class="line">&#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>由于这个评论系统是要集成到个人的主题上去的，所以要跟 hexo-theme-xups 搭配使用，hexo-theme-xups 主题链接为 <a href="https://github.com/jangdelong/hexo-theme-xups" target="_blank" rel="external">https://github.com/jangdelong/hexo-theme-xups</a>，目前最新的主题（带有GitHub 登录评论功能），后面会更新上去，往后当然也会陆续进行更新和优化，欢迎多多 star。</p>
+</li>
+</ol>
 
     </div>
     <p class="post-meta">
@@ -362,19 +370,19 @@
   
     <a class="tag-item" href="/tags/新博客/" title="新博客">新博客 (1)</a>
   
-    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (1)</a>
-  
-    <a class="tag-item" href="/tags/网络状态码/" title="网络状态码">网络状态码 (1)</a>
-  
-    <a class="tag-item" href="/tags/js/" title="js">js (1)</a>
-  
     <a class="tag-item" href="/tags/jQuery/" title="jQuery">jQuery (1)</a>
   
     <a class="tag-item" href="/tags/浏览器高度/" title="浏览器高度">浏览器高度 (1)</a>
   
+    <a class="tag-item" href="/tags/HTTP/" title="HTTP">HTTP (1)</a>
+  
+    <a class="tag-item" href="/tags/网络状态码/" title="网络状态码">网络状态码 (1)</a>
+  
     <a class="tag-item" href="/tags/Mac-OSX/" title="Mac OSX">Mac OSX (2)</a>
   
     <a class="tag-item" href="/tags/命令大全/" title="命令大全">命令大全 (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (1)</a>
   
     <a class="tag-item" href="/tags/Mac/" title="Mac">Mac (2)</a>
   
@@ -396,13 +404,13 @@
   
     <a class="tag-item" href="/tags/静态博客/" title="静态博客">静态博客 (1)</a>
   
-    <a class="tag-item" href="/tags/小程序/" title="小程序">小程序 (1)</a>
-  
-    <a class="tag-item" href="/tags/WeChat/" title="WeChat">WeChat (1)</a>
-  
     <a class="tag-item" href="/tags/npm/" title="npm">npm (2)</a>
   
     <a class="tag-item" href="/tags/淘宝npm/" title="淘宝npm">淘宝npm (1)</a>
+  
+    <a class="tag-item" href="/tags/小程序/" title="小程序">小程序 (1)</a>
+  
+    <a class="tag-item" href="/tags/WeChat/" title="WeChat">WeChat (1)</a>
   
     <a class="tag-item" href="/tags/Vue-js/" title="Vue.js">Vue.js (1)</a>
   
