@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-08-14T12:22:45.000Z</updated>
+  <updated>2017-08-17T13:21:22.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -14,6 +14,148 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Web 安全介绍及规避</title>
+    <link href="http://jelon.top/posts/web-security/"/>
+    <id>http://jelon.top/posts/web-security/</id>
+    <published>2017-08-17T12:46:37.000Z</published>
+    <updated>2017-08-17T13:21:22.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="一、跨站脚本攻击-xss"><a href="#一、跨站脚本攻击-xss" class="headerlink" title="一、跨站脚本攻击 (xss)"></a>一、跨站脚本攻击 (xss)</h3><ol>
+<li><p>反射型跨站脚本攻击</p>
+<p> 攻击者会通过社会工程学手段，发送一个 URL 连接给用户打开，在用户打开页面的同时，浏览器会执行页面中嵌入的恶意脚本。</p>
+</li>
+<li><p>存储型跨站脚本攻击</p>
+<p> 攻击者利用 web 应用程序提供的录入或修改数据功能，将数据存储到服务器或用户cookie中，当其他用户浏览展示该数据的页面时，浏览器会执行页面中嵌入的恶意脚本。所有浏览者都会受到攻击。</p>
+</li>
+<li><p>DOM 跨站攻击</p>
+<p> 由于 html 页面中，定义了一段 JS，根据用户的输入，显示一段 html 代码，攻击者可以在输入时，插入一段恶意脚本，最终展示时，会执行恶意脚本。</p>
+<p> DOM跨站和以上两个跨站攻击的差别是，DOM跨站是纯页面脚本的输出，只有规范使用JAVASCRIPT ，才可以防御。</p>
+</li>
+<li><p>HTML/XML页面输出规范</p>
+<p> 1) 在HTML/XML中显示“用户可控数据”前，应该进行 html escape 转义。</p>
+<p> 2) 在javascript内容中输出的“用户可控数据”，需要做 javascript escape 转义。</p>
+<p> 3) 对输出到富文本中的“用户可控数据”，做富文本安全过滤（允许用户输出 HTML 的情况），统一使用 ANTISAMY 过滤框架处理。</p>
+<p> 4) 输出在url中的数据，做 url 安全输出。</p>
+<p> 5) 针对 DOM 跨站的安全策略及加固措施根据实际情况进行过滤。</p>
+<p> 6) 在给用户设置认证 COOKIE 时，加入 HTTPONLY。</p>
+<p> 7) 在 style 内容中输出的“用户可控数据”，需要做 CSS escape 转义。</p>
+</li>
+</ol>
+<h3 id="二、FLASH-安全"><a href="#二、FLASH-安全" class="headerlink" title="二、FLASH 安全"></a>二、FLASH 安全</h3><ol>
+<li><p>服务端的安全</p>
+<p> 由于没有正确的配置域策略文件，导致客户端的 flash 文件能够绕过同源策略的限制跨域获取数据。</p>
+</li>
+<li><p>客户端安全</p>
+<p>客户端在嵌入 flash 文件的时候没有指定 flash 文件的客户端限制策略，导致嵌入在客户端的 flash 文件可以访问 HTML 页面的 DOM 数或者发起跨域请求。</p>
+<p> Flash配置规范：</p>
+<p> 1) Crossdomain.xml的安全配置：</p>
+<p> 如果没有flash应用，去掉 crossdomian.xml 文件，对有flash应用域的根目录下需要配置 crossdomain.xml 策略文件，设置为只允许来自特定域的请求不允许添加 <code>&lt;site-control permitted-cross-domain-policies=&quot;by-content-type&quot;/&gt;</code>，这样会导致客户端可能自己加载自定义策略文件。</p>
+<p> 2) 客户端嵌入 flash 文件的安全配置：</p>
+<p> ① 禁止设置 flash 的 allowscriptaccess 为 always，必须设置为 never，如果设置为 SameDomain，需要客户可以上传的flash文件要在单独的一个域下。</p>
+<p> ② 设置 allowNetworking 选项为 none。</p>
+<p> ③ 设置 allowfullscreen 选项为 false。</p>
+</li>
+</ol>
+<h3 id="三、跨站请求伪造攻击-CSRF"><a href="#三、跨站请求伪造攻击-CSRF" class="headerlink" title="三、跨站请求伪造攻击 (CSRF)"></a>三、跨站请求伪造攻击 (CSRF)</h3><p>攻击者在用户浏览网页时，利用页面元素（例如 img 的 src），强迫受害者的浏览器向 Web 应用程序发送一个改变用户信息的请求。</p>
+<p>由于发生 CSRF 攻击后，攻击者是强迫用户向服务器发送请求，所以会造成用户信息被迫修改，更严重者引发蠕虫攻击。</p>
+<p>要防御 CSRF 攻击，必须遵循一下三步：</p>
+<ol>
+<li><p>在用户登录时，设置一个 CSRF 的随机 TOKEN ，同时种植在用户的 cookie 中，当用户浏览器关闭、或用户再次登录、或退出时，清除 token。</p>
+</li>
+<li><p>在表单中，生成一个隐藏域，它的值就是 COOKIE 中随机 TOKEN。</p>
+</li>
+<li><p>表单被提交后，就可以在接收用户请求的 web 应用中，判断表单中的 TOKEN 值是否和用户 COOKIE 中的 TOKEN 值一致，如果不一致或没有这个值，就判断为 CSRF 攻击，同时记录攻击日志。</p>
+</li>
+</ol>
+<h3 id="四、URL-跳转攻击"><a href="#四、URL-跳转攻击" class="headerlink" title="四、URL 跳转攻击"></a>四、URL 跳转攻击</h3><p>Web应用程序接收到用户提交的URL参数后，没有对参数做 “可信任URL” 的验证，就向用户浏览器返回跳转到该URL的指令。</p>
+<p>为了保证用户所点击的 URL，是从 web 应用程序中生成的URL，所以要做 TOKEN 验证。</p>
+<ol>
+<li><p>当用户访问需要生成跳转URL的页面时，首先生成随机 token，并放入 cookie。</p>
+</li>
+<li><p>在显示连接的页面上生成 URL，在 URL 参数中加入 token。</p>
+</li>
+</ol>
+<p>这两个方案都可以保证所有在应用中发出的重定向地址，都是可信任的地址。</p>
+<h3 id="五、代码注入攻击"><a href="#五、代码注入攻击" class="headerlink" title="五、代码注入攻击"></a>五、代码注入攻击</h3><p>web 应用代码中，允许接收用户输入一段代码，之后在 web 应用服务器上执行这段代码，并返回给用户。</p>
+<p>执行代码的参数，或文件名，禁止和用户输入相关，只能由开发人员定义代码内容，用户只能提交 “1、2、3” 参数，代表相应代码。</p>
+<h3 id="六、XML-XXE-注入安全攻击"><a href="#六、XML-XXE-注入安全攻击" class="headerlink" title="六、XML/XXE 注入安全攻击"></a>六、XML/XXE 注入安全攻击</h3><p>和 SQL 注入原理一样，XML 是存储数据的地方，如果在查询或修改时，如果没有做转义，直接输入或输出数据，都将导致XML注入漏洞。攻击者可以修改XML数据格式，增加新的 XML 节点，对数据处理流程产生影响。</p>
+<p>XXE外部实体注入攻击，当允许引用外部实体时，通过构造恶意内容，可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。</p>
+<p>在XML保存和展示前，对数据部分，单独做 xml escape。</p>
+<p>按照以下列表做转义</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&amp; --&gt; &amp;amp;</div><div class="line"><span class="tag">&lt; <span class="attr">--</span>&gt;</span> &amp;lt;</div><div class="line">&gt; --&gt; &amp;gt;</div><div class="line">" --&gt; &amp;quot;</div><div class="line">' --&gt; &amp;#39;</div></pre></td></tr></table></figure>
+<p>方案一、使用开发语言提供的禁用外部实体的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// JAVA:</span></div><div class="line">DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();</div><div class="line">dbf.setExpandEntityReferences(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
+<p>方案二、过滤用户提交的XML数据</p>
+<p>关键词：<code>&lt;!DOCTYPE</code> 和 <code>&lt;!ENTITY</code>，或者，<code>SYSTEM</code> 和 <code>PUBLIC</code>。</p>
+<h3 id="七、任意文件上传攻击"><a href="#七、任意文件上传攻击" class="headerlink" title="七、任意文件上传攻击"></a>七、任意文件上传攻击</h3><p>Web应用程序在处理用户上传的文件时，没有判断文件的扩展名是否在允许的范围内，就把文件保存在服务器上，导致恶意用户可以上传任意文件，甚至上传脚本木马到web服务器上，直接控制web服务器。</p>
+<p>处理用户上传文件，要做以下检查：</p>
+<ol>
+<li><p>检查上传文件扩展名白名单，不属于白名单内，不允许上传。</p>
+</li>
+<li><p>上传文件的目录必须是 http 请求无法直接访问到的。如果需要访问的，必须上传到其他（和web服务器不同的）域名下，并设置该目录为不解析 jsp 等脚本语言的目录。</p>
+</li>
+<li><p>上传文件要保存的文件名和目录名由系统根据时间生成，不允许用户自定义。</p>
+</li>
+<li><p>图片上传，要通过处理（缩略图、水印等），无异常后才能保存到服务器。</p>
+</li>
+<li><p>上传文件需要做日志记录。</p>
+</li>
+</ol>
+<h3 id="八、任意文件下载攻击和目录遍历攻击"><a href="#八、任意文件下载攻击和目录遍历攻击" class="headerlink" title="八、任意文件下载攻击和目录遍历攻击"></a>八、任意文件下载攻击和目录遍历攻击</h3><p>处理用户请求下载文件时，允许用户提交任意文件路径，并把服务器上对应的文件直接发送给用户，这将造成任意文件下载威胁。如果让用户提交文件目录地址，就把目录下的文件列表发给用户，会造成目录遍历安全威胁。</p>
+<p>恶意用户会变换目录或文件地址，下载服务器上的敏感文件、数据库链接配置文件、网站源代码等。</p>
+<p>对文件操作功能，做到以下几点：</p>
+<ol>
+<li><p>要下载的文件地址保存至数据库中。</p>
+</li>
+<li><p>文件路径保存至数据库，让用户提交文件对应 ID 下载文件。</p>
+</li>
+<li><p>下载文件之前做权限判断。</p>
+</li>
+<li><p>文件放在web无法直接访问的目录下。</p>
+</li>
+<li><p>记录文件下载日志（内容见日志章节）。</p>
+</li>
+<li><p>不允许提供目录遍历服务。</p>
+</li>
+</ol>
+<h3 id="九、垂直-水平权限提升攻击"><a href="#九、垂直-水平权限提升攻击" class="headerlink" title="九、垂直/水平权限提升攻击"></a>九、垂直/水平权限提升攻击</h3><p>垂直权限安全攻击（权限提升攻击），由于 web 应用程序没有做权限控制，或仅仅在菜单上做了权限控制，导致的恶意用户只要猜测其他管理页面的 URL ，就可以访问或控制其他角色拥有的数据或页面，达到权限提升目的。</p>
+<p>这个威胁可能导致普通用户变成管理员权限。</p>
+<p>访问控制攻击(水平权限安全攻击)</p>
+<p>Web应用程序接收到用户请求，修改某条数据时，没有判断数据的所属人，或判断数据所属人时，从用户提交的 request 参数（用户可控数据）中，获取了数据所属人id，导致恶意攻击者可以通过变换数据 ID ，或变换所属人 id ，修改不属于自己的数据。</p>
+<p>恶意用户可以删除或修改其他人数据。</p>
+<p>在打开管理页面URL时，首先判断当前用户是否拥有该页面的权限，如果没有权限，就判定为“权限提升”攻击，同时记录安全日志。从用户的加密认证 cookie 中，获取当前用户的 id ，并且需要在执行的 SQL 语句中，加入当前用户 id 作为条件语句。由于是web应用控制的加密算法，所以恶意用户无法修改加密信息。</p>
+<h3 id="十、Cookie安全"><a href="#十、Cookie安全" class="headerlink" title="十、Cookie安全"></a>十、Cookie安全</h3><ol>
+<li><p>Cookie httponly 安全</p>
+<p> Cookie http only，是设置 COOKIE 时，可以设置的一个属性，如果 COOKIE 没有设置这个属性，该 COOKIE 值可以被页面脚本读取。</p>
+<p> 设置 cookie 时，加入 http only 属性后， 该 COOKIE 将不可被前端脚本读取。</p>
+</li>
+<li><p>Cookie Secure 安全</p>
+<p> Cookie Secure，是设置 COOKIE 时，可以设置的一个属性，设置了这个属性后，只有在https 访问时，浏览器才会发送该 COOKIE。</p>
+<p> 在设置认证 COOKIE 时，加入 Secure。</p>
+</li>
+<li><p>Session 有效期安全攻击</p>
+<p> 由于 Session 没有在 web 应用中设置强制超时时间，攻击者一旦曾经获取过用户的Session，就可以一直使用。</p>
+<p> 在设置认证 cookie 中，加入两个时间，一个是“即使一直在活动，也要失效”的时间，一个是“长时间不活动的失效时间”。并在 web 应用中，首先判断两个时间是否已超时，再执行其他操作。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;一、跨站脚本攻击-xss&quot;&gt;&lt;a href=&quot;#一、跨站脚本攻击-xss&quot; class=&quot;headerlink&quot; title=&quot;一、跨站脚本攻击 (xss)&quot;&gt;&lt;/a&gt;一、跨站脚本攻击 (xss)&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;反射型跨站脚本攻击&lt;/p&gt;
+&lt;p&gt;
+    
+    </summary>
+    
+      <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
+    
+    
+      <category term="Web安全" scheme="http://jelon.top/tags/Web%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
   
   <entry>
     <title>基于 github issues 实现第三方评论系统</title>
@@ -1994,91 +2136,6 @@
       <category term="Hexo" scheme="http://jelon.top/tags/Hexo/"/>
     
       <category term="新博客" scheme="http://jelon.top/tags/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>静态博客框架 Hexo 入门</title>
-    <link href="http://jelon.top/posts/start-hexo/"/>
-    <id>http://jelon.top/posts/start-hexo/</id>
-    <published>2015-10-06T10:23:00.000Z</published>
-    <updated>2017-02-16T07:05:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="hexo-简介"><a href="#hexo-简介" class="headerlink" title="hexo 简介"></a>hexo 简介</h3><p>简单地说，Hexo 是一个基于 Node.js 的轻量的静态博客框架。官网如下：<br>官网链接：<em><a href="https://hexo.io/" target="_blank" rel="external">https://hexo.io/</a></em></p>
-<a id="more"></a>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/2132683522.png" alt="Hexo官网截图"></p>
-<p>Github 主页：<a href="https://github.com/hexojs/hexo" target="_blank" rel="external">https://github.com/hexojs/hexo</a><br>不过，现在网上一搜都会搜到很多关于hexo的一些文章，所以想更加地了解 hexo 和获取其主题可以网上找找。</p>
-<h3 id="hexo-特性"><a href="#hexo-特性" class="headerlink" title="hexo 特性"></a>hexo 特性</h3><ul>
-<li>Blazing Fast —— 速度快——几百篇文章也可以秒生成；</li>
-<li>Markdown Support —— 支持 GitHub Flavored Markdown 和所有 Octopress 的插件；</li>
-<li>One-Command Deployment —— 需要一个命令就可以配置您的网站 GitHub 页面， Heroku 或其他网站；</li>
-<li>Various Plugins —— Hexo 支持 EJS 、Swig和Stylus。通过插件支持 Haml、Jade 和 Less。</li>
-</ul>
-<h3 id="hexo-使用"><a href="#hexo-使用" class="headerlink" title="hexo 使用"></a>hexo 使用</h3><p><strong>hexo 安装</strong></p>
-<p>首先，在安装 hexo 之前，你要先安装 Node.js 和 Git ，具体下载和安装请访问它们的官网。<br>接下来，安装 hexo ：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli</div></pre></td></tr></table></figure>
-<p><strong>初始化 hexo</strong></p>
-<p>初始化指定目录，会在目前的文件夹建立一个名为 <folder> 的新文件夹；否则会在目前文件夹初始化。</folder></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init &lt;folder&gt;</div><div class="line">$ <span class="built_in">cd</span> &lt;folder&gt;</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
-<p>接下来看一下我们安装完之后 hexo 的目录结构是如下这样的：</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── scripts</div><div class="line">├── source</div><div class="line"><span class="string">|   ├── _drafts</span></div><div class="line"><span class="string">|   └── _posts</span></div><div class="line">└── themes</div></pre></td></tr></table></figure>
-<p>为了看起来更加直观，在这里我截一个我自己的目录图：</p>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/2344787021.jpg" alt="目录截图"></p>
-<p>目录结构作用在这里简单的介绍一下：</p>
-<ul>
-<li>_config.yml 文件    —- 为网站配置文件；</li>
-<li>package.json 文件 —- 项目模块描述；</li>
-<li>source 目录            —- 创建博客文章的源目录，后面有说到这个；</li>
-<li>public 目录            —- 静态资源，就是我们直接可以访问的一些资源，这些资源在执行 hexo generate 命令后生成；</li>
-<li>themes 目录          —- 放置博客主题，就像WordPress、typecho这些博客程序都是有一个专门用来放置主体的目录，如果一个博客程序没这个功能，那未免也太过于单调，对吧。</li>
-</ul>
-<p><strong>创建新博客</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"中国移动-139邮箱"</span> <span class="comment"># 创建文章 post</span></div><div class="line">$ hexo new page <span class="string">"about"</span>     <span class="comment"># 创建页面 page</span></div></pre></td></tr></table></figure>
-<p>创建博客或文章会在 <code>/source/_posts/</code> 下生成后缀为 <code>.md</code> 的文件，我们可以这个文件上编写我们想要发表的文章或博客，hexo 支持 markdown 语法，很方便快捷。</p>
-<p><strong>生成博客</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate  <span class="comment"># 或者 hexo g</span></div></pre></td></tr></table></figure>
-<p>生成博客这一步也叫编译，讲写好的 <code>.md</code> 内容生成到 public 目录去，也就是后面运行服务器之后直接访问的东西。</p>
-<p><strong>运行服务器</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server <span class="comment"># 或者 hexo s</span></div></pre></td></tr></table></figure>
-<p>注意：</p>
-<ul>
-<li>服务器默认会跑在 <a href="http://localhost:port" target="_blank" rel="external">http://localhost:port</a> （port 默认为 4000端口，可在 _config.yml 设置）；</li>
-<li>hexo 所依赖的模块参考如下：</li>
-</ul>
-<p><img src="http://7xs305.com1.z0.glb.clouddn.com/452712668.png" alt="依赖模块"></p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>编译完博客之后，可以生成的博客内容（静态页面）部署到 github，如果你嫌 github 访问速度比较慢的话，coding 是一个不错的选择。下面是以部署至 github 为例，做简单介绍。</p>
-<ol>
-<li><p>首先，现在 github 上创建一个新的 repository，（假设，项目名为 jangdelong ）创建好之后，会生成一个 git 项目地址；</p>
-</li>
-<li><p>把创建好的 github repository 的 git 地址配置到 hexo 目录下的 <code>_config.yml</code> 的配置文件中；</p>
- <figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">deploy</span>:</div><div class="line">  <span class="attribute">type</span>: git</div><div class="line">  <span class="attribute">message</span>: 博客更新 -- at &#123;&#123; now(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>) &#125;&#125;</div><div class="line">  <span class="attribute">repository</span>: <span class="attribute">https</span>:<span class="comment">//github.com/jangdelong/jangdelong.github.com.git</span></div><div class="line">  <span class="attribute">branch</span>: master</div></pre></td></tr></table></figure>
-</li>
-<li><p>执行 <code>hexo deploy</code> 或者 <code>hexo d</code> 即可部署；</p>
-</li>
-<li><p>部署完之后，浏览器地址栏输入 <code>jangdelong.github.io</code> 即可访问。 </p>
-</li>
-</ol>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://hexo.io/" target="_blank" rel="external">hexo官网：https://hexo.io/</a>；</li>
-<li><a href="http://segmentfault.com/a/1190000000370778" target="_blank" rel="external">http://segmentfault.com/a/1190000000370778</a>；</li>
-<li><a href="http://segmentfault.com/a/1190000002538363" target="_blank" rel="external">http://segmentfault.com/a/1190000002538363</a>。</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;hexo-简介&quot;&gt;&lt;a href=&quot;#hexo-简介&quot; class=&quot;headerlink&quot; title=&quot;hexo 简介&quot;&gt;&lt;/a&gt;hexo 简介&lt;/h3&gt;&lt;p&gt;简单地说，Hexo 是一个基于 Node.js 的轻量的静态博客框架。官网如下：&lt;br&gt;官网链接：&lt;em&gt;&lt;a href=&quot;https://hexo.io/&quot;&gt;https://hexo.io/&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Web技术" scheme="http://jelon.top/categories/Web%E6%8A%80%E6%9C%AF/"/>
-    
-    
-      <category term="Hexo" scheme="http://jelon.top/tags/Hexo/"/>
-    
-      <category term="Node.js" scheme="http://jelon.top/tags/Node-js/"/>
-    
-      <category term="静态博客" scheme="http://jelon.top/tags/%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

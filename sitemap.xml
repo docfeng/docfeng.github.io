@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://jelon.top/posts/web-security/</loc>
+    
+    <lastmod>2017-08-17T13:21:22.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://jelon.top/posts/xups-comment-box/</loc>
     
     <lastmod>2017-08-14T12:22:45.000Z</lastmod>
