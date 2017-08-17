@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-08-17T13:31:54.000Z</updated>
+  <updated>2017-08-17T13:34:16.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/posts/web-security/"/>
     <id>http://jelon.top/posts/web-security/</id>
     <published>2017-08-17T12:46:37.000Z</published>
-    <updated>2017-08-17T13:31:54.000Z</updated>
+    <updated>2017-08-17T13:34:16.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、跨站脚本攻击-xss"><a href="#一、跨站脚本攻击-xss" class="headerlink" title="一、跨站脚本攻击 (xss)"></a>一、跨站脚本攻击 (xss)</h3><ol>
 <li><p>反射型跨站脚本攻击</p>
@@ -81,20 +81,20 @@
 <h3 id="五、代码注入攻击"><a href="#五、代码注入攻击" class="headerlink" title="五、代码注入攻击"></a>五、代码注入攻击</h3><p>web 应用代码中，允许接收用户输入一段代码，之后在 web 应用服务器上执行这段代码，并返回给用户。</p>
 <p>执行代码的参数，或文件名，禁止和用户输入相关，只能由开发人员定义代码内容，用户只能提交 “1、2、3” 参数，代表相应代码。</p>
 <h3 id="六、XML-XXE-注入安全攻击"><a href="#六、XML-XXE-注入安全攻击" class="headerlink" title="六、XML/XXE 注入安全攻击"></a>六、XML/XXE 注入安全攻击</h3><p>和 SQL 注入原理一样，XML 是存储数据的地方，如果在查询或修改时，如果没有做转义，直接输入或输出数据，都将导致XML注入漏洞。攻击者可以修改XML数据格式，增加新的 XML 节点，对数据处理流程产生影响。</p>
-<p>XXE外部实体注入攻击，当允许引用外部实体时，通过构造恶意内容，可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。</p>
+<p>XXE 外部实体注入攻击，当允许引用外部实体时，通过构造恶意内容，可导致读取任意文件、执行系统命令、探测内网端口、攻击内网网站等危害。</p>
 <p>在XML保存和展示前，对数据部分，单独做 xml escape。</p>
 <p>按照以下列表做转义</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&amp; --&gt; &amp;amp;</div><div class="line"><span class="tag">&lt; <span class="attr">--</span>&gt;</span> &amp;lt;</div><div class="line">&gt; --&gt; &amp;gt;</div><div class="line">" --&gt; &amp;quot;</div><div class="line">' --&gt; &amp;#39;</div></pre></td></tr></table></figure>
 <p>方案一、使用开发语言提供的禁用外部实体的方法</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// JAVA:</span></div><div class="line">DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();</div><div class="line">dbf.setExpandEntityReferences(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
-<p>方案二、过滤用户提交的XML数据</p>
+<p>方案二、过滤用户提交的 XML 数据</p>
 <p>关键词：<code>&lt;!DOCTYPE</code> 和 <code>&lt;!ENTITY</code>，或者，<code>SYSTEM</code> 和 <code>PUBLIC</code>。</p>
 <h3 id="七、任意文件上传攻击"><a href="#七、任意文件上传攻击" class="headerlink" title="七、任意文件上传攻击"></a>七、任意文件上传攻击</h3><p>Web应用程序在处理用户上传的文件时，没有判断文件的扩展名是否在允许的范围内，就把文件保存在服务器上，导致恶意用户可以上传任意文件，甚至上传脚本木马到web服务器上，直接控制web服务器。</p>
 <p>处理用户上传文件，要做以下检查：</p>
 <ol>
 <li><p>检查上传文件扩展名白名单，不属于白名单内，不允许上传。</p>
 </li>
-<li><p>上传文件的目录必须是 http 请求无法直接访问到的。如果需要访问的，必须上传到其他（和web服务器不同的）域名下，并设置该目录为不解析 jsp 等脚本语言的目录。</p>
+<li><p>上传文件的目录必须是 http 请求无法直接访问到的。如果需要访问的，必须上传到其他（和 web 服务器不同的）域名下，并设置该目录为不解析 jsp 等脚本语言的目录。</p>
 </li>
 <li><p>上传文件要保存的文件名和目录名由系统根据时间生成，不允许用户自定义。</p>
 </li>
@@ -123,7 +123,7 @@
 <h3 id="九、垂直-水平权限提升攻击"><a href="#九、垂直-水平权限提升攻击" class="headerlink" title="九、垂直/水平权限提升攻击"></a>九、垂直/水平权限提升攻击</h3><p>垂直权限安全攻击（权限提升攻击），由于 web 应用程序没有做权限控制，或仅仅在菜单上做了权限控制，导致的恶意用户只要猜测其他管理页面的 URL ，就可以访问或控制其他角色拥有的数据或页面，达到权限提升目的。</p>
 <p>这个威胁可能导致普通用户变成管理员权限。</p>
 <p>访问控制攻击(水平权限安全攻击)</p>
-<p>Web应用程序接收到用户请求，修改某条数据时，没有判断数据的所属人，或判断数据所属人时，从用户提交的 request 参数（用户可控数据）中，获取了数据所属人id，导致恶意攻击者可以通过变换数据 ID ，或变换所属人 id ，修改不属于自己的数据。</p>
+<p>Web应用程序接收到用户请求，修改某条数据时，没有判断数据的所属人，或判断数据所属人时，从用户提交的 request 参数（用户可控数据）中，获取了数据所属人 id，导致恶意攻击者可以通过变换数据 ID ，或变换所属人 id ，修改不属于自己的数据。</p>
 <p>恶意用户可以删除或修改其他人数据。</p>
 <p>在打开管理页面URL时，首先判断当前用户是否拥有该页面的权限，如果没有权限，就判定为“权限提升”攻击，同时记录安全日志。从用户的加密认证 cookie 中，获取当前用户的 id ，并且需要在执行的 SQL 语句中，加入当前用户 id 作为条件语句。由于是web应用控制的加密算法，所以恶意用户无法修改加密信息。</p>
 <h3 id="十、Cookie安全"><a href="#十、Cookie安全" class="headerlink" title="十、Cookie安全"></a>十、Cookie安全</h3><ol>
