@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://jelon.top/"/>
-  <updated>2017-08-17T13:34:16.000Z</updated>
+  <updated>2017-08-18T12:39:28.000Z</updated>
   <id>http://jelon.top/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://jelon.top/posts/web-security/"/>
     <id>http://jelon.top/posts/web-security/</id>
     <published>2017-08-17T12:46:37.000Z</published>
-    <updated>2017-08-17T13:34:16.000Z</updated>
+    <updated>2017-08-18T12:39:28.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="一、跨站脚本攻击-xss"><a href="#一、跨站脚本攻击-xss" class="headerlink" title="一、跨站脚本攻击 (xss)"></a>一、跨站脚本攻击 (xss)</h3><ol>
 <li><p>反射型跨站脚本攻击</p>
@@ -31,13 +31,13 @@
 </li>
 <li><p>DOM 跨站攻击</p>
 <p> 由于 html 页面中，定义了一段 JS，根据用户的输入，显示一段 html 代码，攻击者可以在输入时，插入一段恶意脚本，最终展示时，会执行恶意脚本。</p>
-<p> DOM跨站和以上两个跨站攻击的差别是，DOM跨站是纯页面脚本的输出，只有规范使用JAVASCRIPT ，才可以防御。</p>
+<p> DOM 跨站和以上两个跨站攻击的差别是，DOM跨站是纯页面脚本的输出，只有规范使用JAVASCRIPT ，才可以防御。</p>
 </li>
-<li><p>HTML/XML页面输出规范</p>
-<p> 1) 在HTML/XML中显示“用户可控数据”前，应该进行 html escape 转义。</p>
+<li><p>HTML/XML 页面输出规范</p>
+<p> 1) 在 HTML/XML 中显示“用户可控数据”前，应该进行 html escape 转义。</p>
 <p> 2) 在javascript内容中输出的“用户可控数据”，需要做 javascript escape 转义。</p>
 <p> 3) 对输出到富文本中的“用户可控数据”，做富文本安全过滤（允许用户输出 HTML 的情况），统一使用 ANTISAMY 过滤框架处理。</p>
-<p> 4) 输出在url中的数据，做 url 安全输出。</p>
+<p> 4) 输出在 url 中的数据，做 url 安全输出。</p>
 <p> 5) 针对 DOM 跨站的安全策略及加固措施根据实际情况进行过滤。</p>
 <p> 6) 在给用户设置认证 COOKIE 时，加入 HTTPONLY。</p>
 <p> 7) 在 style 内容中输出的“用户可控数据”，需要做 CSS escape 转义。</p>
@@ -51,7 +51,7 @@
 <p>客户端在嵌入 flash 文件的时候没有指定 flash 文件的客户端限制策略，导致嵌入在客户端的 flash 文件可以访问 HTML 页面的 DOM 数或者发起跨域请求。</p>
 <p> Flash配置规范：</p>
 <p> 1) Crossdomain.xml的安全配置：</p>
-<p> 如果没有flash应用，去掉 crossdomian.xml 文件，对有flash应用域的根目录下需要配置 crossdomain.xml 策略文件，设置为只允许来自特定域的请求不允许添加 <code>&lt;site-control permitted-cross-domain-policies=&quot;by-content-type&quot;/&gt;</code>，这样会导致客户端可能自己加载自定义策略文件。</p>
+<p> 如果没有 flash 应用，去掉 crossdomian.xml 文件，对有 flash 应用域的根目录下需要配置 crossdomain.xml 策略文件，设置为只允许来自特定域的请求不允许添加 <code>&lt;site-control permitted-cross-domain-policies=&quot;by-content-type&quot;/&gt;</code>，这样会导致客户端可能自己加载自定义策略文件。</p>
 <p> 2) 客户端嵌入 flash 文件的安全配置：</p>
 <p> ① 禁止设置 flash 的 allowscriptaccess 为 always，必须设置为 never，如果设置为 SameDomain，需要客户可以上传的flash文件要在单独的一个域下。</p>
 <p> ② 设置 allowNetworking 选项为 none。</p>
@@ -69,7 +69,7 @@
 <li><p>表单被提交后，就可以在接收用户请求的 web 应用中，判断表单中的 TOKEN 值是否和用户 COOKIE 中的 TOKEN 值一致，如果不一致或没有这个值，就判断为 CSRF 攻击，同时记录攻击日志。</p>
 </li>
 </ol>
-<h3 id="四、URL-跳转攻击"><a href="#四、URL-跳转攻击" class="headerlink" title="四、URL 跳转攻击"></a>四、URL 跳转攻击</h3><p>Web应用程序接收到用户提交的URL参数后，没有对参数做 “可信任URL” 的验证，就向用户浏览器返回跳转到该URL的指令。</p>
+<h3 id="四、URL-跳转攻击"><a href="#四、URL-跳转攻击" class="headerlink" title="四、URL 跳转攻击"></a>四、URL 跳转攻击</h3><p>Web 应用程序接收到用户提交的 URL 参数后，没有对参数做 “可信任 URL” 的验证，就向用户浏览器返回跳转到该URL的指令。</p>
 <p>为了保证用户所点击的 URL，是从 web 应用程序中生成的URL，所以要做 TOKEN 验证。</p>
 <ol>
 <li><p>当用户访问需要生成跳转URL的页面时，首先生成随机 token，并放入 cookie。</p>
@@ -89,7 +89,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// JAVA:</span></div><div class="line">DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();</div><div class="line">dbf.setExpandEntityReferences(<span class="keyword">false</span>);</div></pre></td></tr></table></figure>
 <p>方案二、过滤用户提交的 XML 数据</p>
 <p>关键词：<code>&lt;!DOCTYPE</code> 和 <code>&lt;!ENTITY</code>，或者，<code>SYSTEM</code> 和 <code>PUBLIC</code>。</p>
-<h3 id="七、任意文件上传攻击"><a href="#七、任意文件上传攻击" class="headerlink" title="七、任意文件上传攻击"></a>七、任意文件上传攻击</h3><p>Web应用程序在处理用户上传的文件时，没有判断文件的扩展名是否在允许的范围内，就把文件保存在服务器上，导致恶意用户可以上传任意文件，甚至上传脚本木马到web服务器上，直接控制web服务器。</p>
+<h3 id="七、任意文件上传攻击"><a href="#七、任意文件上传攻击" class="headerlink" title="七、任意文件上传攻击"></a>七、任意文件上传攻击</h3><p>Web 应用程序在处理用户上传的文件时，没有判断文件的扩展名是否在允许的范围内，就把文件保存在服务器上，导致恶意用户可以上传任意文件，甚至上传脚本木马到 web 服务器上，直接控制 web 服务器。</p>
 <p>处理用户上传文件，要做以下检查：</p>
 <ol>
 <li><p>检查上传文件扩展名白名单，不属于白名单内，不允许上传。</p>
