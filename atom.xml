@@ -721,7 +721,7 @@
     <link href="https://jelon.top/posts/139mailbuildtool/"/>
     <id>https://jelon.top/posts/139mailbuildtool/</id>
     <published>2016-12-19T05:42:33.000Z</published>
-    <updated>2017-09-02T14:37:04.000Z</updated>
+    <updated>2017-09-02T14:40:07.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="背景目的"><a href="#背景目的" class="headerlink" title="背景目的"></a>背景目的</h3><p>自从139邮箱移动端酷版邮箱构建工具由原来的 ant 转移到 gulp 之后，构建速度大大的提升，就拿本人的机子（本人工作机子是32位6G内存）来测试，之前构建全量包要花费将近 20 分钟，如今只需要 4 分钟不到；另外 gulp 是基于 node.js 的，对前端开发来说是相当友好的。但是，还是有点美中不足：第一，比如像我这样的前端小白，我对命令行不是很敏感，甚至我不太喜欢敲一串串的命令行去执行一个任务，我希望能有一个图形化界面工具，能点点按钮什么的就可以完成一个构建任务，那该多爽。第二，目前的 gulp 构建还不支持自定义构建，这个自定义构建其实就是，比如说，我想打包某个目标文件（这个文件可能由好几个文件合并压缩而成），只要选择了这个文件的文件名，然后点击按钮，就可以帮你执行的任务，帮你构建好这个文件，甚至可以帮你部署到资源服务器上。</p>
 <p>简单的说就是：</p>
@@ -733,23 +733,23 @@
 <h3 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h3><ul>
 <li><strong>全量构建</strong></li>
 </ul>
-<p><img src="https://a2.qpic.cn/psb?/V12gYYW13v3ZyG/2kiQr4MkBXx0m8EltKUjdl1gfhY9MI3SwxwihG71H9U!/b/dD8BAAAAAAAA&amp;bo=VQOAAgAAAAADB*Y!&amp;rf=viewer_4" alt="全量构建效果图"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/1.png" alt="全量构建效果图"></p>
 <ul>
 <li><strong>JavaScript 增量构建</strong></li>
 </ul>
-<p><img src="http://a2.qpic.cn/psb?/V12gYYW13v3ZyG/SApP1AWDfJcRpVHxIUcuc52RF1CLnCL74Wd03*0k30U!/b/dD8BAAAAAAAA&amp;bo=VgOAAgAAAAADB*U!&amp;rf=viewer_4" alt="全量构建效果图"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/2.png" alt="全量构建效果图"></p>
 <ul>
 <li><strong>CSS 增量构建</strong></li>
 </ul>
-<p><img src="http://a3.qpic.cn/psb?/V12gYYW13v3ZyG/Bvz8VbqeUeLDJ3FIJa51xL92UmwUY2XzG*r0fQKUi5A!/b/dPIAAAAAAAAA&amp;bo=VgOAAgAAAAADB*U!&amp;rf=viewer_4" alt="全量构建效果图"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/3.png" alt="全量构建效果图"></p>
 <ul>
 <li><strong>HTML 增量构建</strong></li>
 </ul>
-<p><img src="http://a3.qpic.cn/psb?/V12gYYW13v3ZyG/welRJfkza7vDrQ7xhajvDxN3leaSKvUcSYKO9NmimFo!/b/dPIAAAAAAAAA&amp;bo=VwOAAgAAAAADB*Q!&amp;rf=viewer_4" alt="全量构建效果图"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/4.png" alt="全量构建效果图"></p>
 <h3 id="运用技术"><a href="#运用技术" class="headerlink" title="运用技术"></a>运用技术</h3><ul>
 <li><strong>基于现有的 gulp 构建</strong></li>
 </ul>
-<p><img src="http://a3.qpic.cn/psb?/V12gYYW13v3ZyG/SV*kXCablRebn00r.VESw5YKLvbvkDmO.HmKJRl4StM!/b/dPIAAAAAAAAA&amp;bo=8AUgAgAAAAADB*U!&amp;rf=viewer_4" alt="基于现有的 gulp 构建"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/5.png" alt="基于现有的 gulp 构建"></p>
 <p>目前的 gulp 构建通过命令行可执行独立任务任务有</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">gulp  <span class="comment"># 构建全量包</span></div><div class="line">gulp deploy  <span class="comment"># 构建全量包并自动部署到资源服务器</span></div><div class="line">gulp uploadStaticFiles <span class="comment"># 部署静态资源到服务器</span></div><div class="line">gulp restartNodeServer <span class="comment"># 部署并重启测试线的 node 服务</span></div><div class="line">gulp watch <span class="comment"># 实时代码监听</span></div></pre></td></tr></table></figure>
 <p>说明：以上的命令除了部署并重启测试线的 node 服务之外，其他的任务都将加到本次的小工具上。</p>
@@ -812,7 +812,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span> &gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>演示<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"m"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">	Q.reg('home', function () &#123;</div><div class="line">	  document.getElementById('m').innerHTML = 'Hello, World!';</div><div class="line">	&#125;);</div><div class="line">	Q.init(&#123;</div><div class="line">	  index: 'home' /* 首页地址 */</div><div class="line">	&#125;);</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>打开例子后，浏览器会从 <code>http://simple.com/</code> 跳转到 <code>http://simple.com/#!home</code> ，并且在页面显示 Hello World。</p>
 <h3 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h3><p>首先，我们整体看一下，整个应用的目录结构：</p>
-<p><img src="http://a3.qpic.cn/psb?/V12gYYW13v3ZyG/IH.SJSMcNUVrU2*9ykLVGEIFuyCrg8xUGwqPjj7tkhU!/b/dPIAAAAAAAAA&amp;bo=OQWAAgAAAAADB5w!&amp;rf=viewer_4" alt="项目结构"></p>
+<p><img src="http://7xs305.com1.z0.glb.clouddn.com/139mailbuildtool/6.png" alt="项目结构"></p>
 <p>在执行 gulp 各个任务，主要用了 node.js 的 child_process 进程模块的 spawn 方法。<code>spawn</code> 使用如下：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> spawn    = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</div><div class="line"><span class="keyword">const</span> gulpTask = spawn(<span class="string">'gulp'</span>, [ <span class="string">'default'</span> ]);</div></pre></td></tr></table></figure>
 <p>对自定义构建，主要通过命令行传参的方式指定的 gulp 构建的 json 配置，从而实现文件的自定义构建，代码如下：</p>
