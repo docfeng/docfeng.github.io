@@ -168,7 +168,7 @@
     alert(location.host)
     var str=location.pathname;
 str=str.substr(1)
-alert(str)
+alert(str.replace(/^(\/)|(\/)$/g, ''))
 </script>
 <!--多说js加载结束，一个页面只需要加载一次 -->
     </section>
